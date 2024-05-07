@@ -3,21 +3,27 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
-import { FaBars, FaTimes, FaShoppingCart } from 'react-icons/fa';
+import { FaBars, FaTimes, FaShoppingCart, FaChevronDown } from 'react-icons/fa';
 import cafeLogo from '@/assets/images/SaborCup.png';
 import TopBanner from './TopBanner';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setIsMobileMenuOpen(false);
+        setIsDropdownOpen(false);
       }
     };
 
@@ -34,7 +40,6 @@ const Navbar = () => {
       <nav className='bg-black border-b border-[#0A93FE]'>
         <div className='container mx-auto px-4'>
           <div className='flex justify-between items-center py-4'>
-            {/* Logo */}
             <div className='flex items-center'>
               <Link href='/'>
                 <Image
@@ -47,8 +52,6 @@ const Navbar = () => {
                 />
               </Link>
             </div>
-
-            {/* Navigation Links */}
             <div className='hidden md:flex items-center space-x-4'>
               <Link
                 href='/'
@@ -56,12 +59,61 @@ const Navbar = () => {
               >
                 Home
               </Link>
-              <Link
-                href='/menu'
-                className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
-              >
-                Menu
-              </Link>
+              <div className='relative'>
+                <button
+                  onClick={toggleDropdown}
+                  className='text-xl font-medium text-white flex items-center hover:custom-blue-color transition duration-300 ease-in-out'
+                >
+                  Menu{' '}
+                  <FaChevronDown
+                    className={`ml-1 text-xl font-medium flex items-center transition duration-300 ease-in-out ${
+                      isDropdownOpen
+                        ? 'text-[#0A93FE]'
+                        : 'text-white hover:custom-blue-color'
+                    }`}
+                  />
+                </button>
+                {isDropdownOpen && (
+                  <div className='absolute bg-black border border-[#0A93FE] text-white flex flex-col py-2 w-60'>
+                    <Link
+                      href='/menu/hot-coffees'
+                      className='px-4 py-2 hover:bg-[#0A93FE]'
+                    >
+                      Hot Coffees
+                    </Link>
+                    <Link
+                      href='/menu/teas'
+                      className='px-4 py-2 hover:bg-[#0A93FE]'
+                    >
+                      Teas
+                    </Link>
+                    <Link
+                      href='/menu/cold-coffees'
+                      className='px-4 py-2 hover:bg-[#0A93FE]'
+                    >
+                      Cold Coffees
+                    </Link>
+                    <Link
+                      href='/menu/iced-teas'
+                      className='px-4 py-2 hover:bg-[#0A93FE]'
+                    >
+                      Iced Teas
+                    </Link>
+                    <Link
+                      href='/menu/lemonades'
+                      className='px-4 py-2 hover:bg-[#0A93FE]'
+                    >
+                      Lemonades
+                    </Link>
+                    <Link
+                      href='/menu/bakery'
+                      className='px-4 py-2 hover:bg-[#0A93FE]'
+                    >
+                      Bakery Items
+                    </Link>
+                  </div>
+                )}
+              </div>
               <Link
                 href='/about'
                 className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
@@ -74,16 +126,13 @@ const Navbar = () => {
               >
                 Contact
               </Link>
-              {/* Shopping Cart */}
               <div className='flex items-center'>
                 <FaShoppingCart
-                  className='text-white font-medium hover:custom-blue-color cursor-pointer transition duration-300 ease-in-out'
+                  className='text-white hover:custom-blue-color cursor-pointer transition duration-300 ease-in-out'
                   size={24}
                 />
-                {/* Add cart functionality here */}
               </div>
             </div>
-            {/* Mobile Menu Toggle */}
             <div className='md:hidden'>
               {isMobileMenuOpen ? (
                 <FaTimes
@@ -100,42 +149,77 @@ const Navbar = () => {
               )}
             </div>
           </div>
-          {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <div className='md:hidden'>
-              <div className='flex flex-col space-y-4'>
-                <Link
-                  href='/'
-                  className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
-                >
-                  Home
-                </Link>
-                <Link
-                  href='/menu'
-                  className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
-                >
-                  Menu
-                </Link>
-                <Link
-                  href='/about'
-                  className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
-                >
-                  About
-                </Link>
-                <Link
-                  href='/contact'
-                  className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
-                >
-                  Contact
-                </Link>
-                {/* Shopping Cart */}
-                <div className='flex items-center pb-4'>
-                  <FaShoppingCart
-                    className='text-white hover:custom-blue-color cursor-pointer transition duration-300 ease-in-out'
-                    size={24}
-                  />
-                  {/* Add cart functionality here */}
+            <div className='md:hidden flex flex-col space-y-4'>
+              <Link
+                href='/'
+                className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
+              >
+                Home
+              </Link>
+              <button
+                onClick={toggleDropdown}
+                className='text-xl font-medium text-white flex items-center hover:custom-blue-color transition duration-300 ease-in-out'
+              >
+                Menu <FaChevronDown className='ml-1' />
+              </button>
+              {isDropdownOpen && (
+                <div className='flex flex-col pb-4'>
+                  <Link
+                    href='/menu/hot-coffees'
+                    className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                  >
+                    Hot Coffees
+                  </Link>
+                  <Link
+                    href='/menu/teas'
+                    className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                  >
+                    Teas
+                  </Link>
+                  <Link
+                    href='/menu/cold-coffees'
+                    className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                  >
+                    Cold Coffees
+                  </Link>
+                  <Link
+                    href='/menu/iced-teas'
+                    className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                  >
+                    Iced Teas
+                  </Link>
+                  <Link
+                    href='/menu/lemonades'
+                    className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                  >
+                    Lemonades
+                  </Link>
+                  <Link
+                    href='/menu/bakery'
+                    className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                  >
+                    Bakery Items
+                  </Link>
                 </div>
+              )}
+              <Link
+                href='/about'
+                className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
+              >
+                About
+              </Link>
+              <Link
+                href='/contact'
+                className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
+              >
+                Contact
+              </Link>
+              <div className='flex items-center pb-4'>
+                <FaShoppingCart
+                  className='text-white hover:custom-blue-color cursor-pointer transition duration-300 ease-in-out'
+                  size={24}
+                />
               </div>
             </div>
           )}
