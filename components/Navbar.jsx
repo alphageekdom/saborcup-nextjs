@@ -6,10 +6,12 @@ import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes, FaShoppingCart, FaChevronDown } from 'react-icons/fa';
 import cafeLogo from '@/assets/images/SaborCup.png';
 import TopBanner from './TopBanner';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -34,6 +36,22 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setIsDropdownOpen(false);
+  }, [pathname]);
+
+  const getLinkClass = (href) => {
+    return pathname === href
+      ? 'text-[#0A93FE] text-xl font-medium transition duration-300 ease-in-out'
+      : 'text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out';
+  };
+
+  const getDropdownLinkClass = (href) => {
+    return pathname === href
+      ? 'px-4 py-2 bg-[#0A93FE] text-white'
+      : 'px-4 py-2 hover:bg-[#0A93FE] hover:text-white';
+  };
+
   return (
     <>
       <TopBanner />
@@ -53,10 +71,7 @@ const Navbar = () => {
               </Link>
             </div>
             <div className='hidden md:flex items-center space-x-4'>
-              <Link
-                href='/'
-                className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
-              >
+              <Link href='/' className={getLinkClass('/')}>
                 Home
               </Link>
               <div className='relative'>
@@ -74,56 +89,53 @@ const Navbar = () => {
                   />
                 </button>
                 {isDropdownOpen && (
-                  <div className='absolute bg-black border border-[#0A93FE] text-white flex flex-col py-2 w-60'>
+                  <div className='absolute bg-black opacity-80 border border-[#0A93FE] text-white flex flex-col py-2 w-60 z-40'>
                     <Link
                       href='/menu/hot-coffees'
-                      className='px-4 py-2 hover:bg-[#0A93FE]'
+                      className={getDropdownLinkClass('/menu/hot-coffees')}
                     >
                       Hot Coffees
                     </Link>
                     <Link
                       href='/menu/teas'
-                      className='px-4 py-2 hover:bg-[#0A93FE]'
+                      className={getDropdownLinkClass('/menu/teas')}
                     >
                       Teas
                     </Link>
                     <Link
                       href='/menu/cold-coffees'
-                      className='px-4 py-2 hover:bg-[#0A93FE]'
+                      className={getDropdownLinkClass('/menu/cold-coffees')}
                     >
                       Cold Coffees
                     </Link>
                     <Link
                       href='/menu/iced-teas'
-                      className='px-4 py-2 hover:bg-[#0A93FE]'
+                      className={getDropdownLinkClass('/menu/iced-teas')}
                     >
                       Iced Teas
                     </Link>
                     <Link
                       href='/menu/lemonades'
-                      className='px-4 py-2 hover:bg-[#0A93FE]'
+                      className={getDropdownLinkClass('/menu/lemonades')}
                     >
                       Lemonades
                     </Link>
                     <Link
                       href='/menu/bakery'
-                      className='px-4 py-2 hover:bg-[#0A93FE]'
+                      className={getDropdownLinkClass('/menu/bakery')}
                     >
                       Bakery Items
                     </Link>
                   </div>
                 )}
               </div>
-              <Link
-                href='/about'
-                className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
-              >
+              <Link href='/about' className={getLinkClass('/about')}>
                 About
               </Link>
-              <Link
-                href='/contact'
-                className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
-              >
+              <Link href='/events' className={getLinkClass('/events')}>
+                Events
+              </Link>
+              <Link href='/contact' className={getLinkClass('/contact')}>
                 Contact
               </Link>
               <div className='flex items-center'>
@@ -161,7 +173,14 @@ const Navbar = () => {
                 onClick={toggleDropdown}
                 className='text-xl font-medium text-white flex items-center hover:custom-blue-color transition duration-300 ease-in-out'
               >
-                Menu <FaChevronDown className='ml-1' />
+                Menu{' '}
+                <FaChevronDown
+                  className={`ml-1 text-xl font-medium flex items-center transition duration-300 ease-in-out ${
+                    isDropdownOpen
+                      ? 'text-[#0A93FE]'
+                      : 'text-white hover:custom-blue-color'
+                  }`}
+                />
               </button>
               {isDropdownOpen && (
                 <div className='flex flex-col pb-4'>
