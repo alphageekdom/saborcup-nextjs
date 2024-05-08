@@ -13,7 +13,7 @@ const TopBanner = () => {
     <div className='bg-white text-black py-2 px-4'>
       <div className='container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center'>
         <div className='text-lg font-bold flex items-center mb-2 sm:mb-0'>
-          Welcome to SaborCafe
+          Welcome to SaborCup
           <GiCoffeePot size={20} className='ml-2' />
         </div>
 

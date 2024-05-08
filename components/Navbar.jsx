@@ -21,6 +21,11 @@ const Navbar = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const closeMenu = () => {
+    setIsMobileMenuOpen(false);
+    setIsDropdownOpen(false);
+  };
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -73,6 +78,13 @@ const Navbar = () => {
             <div className='hidden md:flex items-center space-x-4'>
               <Link href='/' className={getLinkClass('/')}>
                 Home
+              </Link>
+              <Link
+                href='/about'
+                className={getLinkClass('/about')}
+                onClick={closeMenu}
+              >
+                About
               </Link>
               <div className='relative'>
                 <button
@@ -129,9 +141,6 @@ const Navbar = () => {
                   </div>
                 )}
               </div>
-              <Link href='/about' className={getLinkClass('/about')}>
-                About
-              </Link>
               <Link href='/events' className={getLinkClass('/events')}>
                 Events
               </Link>
@@ -166,8 +175,16 @@ const Navbar = () => {
               <Link
                 href='/'
                 className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
+                onClick={closeMenu}
               >
                 Home
+              </Link>
+              <Link
+                href='/about'
+                className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
+                onClick={closeMenu}
+              >
+                About
               </Link>
               <button
                 onClick={toggleDropdown}
@@ -187,50 +204,51 @@ const Navbar = () => {
                   <Link
                     href='/menu/hot-coffees'
                     className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                    onClick={closeMenu}
                   >
                     Hot Coffees
                   </Link>
                   <Link
                     href='/menu/teas'
                     className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                    onClick={closeMenu}
                   >
                     Teas
                   </Link>
                   <Link
                     href='/menu/cold-coffees'
                     className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                    onClick={closeMenu}
                   >
                     Cold Coffees
                   </Link>
                   <Link
                     href='/menu/iced-teas'
                     className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                    onClick={closeMenu}
                   >
                     Iced Teas
                   </Link>
                   <Link
                     href='/menu/lemonades'
                     className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                    onClick={closeMenu}
                   >
                     Lemonades
                   </Link>
                   <Link
                     href='/menu/bakery'
                     className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                    onClick={closeMenu}
                   >
                     Bakery Items
                   </Link>
                 </div>
               )}
               <Link
-                href='/about'
-                className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
-              >
-                About
-              </Link>
-              <Link
                 href='/contact'
                 className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
+                onClick={closeMenu}
               >
                 Contact
               </Link>

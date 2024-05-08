@@ -45,8 +45,8 @@ const HeroCarousel = () => {
             Check Out Our Menu
           </h2>
           <Link href='/menu'>
-            <button className='bg-[#0A93FE] hover:bg-[#0877cc]  text-white font-bold py-2 px-16 rounded-md text-xl shadow-lg'>
-              Explore Menu
+            <button className='bg-[#0A93FE] hover:bg-[#0877cc]  text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg'>
+              Explore
             </button>
           </Link>
         </div>
@@ -84,8 +84,8 @@ const HeroCarousel = () => {
             Try Our Signature Drinks
           </h2>
           <Link href='/menu/signature-drinks'>
-            <button className='bg-[#0A93FE] hover:bg-[#0877cc]  text-white font-bold py-2 px-16 rounded-md text-xl shadow-lg'>
-              Explore Drinks
+            <button className='bg-[#0A93FE] hover:bg-[#0877cc]  text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg'>
+              Explore
             </button>
           </Link>
         </div>
@@ -123,8 +123,8 @@ const HeroCarousel = () => {
             Join Our Upcoming Events
           </h2>
           <Link href='/events'>
-            <button className='bg-[#0A93FE] hover:bg-[#0877cc]  text-white font-bold py-2 px-16 rounded-md text-xl shadow-lg'>
-              View Events
+            <button className='bg-[#0A93FE] hover:bg-[#0877cc]  text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg'>
+              View
             </button>
           </Link>
         </div>

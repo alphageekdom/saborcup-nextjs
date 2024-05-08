@@ -1,10 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 import cafeLogo from '@/assets/images/SaborCupAlt.png';
+import TwoColumnSection from './TwoColumnSection';
 
 const Welcome = () => {
   return (
-    <div className='bg-white w-full h-full'>
+    <TwoColumnSection className='bg-white w-full h-full' id='welcome'>
       <div className='container mx-auto px-4 py-8 md:py-16 flex flex-col md:flex-row items-center justify-between'>
         <div className='md:w-1/2 flex flex-col items-center justify-center mb-8 md:mb-0'>
           <Image
@@ -32,8 +33,8 @@ const Welcome = () => {
               className='object-cover custom-shadow rounded-full md:rounded-lg w-96 h-96 md:w-auto md:h-auto'
               loading='lazy'
             />
-
-            <figcaption className='absolute px-4 text-lg text-white bottom-14 left-8 md:bottom-6'>
+            <div className='absolute inset-0 bg-black opacity-30 rounded-full md:rounded-lg'></div>
+            <figcaption className='absolute px-4 text-lg text-white bottom-16 left-8 md:bottom-6'>
               <p>
                 Our staff always busy curating the perfect{' '}
                 <span className='italic'>cafecito</span>.
@@ -42,7 +43,7 @@ const Welcome = () => {
           </figure>
         </div>
       </div>
-    </div>
+    </TwoColumnSection>
   );
 };
 
