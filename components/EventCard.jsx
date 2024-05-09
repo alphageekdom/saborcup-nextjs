@@ -1,0 +1,61 @@
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+const EventCard = ({ event }) => {
+  const cardClass = event.isPast ? 'opacity-50' : 'opacity-100';
+  const textClass = event.isPast ? 'text-gray-500' : 'text-black';
+
+  return (
+    <article
+      className={`p-4 rounded-lg shadow-lg transition transform hover:scale-105 ${cardClass} custom-shadow`}
+      aria-labelledby={`event-title-${event.id}`}
+      aria-describedby={`event-description-${event.id}`}
+      tabIndex='0'
+    >
+      <Image
+        src={event.image}
+        alt={`${event.title} event`}
+        width={500}
+        height={500}
+        className='w-full h-56 object-cover rounded-md mb-4'
+      />
+      <h2
+        id={`event-title-${event.id}`}
+        className={`text-2xl font-semibold mb-2 ${textClass}`}
+      >
+        {event.title}
+      </h2>
+      <p
+        id={`event-description-${event.id}`}
+        className={`text-sm mb-4 ${
+          event.isPast ? 'text-gray-500' : 'text-gray-700'
+        }`}
+      >
+        {event.description}
+      </p>
+      <div className='flex justify-between items-center'>
+        <time
+          className={`text-sm ${
+            event.isPast ? 'text-gray-500' : 'text-gray-600'
+          }`}
+          dateTime={`${event.startDate}`}
+        >
+          {new Date(event.startDate).toLocaleDateString()} -{' '}
+          {new Date(event.endDate).toLocaleDateString()}
+        </time>
+        {!event.isPast && (
+          <Link
+            href={`/events/${event.id}`}
+            className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600'
+            aria-label={`Learn more about ${event.title}`}
+          >
+            Learn More
+          </Link>
+        )}
+      </div>
+    </article>
+  );
+};
+
+export default EventCard;

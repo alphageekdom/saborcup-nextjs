@@ -1,0 +1,96 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+const EventDetails = ({ eventId }) => {
+  const [event, setEvent] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchEvent = async () => {
+      try {
+        const response = await fetch(`/api/events/${eventId}`, {
+          cache: 'no-store',
+        });
+        if (!response.ok) {
+          throw new Error('Failed to fetch event');
+        }
+        const data = await response.json();
+        setEvent(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEvent();
+  }, [eventId]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+  if (!event) return <p>Event not found</p>;
+
+  return (
+    <div className='flex flex-col items-center gap-8 px-4 lg:px-0'>
+      <div className='relative w-full max-w-4xl flex justify-center items-center'>
+        <Image
+          src={event.image}
+          alt={`${event.title} event`}
+          width={500}
+          height={500}
+          className='object-cover w-[300px] h-[300px] md:w-[1280px] md:h-[450px] rounded-full md:rounded-lg custom-shadow'
+          priority
+        />
+      </div>
+      <h2 className='text-3xl font-semibold text-center'>{event.title}</h2>
+      <p className='text-lg text-gray-700 text-center max-w-3xl'>
+        {event.description}
+      </p>
+      {event.summary && (
+        <div className='bg-white shadow p-4 rounded-lg w-full max-w-3xl'>
+          <h3 className='text-xl font-semibold text-blue-600'>Summary</h3>
+          <p className='mt-2 text-gray-700'>{event.summary}</p>
+        </div>
+      )}
+      {event.importance && (
+        <div className='bg-white shadow p-4 rounded-lg w-full max-w-3xl'>
+          <h3 className='text-xl font-semibold text-blue-600'>Importance</h3>
+          <p className='mt-2 text-gray-700'>{event.importance}</p>
+        </div>
+      )}
+      <div className='bg-white shadow p-4 rounded-lg w-full max-w-3xl'>
+        <h3 className='text-xl font-semibold text-blue-600'>Event Details</h3>
+        <p className='mt-2 text-gray-700'>
+          <strong>Host:</strong> {event.host}
+        </p>
+        <p className='mt-2 text-gray-700'>
+          <strong>Cost:</strong> ${event.cost.toFixed(2)}
+        </p>
+        <p className='mt-2 text-gray-700'>
+          <strong>Start Date:</strong>{' '}
+          {new Date(event.startDate).toLocaleDateString()}
+        </p>
+        <p className='mt-2 text-gray-700'>
+          <strong>End Date:</strong>{' '}
+          {new Date(event.endDate).toLocaleDateString()}
+        </p>
+        <p className='mt-2 text-gray-700'>
+          <strong>Status:</strong>{' '}
+          {event.isPast ? 'Past Event' : 'Upcoming Event'}
+        </p>
+      </div>
+      <Link
+        href='/events'
+        className='bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600'
+      >
+        Back to Events
+      </Link>
+    </div>
+  );
+};
+
+export default EventDetails;

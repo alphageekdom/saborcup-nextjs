@@ -1,13 +1,19 @@
+import Events from '@/components/Events';
 import Hero from '@/components/Hero';
 import Welcome from '@/components/Welcome';
 import React from 'react';
 
 const Homepage = () => {
   return (
-    <div className='bg-white'>
+    <>
       <Hero />
-      <Welcome />
-    </div>
+      <div className='bg-white'>
+        <Welcome />
+      </div>
+      <div className='bg-gray-50'>
+        <Events />
+      </div>
+    </>
   );
 };
 

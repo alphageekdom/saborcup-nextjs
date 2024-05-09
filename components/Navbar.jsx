@@ -246,6 +246,13 @@ const Navbar = () => {
                 </div>
               )}
               <Link
+                href='/events'
+                className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
+                onClick={closeMenu}
+              >
+                Events
+              </Link>
+              <Link
                 href='/contact'
                 className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
                 onClick={closeMenu}
