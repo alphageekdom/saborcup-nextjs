@@ -117,7 +117,7 @@ const Footer = () => {
               All rights reserved.
             </h1>
             <p className='mb-1'>123 Street Name, City</p>
-            <p className='mb-1'>Email: info@saborcafee.com</p>
+            <p className='mb-1'>Email: info@saborcafe.com</p>
             <p>Phone: (232) 555 - 5555</p>
           </div>
         </div>

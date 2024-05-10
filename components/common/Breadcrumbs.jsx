@@ -16,7 +16,7 @@ const Breadcrumbs = ({ crumbs }) => {
             <Link
               href='/'
               passHref
-              className={`flex items-center text-gray-500 ${
+              className={`flex items-center text-gray-600 ${
                 pathname === '/' ? 'text-black' : ''
               }`}
               aria-label='Home'
@@ -30,13 +30,13 @@ const Breadcrumbs = ({ crumbs }) => {
             return (
               <li key={index} className='flex items-center space-x-2'>
                 <MdOutlineKeyboardArrowRight
-                  className='text-gray-500'
+                  className='text-gray-600'
                   size={24}
                 />
                 {isActive ? (
                   <span className='text-black font-bold'>{crumb.title}</span>
                 ) : (
-                  <Link href={crumb.path} passHref className='text-gray-500'>
+                  <Link href={crumb.path} passHref className='text-gray-600'>
                     {crumb.title}
                   </Link>
                 )}

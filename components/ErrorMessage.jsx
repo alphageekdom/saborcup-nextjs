@@ -12,7 +12,7 @@ const ErrorMessage = ({ message }) => {
         alt='Error Coffee Cup'
         width={200}
         height={200}
-        priority
+        loading='lazy'
       />
     </div>
   );

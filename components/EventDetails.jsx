@@ -48,7 +48,9 @@ const EventDetails = ({ eventId }) => {
           priority
         />
       </div>
-      <h2 className='text-3xl font-semibold text-center'>{event.title}</h2>
+      <h2 className='text-3xl text-black font-semibold text-center'>
+        {event.title}
+      </h2>
       <p className='text-lg text-gray-700 text-center max-w-3xl'>
         {event.description}
       </p>
@@ -87,7 +89,7 @@ const EventDetails = ({ eventId }) => {
       </div>
       <Link
         href='/events'
-        className='bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600'
+        className='bg-[#0A93FE] hover:bg-[#0877cc]  text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg'
       >
         Back to Events
       </Link>
