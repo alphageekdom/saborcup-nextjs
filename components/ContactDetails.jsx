@@ -1,4 +1,5 @@
-// ContactDetails.js
+'use client';
+
 import React from 'react';
 import TwoColumnSection from './TwoColumnSection';
 import {
@@ -9,6 +10,7 @@ import {
   FaTiktok,
   FaYoutube,
 } from 'react-icons/fa';
+import ContactForm from './ContactForm';
 
 const ContactDetails = () => {
   return (
@@ -107,70 +109,7 @@ const ContactDetails = () => {
             <h2 className='text-3xl font-semibold mb-4 text-center'>
               Contact Form
             </h2>
-            <form>
-              <div className='mb-4'>
-                <label
-                  htmlFor='name'
-                  className='block text-sm font-semibold mb-1'
-                >
-                  Name
-                </label>
-                <input
-                  type='text'
-                  id='name'
-                  name='name'
-                  className='w-full px-4 py-2 border-b border-white bg-transparent text-white  focus:outline-none focus:border-white'
-                />
-              </div>
-              <div className='mb-4'>
-                <label
-                  htmlFor='email'
-                  className='block text-sm font-semibold mb-1'
-                >
-                  Email Address
-                </label>
-                <input
-                  type='email'
-                  id='email'
-                  name='email'
-                  className='w-full px-4 py-2 border-b border-white bg-transparent text-white  focus:outline-none focus:border-white'
-                />
-              </div>
-              <div className='mb-4'>
-                <label
-                  htmlFor='subject'
-                  className='block text-sm font-semibold mb-1'
-                >
-                  Subject
-                </label>
-                <input
-                  type='text'
-                  id='subject'
-                  name='subject'
-                  className='w-full px-4 py-2 border-b border-white bg-transparent text-white  focus:outline-none focus:border-white'
-                />
-              </div>
-              <div className='mb-4'>
-                <label
-                  htmlFor='message'
-                  className='block text-sm font-semibold mb-1'
-                >
-                  Message
-                </label>
-                <textarea
-                  id='message'
-                  name='message'
-                  rows='4'
-                  className='w-full px-4 py-2 border-b border-white bg-transparent text-white  focus:outline-none focus:border-white'
-                ></textarea>
-              </div>
-              <button
-                type='submit'
-                className='bg-[#0A93FE] hover:bg-[#0877cc]  text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg w-full'
-              >
-                Send
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </div>

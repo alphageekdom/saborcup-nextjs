@@ -22,7 +22,6 @@
     "react-spinners": "^0.13.8"
   },
   "devDependencies": {
-    "daisyui": "^4.10.5",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "postcss": "^8",
