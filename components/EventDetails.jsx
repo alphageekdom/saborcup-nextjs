@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Spinner from './Spinner';
+import ErrorMessage from './ErrorMessage';
 
 const EventDetails = ({ eventId }) => {
   const [event, setEvent] = useState(null);
@@ -30,8 +32,8 @@ const EventDetails = ({ eventId }) => {
     fetchEvent();
   }, [eventId]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <Spinner />;
+  if (error) return <ErrorMessage message={error} />;
   if (!event) return <p>Event not found</p>;
 
   return (

@@ -18,7 +18,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
-    "react-map-gl": "^7.1.7"
+    "react-map-gl": "^7.1.7",
+    "react-spinners": "^0.13.8"
   },
   "devDependencies": {
     "daisyui": "^4.10.5",

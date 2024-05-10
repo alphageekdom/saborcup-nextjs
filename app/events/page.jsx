@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import EventCard from '@/components/EventCard';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
+import Spinner from '@/components/Spinner';
+import ErrorMessage from '@/components/ErrorMessage';
 
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
@@ -31,8 +33,8 @@ const EventsPage = () => {
     fetchEvents();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <Spinner />;
+  if (error) return <ErrorMessage message={error} />;
 
   return (
     <section className='bg-white py-12'>
