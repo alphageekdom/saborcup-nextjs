@@ -1,0 +1,430 @@
+[
+  {
+    "id": 1,
+    "name": "Espresso",
+    "type": "Hot Coffee",
+    "prices": {
+      "Small": 2.0,
+      "Medium": 2.5,
+      "Large": 3.0
+    },
+    "sizes": ["Small", "Medium", "Large"],
+    "availability": "Year-round",
+    "description": "A classic shot of concentrated coffee.",
+    "isFeatured": true,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1583165278997-0250ea5d72e2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZXNwcmVzc298ZW58MHx8MHx8fDA%3D"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Iced Coffee",
+    "type": "Cold Coffee",
+    "prices": {
+      "Regular": 3.0,
+      "Large": 4.0
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Chilled coffee served over ice.",
+    "isFeatured": true,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1621221814951-fa755dd0c993?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGljZWQlMjBjb2ZmZWV8ZW58MHx8MHx8fDA%3D"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Earl Grey Tea",
+    "type": "Hot Tea",
+    "prices": {
+      "Small": 2.5,
+      "Medium": 3.0,
+      "Large": 3.5
+    },
+    "sizes": ["Small", "Medium", "Large"],
+    "availability": "Year-round",
+    "description": "A black tea flavored with bergamot.",
+    "isFeatured": true,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1562097691-905c0a23ee19?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWFybCUyMGdyZXklMjB0ZWF8ZW58MHx8MHx8fDA%3D"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Peach Green Tea Lemonade",
+    "type": "Lemonade",
+    "prices": {
+      "Regular": 3.5,
+      "Large": 4.5
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Green tea infused with peach syrup and lemonade, served cold.",
+    "isFeatured": true,
+    "isSeasonal": true,
+    "images": [
+      "https://images.unsplash.com/photo-1527271982979-83fea3eb3582?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVhY2glMjBsZW1vbmFkZXxlbnwwfHwwfHx8MA%3D%3D"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Concha",
+    "type": "Baked Goods",
+    "prices": {
+      "Regular": 2.0
+    },
+    "sizes": ["Regular"],
+    "availability": "Year-round",
+    "description": "A traditional Mexican sweet bread with a crunchy topping.",
+    "isFeatured": true,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1617859047277-9f47d2bd9696?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29uY2hhfGVufDB8fDB8fHww"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Americano",
+    "type": "Hot Coffee",
+    "prices": {
+      "Small": 2.5,
+      "Medium": 3.0,
+      "Large": 3.5
+    },
+    "sizes": ["Small", "Medium", "Large"],
+    "availability": "Year-round",
+    "description": "Espresso diluted with hot water.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1551030173-122aabc4489c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW1lcmljYW5vfGVufDB8fDB8fHww"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Cold Brew",
+    "type": "Cold Coffee",
+    "prices": {
+      "Regular": 3.5,
+      "Large": 4.5
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Smooth and refreshing coffee brewed with cold water.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1562878424-0da674456d33?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y29sZCUyMGJyZXd8ZW58MHx8MHx8fDA%3D"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Green Tea Latte",
+    "type": "Hot Tea",
+    "prices": {
+      "Small": 3.0,
+      "Medium": 3.5,
+      "Large": 4.0
+    },
+    "sizes": ["Small", "Medium", "Large"],
+    "availability": "Year-round",
+    "description": "Matcha green tea powder mixed with steamed milk.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1628615770965-e134414d619a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3JlYW4lMjB0ZWElMjBsYXR0ZXxlbnwwfHwwfHx8MA%3D%3D"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Classic Lemonade",
+    "type": "Lemonade",
+    "prices": {
+      "Regular": 3.0,
+      "Large": 4.0
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Freshly squeezed lemon juice mixed with water and sugar.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1623084921164-4a8c5c37a912?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bGVtb25hZGV8ZW58MHx8MHx8fDA%3D"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Croissant",
+    "type": "Baked Goods",
+    "prices": {
+      "Regular": 2.5
+    },
+    "sizes": ["Regular"],
+    "availability": "Year-round",
+    "description": "Buttery and flaky pastry perfect for breakfast or a snack.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1586657263857-346c4b712ff5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y3JvaXNzYW50fGVufDB8fDB8fHww"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Cappuccino",
+    "type": "Hot Coffee",
+    "prices": {
+      "Small": 3.0,
+      "Medium": 3.5,
+      "Large": 4.0
+    },
+    "sizes": ["Small", "Medium", "Large"],
+    "availability": "Year-round",
+    "description": "Espresso with equal parts steamed milk and milk foam.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2FwcHVjY2lub3xlbnwwfHwwfHx8MA%3D%3D"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Latte",
+    "type": "Hot Coffee",
+    "prices": {
+      "Small": 3.5,
+      "Medium": 4.0,
+      "Large": 4.5
+    },
+    "sizes": ["Small", "Medium", "Large"],
+    "availability": "Year-round",
+    "description": "Espresso with steamed milk and a small amount of milk foam.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGF0dGV8ZW58MHx8MHx8fDA%3D"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Mocha",
+    "type": "Hot Coffee",
+    "prices": {
+      "Small": 4.0,
+      "Medium": 4.5,
+      "Large": 5.0
+    },
+    "sizes": ["Small", "Medium", "Large"],
+    "availability": "Year-round",
+    "description": "Espresso with steamed milk, chocolate syrup, and whipped cream.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1618576230663-9714aecfb99a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bW9jaGF8ZW58MHx8MHx8fDA%3D"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Iced Latte",
+    "type": "Cold Coffee",
+    "prices": {
+      "Regular": 4.0,
+      "Large": 5.0
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Espresso with cold milk served over ice.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1558122104-355edad709f6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aWNlZCUyMGxhdHRlfGVufDB8fDB8fHww"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Frappuccino",
+    "type": "Cold Coffee",
+    "prices": {
+      "Regular": 5.0,
+      "Large": 6.0
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Blended coffee beverage with milk, ice, and flavorings.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1637178035222-a08f2d4dd1a3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnJhcHB1Y2Npbm98ZW58MHx8MHx8fDA%3D"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Nitro Cold Brew",
+    "type": "Cold Coffee",
+    "prices": {
+      "Regular": 5.5,
+      "Large": 6.5
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Cold brew infused with nitrogen for a creamy texture and rich flavor.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1549652127-2e5e59e86a7a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y29sZCUyMGJyZXd8ZW58MHx8MHx8fDA%3D"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Chai Tea Latte",
+    "type": "Hot Tea",
+    "prices": {
+      "Small": 4.0,
+      "Medium": 4.5,
+      "Large": 5.0
+    },
+    "sizes": ["Small", "Medium", "Large"],
+    "availability": "Year-round",
+    "description": "Spiced black tea mixed with steamed milk.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1561336526-2914f13ceb36?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2hhaSUyMHRlYXxlbnwwfHwwfHx8MA%3D%3D"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Iced Tea",
+    "type": "Cold Tea",
+    "prices": {
+      "Regular": 2.5,
+      "Large": 3.0
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Chilled black tea or herbal tea served over ice.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aWNlZCUyMHRlYXxlbnwwfHwwfHx8MA%3D%3D"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Strawberry Lemonade",
+    "type": "Lemonade",
+    "prices": {
+      "Regular": 4.0,
+      "Large": 5.0
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Classic lemonade with a splash of strawberry syrup.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1560351520-48e05f3d7d16?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3RyYXdiZXJyeSUyMGxlbW9uYWRlfGVufDB8fDB8fHww"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Mango Lemonade",
+    "type": "Lemonade",
+    "prices": {
+      "Regular": 4.0,
+      "Large": 5.0
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Classic lemonade with mango puree for a tropical twist.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1575596510825-f748919a2bf7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGVtb25hZGV8ZW58MHx8MHx8fDA%3D"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Sparkling Lemonade",
+    "type": "Lemonade",
+    "prices": {
+      "Regular": 4.0,
+      "Large": 5.0
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Carbonated lemonade for a fizzy, refreshing drink.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1523677011781-c91d1bbe2f9e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGVtb25hZGV8ZW58MHx8MHx8fDA%3D"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Lavender Lemonade",
+    "type": "Lemonade",
+    "prices": {
+      "Regular": 4.0,
+      "Large": 5.0
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Classic lemonade infused with lavender syrup for a floral touch.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1578095551676-e0b8f0551a7d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGF2ZW5kZXIlMjBsZW1vbmFkZXxlbnwwfHwwfHx8MA%3D%3D"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Blueberry Muffin",
+    "type": "Baked Goods",
+    "prices": {
+      "Regular": 2.5
+    },
+    "sizes": ["Regular"],
+    "availability": "Year-round",
+    "description": "Moist muffin studded with juicy blueberries.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1558303420-f814d8a590f5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Ymx1ZWJlcnJ5JTIwbXVmZmlufGVufDB8fDB8fHww"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Chocolate Chip Cookie",
+    "type": "Baked Goods",
+    "prices": {
+      "Regular": 2.0
+    },
+    "sizes": ["Regular"],
+    "availability": "Year-round",
+    "description": "Classic cookie loaded with chocolate chips for a sweet treat.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1612845575953-f4b1e3d63160?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2hvY29sYXRlJTIwY29va2llfGVufDB8fDB8fHww"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Churros",
+    "type": "Baked Goods",
+    "prices": {
+      "Regular": 3.0
+    },
+    "sizes": ["Regular"],
+    "availability": "Year-round",
+    "description": "Fried dough pastry dusted with cinnamon sugar, served with chocolate dipping sauce.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1578554813309-8196f50f6811?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2h1cnJvc3xlbnwwfHwwfHx8MA%3D%3D"
+    ]
+  }
+]

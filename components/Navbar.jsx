@@ -87,19 +87,28 @@ const Navbar = () => {
                 About
               </Link>
               <div className='relative'>
-                <button
-                  onClick={toggleDropdown}
-                  className='text-xl font-medium text-white flex items-center hover:custom-blue-color transition duration-300 ease-in-out'
-                >
-                  Menu{' '}
-                  <FaChevronDown
-                    className={`ml-1 text-xl font-medium flex items-center transition duration-300 ease-in-out ${
-                      isDropdownOpen
-                        ? 'text-[#0A93FE]'
-                        : 'text-white hover:custom-blue-color'
-                    }`}
-                  />
-                </button>
+                <div className='flex items-center'>
+                  <Link
+                    href='/menu'
+                    className={getLinkClass('/menu')}
+                    onClick={closeMenu}
+                  >
+                    Menu
+                  </Link>
+                  <button
+                    onClick={toggleDropdown}
+                    className='text-xl font-medium text-white flex items-center hover:custom-blue-color transition duration-300 ease-in-out'
+                    aria-label='Dropdown Button'
+                  >
+                    <FaChevronDown
+                      className={`ml-1 text-xl font-medium flex items-center transition duration-300 ease-in-out ${
+                        isDropdownOpen
+                          ? 'text-[#0A93FE]'
+                          : 'text-white hover:custom-blue-color'
+                      }`}
+                    />
+                  </button>
+                </div>
                 {isDropdownOpen && (
                   <div className='absolute bg-black opacity-80 border border-[#0A93FE] text-white flex flex-col py-2 w-60 z-40'>
                     <Link
@@ -186,59 +195,68 @@ const Navbar = () => {
               >
                 About
               </Link>
-              <button
-                onClick={toggleDropdown}
-                className='text-xl font-medium text-white flex items-center hover:custom-blue-color transition duration-300 ease-in-out'
-              >
-                Menu{' '}
-                <FaChevronDown
-                  className={`ml-1 text-xl font-medium flex items-center transition duration-300 ease-in-out ${
-                    isDropdownOpen
-                      ? 'text-[#0A93FE]'
-                      : 'text-white hover:custom-blue-color'
-                  }`}
-                />
-              </button>
+              <div className='flex items-center'>
+                <Link
+                  href='/menu'
+                  className={getLinkClass('/menu')}
+                  onClick={closeMenu}
+                >
+                  Menu
+                </Link>
+                <button
+                  onClick={toggleDropdown}
+                  className='text-xl font-medium text-white flex items-center hover:custom-blue-color transition duration-300 ease-in-out'
+                  aria-label='Dropdown Button'
+                >
+                  <FaChevronDown
+                    className={`ml-1 text-xl font-medium flex items-center transition duration-300 ease-in-out ${
+                      isDropdownOpen
+                        ? 'text-[#0A93FE]'
+                        : 'text-white hover:custom-blue-color'
+                    }`}
+                  />
+                </button>
+              </div>
               {isDropdownOpen && (
                 <div className='flex flex-col pb-4'>
                   <Link
                     href='/menu/hot-coffees'
-                    className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                    className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
                     onClick={closeMenu}
                   >
                     Hot Coffees
                   </Link>
                   <Link
                     href='/menu/teas'
-                    className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                    className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
                     onClick={closeMenu}
                   >
                     Teas
                   </Link>
                   <Link
                     href='/menu/cold-coffees'
-                    className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                    className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
                     onClick={closeMenu}
                   >
                     Cold Coffees
                   </Link>
                   <Link
                     href='/menu/iced-teas'
-                    className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                    className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
                     onClick={closeMenu}
                   >
                     Iced Teas
                   </Link>
                   <Link
                     href='/menu/lemonades'
-                    className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                    className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
                     onClick={closeMenu}
                   >
                     Lemonades
                   </Link>
                   <Link
                     href='/menu/bakery'
-                    className='px-4 py-2 hover:bg-[#0A93FE] hover:text-white'
+                    className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
                     onClick={closeMenu}
                   >
                     Bakery Items

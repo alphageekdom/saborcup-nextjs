@@ -30,9 +30,5 @@ module.exports = {
 
       addUtilities(newUtilities, ['responsive', 'hover']);
     },
-    require('daisyui'),
   ],
-  daisyui: {
-    themes: ['light', 'dark'],
-  },
 };
