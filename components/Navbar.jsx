@@ -112,40 +112,40 @@ const Navbar = () => {
                 {isDropdownOpen && (
                   <div className='absolute bg-black opacity-80 border border-[#0A93FE] text-white flex flex-col py-2 w-60 z-40'>
                     <Link
-                      href='/menu/hot-coffees'
-                      className={getDropdownLinkClass('/menu/hot-coffees')}
+                      href='/menu/hot-coffee'
+                      className={getDropdownLinkClass('/menu/hot-coffee')}
                     >
-                      Hot Coffees
+                      Hot Coffee
                     </Link>
                     <Link
-                      href='/menu/teas'
-                      className={getDropdownLinkClass('/menu/teas')}
+                      href='/menu/cold-coffee'
+                      className={getDropdownLinkClass('/menu/cold-coffee')}
                     >
-                      Teas
+                      Cold Coffee
                     </Link>
                     <Link
-                      href='/menu/cold-coffees'
-                      className={getDropdownLinkClass('/menu/cold-coffees')}
+                      href='/menu/hot-tea'
+                      className={getDropdownLinkClass('/menu/hot-tea')}
                     >
-                      Cold Coffees
+                      Hot Tea
                     </Link>
                     <Link
-                      href='/menu/iced-teas'
-                      className={getDropdownLinkClass('/menu/iced-teas')}
+                      href='/menu/iced-tea'
+                      className={getDropdownLinkClass('/menu/iced-tea')}
                     >
-                      Iced Teas
+                      Iced Tea
                     </Link>
                     <Link
-                      href='/menu/lemonades'
-                      className={getDropdownLinkClass('/menu/lemonades')}
+                      href='/menu/lemonade'
+                      className={getDropdownLinkClass('/menu/lemonade')}
                     >
-                      Lemonades
+                      Lemonade
                     </Link>
                     <Link
                       href='/menu/bakery'
                       className={getDropdownLinkClass('/menu/bakery')}
                     >
-                      Bakery Items
+                      Bakery
                     </Link>
                   </div>
                 )}
@@ -220,46 +220,46 @@ const Navbar = () => {
               {isDropdownOpen && (
                 <div className='flex flex-col pb-4'>
                   <Link
-                    href='/menu/hot-coffees'
+                    href='/menu/hot-coffee'
                     className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
                     onClick={closeMenu}
                   >
-                    Hot Coffees
+                    Hot Coffee
                   </Link>
                   <Link
-                    href='/menu/teas'
+                    href='/menu/cold-coffee'
                     className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
                     onClick={closeMenu}
                   >
-                    Teas
+                    Cold Coffee
                   </Link>
                   <Link
-                    href='/menu/cold-coffees'
+                    href='/menu/hot-tea'
                     className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
                     onClick={closeMenu}
                   >
-                    Cold Coffees
+                    Hot Tea
                   </Link>
                   <Link
-                    href='/menu/iced-teas'
+                    href='/menu/iced-tea'
                     className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
                     onClick={closeMenu}
                   >
-                    Iced Teas
+                    Iced Tea
                   </Link>
                   <Link
-                    href='/menu/lemonades'
+                    href='/menu/lemonade'
                     className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
                     onClick={closeMenu}
                   >
-                    Lemonades
+                    Lemonade
                   </Link>
                   <Link
                     href='/menu/bakery'
                     className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
                     onClick={closeMenu}
                   >
-                    Bakery Items
+                    Bakery
                   </Link>
                 </div>
               )}

@@ -1,10 +1,35 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import HeaderImage from '@/components/HeaderImage';
-import menu from '@/menu.json';
-import ItemCard from '@/components/FeaturedCard';
+import CategoryCard from '@/components/CategoryCard';
 
-const MenuPage = () => {
+const CategoryPage = () => {
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const crumbs = [{ title: 'Menu', path: '/menu' }];
+
+  const fetchCategories = async () => {
+    try {
+      const response = await fetch('/api/menu', { cache: 'no-store' });
+      if (!response.ok) {
+        throw new Error('Failed to fetch categories');
+      }
+      const data = await response.json();
+      setCategories(data);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
 
   return (
     <section className='bg-white'>
@@ -23,8 +48,8 @@ const MenuPage = () => {
           Menu
         </h1>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-11'>
-          {menu.map((item) => (
-            <ItemCard key={item.id} item={item} />
+          {categories.map((category) => (
+            <CategoryCard key={category.id} category={category} />
           ))}
         </div>
       </div>
@@ -32,4 +57,4 @@ const MenuPage = () => {
   );
 };
 
-export default MenuPage;
+export default CategoryPage;

@@ -30,3 +30,25 @@ model Message {
   message   String
   createdAt DateTime @default(now())
 }
+
+model Category {
+  id          Int      @id @default(autoincrement())
+  name        String
+  type        String
+  description String
+  isFeatured  Boolean
+  image       String
+}
+
+model Item {
+  id            Int       @id @default(autoincrement())
+  name          String
+  type          String
+  availability  String
+  description   String
+  isFeatured    Boolean
+  isSeasonal    Boolean
+  images        String[]
+  prices        Json     
+  sizes         String[]
+}

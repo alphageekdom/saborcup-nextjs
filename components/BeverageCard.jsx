@@ -1,16 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
 
-const ItemCard = ({ item }) => {
+const BeverageCard = ({ item }) => {
+  const formattedType = item.type.split(' ').join('-').toLowerCase();
+
   return (
     <Link
-      href={`/menu/${item.type}`}
+      href={`/menu/${formattedType}/${item.id}`}
       className='bg-white rounded-lg shadow-lg overflow-hidden custom-shadow'
     >
       <div className='relative'>
         <div
           className='h-64 bg-cover bg-center relative'
-          style={{ backgroundImage: `url(${item.image})` }}
+          style={{ backgroundImage: `url(${item.images[0]})` }}
         >
           <div className='absolute inset-0'>
             <div className='opacity-0 hover:opacity-90 absolute inset-0 flex items-center justify-center bg-black transition-opacity duration-300'>
@@ -25,4 +27,4 @@ const ItemCard = ({ item }) => {
   );
 };
 
-export default ItemCard;
+export default BeverageCard;

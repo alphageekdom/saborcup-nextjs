@@ -72,7 +72,7 @@
   {
     "id": 5,
     "name": "Concha",
-    "type": "Baked Goods",
+    "type": "Bakery",
     "prices": {
       "Regular": 2.0
     },
@@ -158,7 +158,7 @@
   {
     "id": 10,
     "name": "Croissant",
-    "type": "Baked Goods",
+    "type": "Bakery",
     "prices": {
       "Regular": 2.5
     },
@@ -297,7 +297,7 @@
   {
     "id": 18,
     "name": "Iced Tea",
-    "type": "Cold Tea",
+    "type": "Iced Tea",
     "prices": {
       "Regular": 2.5,
       "Large": 3.0
@@ -364,25 +364,25 @@
   },
   {
     "id": 22,
-    "name": "Lavender Lemonade",
-    "type": "Lemonade",
+    "name": "Mojito Iced Tea",
+    "type": "Iced Tea",
     "prices": {
       "Regular": 4.0,
       "Large": 5.0
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Classic lemonade infused with lavender syrup for a floral touch.",
+    "description": "Classic non-alcholic Mojito infused with lavender syrup for a floral touch.",
     "isFeatured": false,
     "isSeasonal": false,
     "images": [
-      "https://images.unsplash.com/photo-1578095551676-e0b8f0551a7d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGF2ZW5kZXIlMjBsZW1vbmFkZXxlbnwwfHwwfHx8MA%3D%3D"
+      "https://images.unsplash.com/photo-1567671899076-51a64ddb7c5d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGljZSUyMHRlYXxlbnwwfDB8MHx8fDI%3D"
     ]
   },
   {
     "id": 23,
     "name": "Blueberry Muffin",
-    "type": "Baked Goods",
+    "type": "Bakery",
     "prices": {
       "Regular": 2.5
     },
@@ -398,7 +398,7 @@
   {
     "id": 24,
     "name": "Chocolate Chip Cookie",
-    "type": "Baked Goods",
+    "type": "Bakery",
     "prices": {
       "Regular": 2.0
     },
@@ -414,7 +414,7 @@
   {
     "id": 25,
     "name": "Churros",
-    "type": "Baked Goods",
+    "type": "Bakery",
     "prices": {
       "Regular": 3.0
     },
@@ -425,6 +425,91 @@
     "isSeasonal": false,
     "images": [
       "https://images.unsplash.com/photo-1578554813309-8196f50f6811?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2h1cnJvc3xlbnwwfHwwfHx8MA%3D%3D"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Habiscus Iced Tea",
+    "type": "Iced Tea",
+    "prices": {
+      "Regular": 4.0,
+      "Large": 5.0
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Indulge in the timeless refreshment of hibiscus iced tea, enhanced with a hint of floral allure from infused lavender syrup",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1599390719613-912787a6e65a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aWNlZCUyMHRlYXxlbnwwfDB8MHx8fDI%3D"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Lemon Green Iced Tea",
+    "type": "Iced Tea",
+    "prices": {
+      "Regular": 4.0,
+      "Large": 5.0
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Savor the invigorating zest of lemon green iced tea, complemented by a subtle infusion of refreshing lavender syrup for a delightful floral twist.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1592099759599-24b131b8e824?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aWNlZCUyMHRlYXxlbnwwfDB8MHx8fDI%3D"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Strawberry Habiscus Iced Tea",
+    "type": "Iced Tea",
+    "prices": {
+      "Regular": 4.0,
+      "Large": 5.0
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Experience the delightful fusion of sweet strawberries and tangy hibiscus in our Strawberry Hibiscus Iced Tea, elevated with a touch of floral essence from infused lavender syrup.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1620599155322-bc21c85732b5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGljZWQlMjB0ZWF8ZW58MHwwfDB8fHwy"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Canela Hot Tea",
+    "type": "Hot Tea",
+    "prices": {
+      "Regular": 4.0,
+      "Large": 5.0
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Immerse yourself in the enchanting blend of cinnamon-infused hot tea, where the warmth of canela intertwines with delightful hints of sweetness, creating a cozy and aromatic beverage experience.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1610137312377-f2334bc3b279?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aG90JTIwdGVhfGVufDB8fDB8fHwy"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "White Hot Tea",
+    "type": "Hot Tea",
+    "prices": {
+      "Regular": 4.0,
+      "Large": 5.0
+    },
+    "sizes": ["Regular", "Large"],
+    "availability": "Year-round",
+    "description": "Experience the delicate harmony of hot white tea, where subtle flavors dance gracefully amidst the gentle warmth, offering a soothing and refined tea indulgence.",
+    "isFeatured": false,
+    "isSeasonal": false,
+    "images": [
+      "https://images.unsplash.com/photo-1618226433232-99270aab3c13?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8aG90JTIwdGVhfGVufDB8fDB8fHwy"
     ]
   }
 ]

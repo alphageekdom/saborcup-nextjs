@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prisma:seed": "node prisma/seed.js"
+    "prisma:seed": "node prisma/seed.js",
+    "delete:data": "node prisma/delete.js"
   },
   "dependencies": {
     "@prisma/client": "^5.13.0",
