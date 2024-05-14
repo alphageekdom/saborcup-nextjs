@@ -7,7 +7,7 @@ async function main() {
 
   await prisma.event.deleteMany();
   await prisma.category.deleteMany();
-  await prisma.items.deleteMany();
+  await prisma.item.deleteMany();
 
   await prisma.$executeRaw`TRUNCATE TABLE "Event", "Category", "Items" RESTART IDENTITY`;
 
