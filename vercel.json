@@ -8,5 +8,11 @@
         "buildCommand": "prisma generate && next build"
       }
     }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.js"
+    }
   ]
 }
