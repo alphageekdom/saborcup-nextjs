@@ -4,19 +4,19 @@ import React from 'react';
 import TwoColumnSection from './TwoColumnSection';
 import {
   FaFacebook,
-  FaTwitter,
   FaInstagram,
   FaPinterestP,
   FaTiktok,
   FaYoutube,
 } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import ContactForm from './ContactForm';
 
 const ContactDetails = () => {
   return (
     <TwoColumnSection className='w-full h-full'>
       <div className='container flex flex-col md:flex-row items-stretch justify-between custom-shadow'>
-        <div className='md:w-1/2 bg-white text-black flex flex-col items-start justify-center mb-8 md:mb-0'>
+        <div className='md:w-1/2 bg-gray-50 text-black flex flex-col items-start justify-center mb-8 md:mb-0 py-10'>
           <div className='w-full max-w-lg mx-auto p-6'>
             {' '}
             {/* Wrapping div */}
@@ -28,6 +28,8 @@ const ContactDetails = () => {
               <a
                 href='https://www.google.com/maps/place/123StreetNameCity'
                 aria-label='SaborCup Address'
+                target='_blank'
+                rel='noopener noreferrer'
                 className='hover:text-custom-blue'
               >
                 123 Street Name, City
@@ -38,6 +40,8 @@ const ContactDetails = () => {
               <a
                 href='tel:+2325555555'
                 aria-label='SaborCup Telephone Number'
+                target='_blank'
+                rel='noopener noreferrer'
                 className='hover:text-custom-blue'
               >
                 (232) 555 - 5555
@@ -48,6 +52,8 @@ const ContactDetails = () => {
               <a
                 href='mailto:info@saborcafe.com'
                 aria-label='SaborCup Email Address'
+                target='_blank'
+                rel='noopener noreferrer'
                 className='hover:text-custom-blue'
               >
                 info@saborcafe.com
@@ -62,6 +68,8 @@ const ContactDetails = () => {
                 href='https://www.facebook.com'
                 className='hover:text-custom-blue transition duration-300 ease-in-out'
                 aria-label='Facebook'
+                target='_blank'
+                rel='noopener noreferrer'
               >
                 <FaFacebook size={22} />
               </a>
@@ -69,13 +77,17 @@ const ContactDetails = () => {
                 href='https://www.x.com/'
                 className='hover:text-custom-blue transition duration-300 ease-in-out'
                 aria-label='X/Twitter'
+                target='_blank'
+                rel='noopener noreferrer'
               >
-                <FaTwitter size={22} />
+                <FaXTwitter size={22} />
               </a>
               <a
                 href='https://www.instagram.com'
                 className='hover:text-custom-blue transition duration-300 ease-in-out'
                 aria-label='Instagram'
+                target='_blank'
+                rel='noopener noreferrer'
               >
                 <FaInstagram size={22} />
               </a>
@@ -83,6 +95,8 @@ const ContactDetails = () => {
                 href='https://www.pinterest.com'
                 className='hover:text-custom-blue transition duration-300 ease-in-out'
                 aria-label='Pinterest'
+                target='_blank'
+                rel='noopener noreferrer'
               >
                 <FaPinterestP size={22} />
               </a>
@@ -90,6 +104,8 @@ const ContactDetails = () => {
                 href='https://www.tiktok.com'
                 className='hover:text-custom-blue transition duration-300 ease-in-out'
                 aria-label='TikTok'
+                target='_blank'
+                rel='noopener noreferrer'
               >
                 <FaTiktok size={22} />
               </a>
@@ -97,6 +113,8 @@ const ContactDetails = () => {
                 href='https://www.youtube.com'
                 className='hover:text-custom-blue transition duration-300 ease-in-out'
                 aria-label='YouTube'
+                target='_blank'
+                rel='noopener noreferrer'
               >
                 <FaYoutube size={22} />
               </a>
@@ -104,7 +122,7 @@ const ContactDetails = () => {
             </div>
           </div>
         </div>
-        <div className='md:w-1/2 bg-black text-white flex flex-col justify-center'>
+        <div className='md:w-1/2 bg-black text-white flex flex-col justify-center py-10'>
           <div className='w-full max-w-lg mx-auto p-6'>
             <h2 className='text-3xl font-semibold mb-4 text-center'>
               Contact Form

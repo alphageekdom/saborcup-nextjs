@@ -1,11 +1,12 @@
 import {
   FaFacebook,
-  FaTwitter,
   FaInstagram,
   FaPinterestP,
   FaTiktok,
   FaYoutube,
 } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
+
 import { GiCoffeePot } from 'react-icons/gi';
 
 const TopBanner = () => {
@@ -22,6 +23,8 @@ const TopBanner = () => {
             href='https://www.facebook.com'
             className='hover:text-custom-blue transition duration-300 ease-in-out'
             aria-label='Facebook'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             <FaFacebook size={20} />
           </a>
@@ -29,13 +32,17 @@ const TopBanner = () => {
             href='https://www.x.com/'
             className='hover:text-custom-blue transition duration-300 ease-in-out'
             aria-label='X/Twitter'
+            target='_blank'
+            rel='noopener noreferrer'
           >
-            <FaTwitter size={20} />
+            <FaXTwitter size={20} />
           </a>
           <a
             href='https://www.instagram.com'
             className='hover:text-custom-blue transition duration-300 ease-in-out'
             aria-label='Instagram'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             <FaInstagram size={20} />
           </a>
@@ -43,6 +50,8 @@ const TopBanner = () => {
             href='https://www.pinterest.com'
             className='hover:text-custom-blue transition duration-300 ease-in-out'
             aria-label='Pinterest'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             <FaPinterestP size={20} />
           </a>
@@ -50,6 +59,8 @@ const TopBanner = () => {
             href='https://www.tiktok.com'
             className='hover:text-custom-blue transition duration-300 ease-in-out'
             aria-label='TikTok'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             <FaTiktok size={20} />
           </a>
@@ -57,6 +68,8 @@ const TopBanner = () => {
             href='https://www.youtube.com'
             className='hover:text-custom-blue transition duration-300 ease-in-out'
             aria-label='YouTube'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             <FaYoutube size={20} />
           </a>

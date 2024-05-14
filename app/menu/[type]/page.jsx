@@ -22,7 +22,7 @@ const MenuPage = () => {
           cache: 'no-store',
         });
         if (!categoriesResponse.ok) {
-          throw new Error('Failed to fetch categories');
+          throw new Error('Failed to fetch category');
         }
         const categoriesData = await categoriesResponse.json();
         setCategories(categoriesData);
@@ -64,9 +64,7 @@ const MenuPage = () => {
     { title: formattedTitle, path: pathname },
   ];
 
-  if (loading) {
-    return <Spinner />;
-  }
+  if (loading) return <Spinner />;
 
   if (error) return <ErrorMessage message={error} />;
 

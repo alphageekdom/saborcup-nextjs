@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 const slides = ['slide1', 'slide2', 'slide3'];
 
@@ -55,10 +56,16 @@ const HeroCarousel = () => {
             onClick={previousSlide}
             className='btn btn-circle btn-outline'
           >
-            ❮
+            <MdKeyboardArrowLeft
+              size={80}
+              className='hover:text-white text-gray-300'
+            />
           </button>
           <button onClick={nextSlide} className='btn btn-circle btn-outline'>
-            ❯
+            <MdKeyboardArrowRight
+              size={80}
+              className='hover:text-white text-gray-300'
+            />
           </button>
         </div>
       </div>
@@ -94,10 +101,16 @@ const HeroCarousel = () => {
             onClick={previousSlide}
             className='btn btn-circle btn-outline'
           >
-            ❮
+            <MdKeyboardArrowLeft
+              size={80}
+              className='hover:text-white text-gray-300'
+            />
           </button>
           <button onClick={nextSlide} className='btn btn-circle btn-outline'>
-            ❯
+            <MdKeyboardArrowRight
+              size={80}
+              className='hover:text-white text-gray-300'
+            />
           </button>
         </div>
       </div>
@@ -133,10 +146,16 @@ const HeroCarousel = () => {
             onClick={previousSlide}
             className='btn btn-circle btn-outline'
           >
-            ❮
+            <MdKeyboardArrowLeft
+              size={80}
+              className='hover:text-white text-gray-300'
+            />
           </button>
           <button onClick={nextSlide} className='btn btn-circle btn-outline'>
-            ❯
+            <MdKeyboardArrowRight
+              size={80}
+              className='hover:text-white text-gray-300'
+            />
           </button>
         </div>
       </div>

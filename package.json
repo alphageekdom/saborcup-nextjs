@@ -8,10 +8,12 @@
     "start": "next start",
     "lint": "next lint",
     "prisma:seed": "node prisma/seed.js",
-    "delete:data": "node prisma/delete.js"
+    "delete:data": "node prisma/delete.js",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.13.0",
+    "@railway/cli": "^3.5.2",
     "mapbox-gl": "^3.3.0",
     "next": "^14.2.3",
     "pg": "^8.11.5",

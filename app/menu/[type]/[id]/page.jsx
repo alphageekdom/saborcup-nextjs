@@ -6,6 +6,7 @@ import Breadcrumbs from '@/components/common/Breadcrumbs';
 import React from 'react';
 import Spinner from '@/components/Spinner';
 import ItemDetail from '@/components/ItemDetail';
+import ErrorMessage from '@/components/ErrorMessage';
 
 const ItemPage = () => {
   const [item, setItem] = useState(null);
@@ -36,13 +37,9 @@ const ItemPage = () => {
     fetchItem();
   }, [params.id]);
 
-  if (loading) {
-    return <Spinner />;
-  }
+  if (loading) return <Spinner />;
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  if (error) return <ErrorMessage message={error} />;
 
   if (!item) {
     return <div>Item not found</div>;

@@ -10,6 +10,7 @@ const Homepage = () => {
       <div className='bg-white'>
         <Welcome />
       </div>
+      <hr className='border-gray-200 my-0 md:hidden' />
       <div className='bg-gray-50'>
         <Events />
       </div>

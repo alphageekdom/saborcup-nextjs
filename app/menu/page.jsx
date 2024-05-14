@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import HeaderImage from '@/components/HeaderImage';
 import CategoryCard from '@/components/CategoryCard';
+import ErrorMessage from '@/components/ErrorMessage';
+import Spinner from '@/components/Spinner';
 
 const CategoryPage = () => {
   const [categories, setCategories] = useState([]);
@@ -16,7 +18,7 @@ const CategoryPage = () => {
     try {
       const response = await fetch('/api/menu', { cache: 'no-store' });
       if (!response.ok) {
-        throw new Error('Failed to fetch categories');
+        throw new Error('Failed to fetch menu');
       }
       const data = await response.json();
       setCategories(data);
@@ -30,6 +32,10 @@ const CategoryPage = () => {
   useEffect(() => {
     fetchCategories();
   }, []);
+
+  if (loading) return <Spinner />;
+
+  if (error) return <ErrorMessage message={error} />;
 
   return (
     <section className='bg-white'>
