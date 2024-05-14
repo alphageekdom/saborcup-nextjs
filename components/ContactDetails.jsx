@@ -16,7 +16,7 @@ const ContactDetails = () => {
   return (
     <TwoColumnSection className='w-full h-full'>
       <div className='container flex flex-col md:flex-row items-stretch justify-between custom-shadow'>
-        <div className='md:w-1/2 bg-gray-50 text-black flex flex-col items-start justify-center mb-8 md:mb-0 py-10'>
+        <div className='md:w-1/2 bg-white text-black flex flex-col items-start justify-center md:mb-0 py-10'>
           <div className='w-full max-w-lg mx-auto p-6'>
             {' '}
             {/* Wrapping div */}
@@ -30,7 +30,7 @@ const ContactDetails = () => {
                 aria-label='SaborCup Address'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='hover:text-custom-blue'
+                className='hover:text-primary'
               >
                 123 Street Name, City
               </a>
@@ -42,7 +42,7 @@ const ContactDetails = () => {
                 aria-label='SaborCup Telephone Number'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='hover:text-custom-blue'
+                className='hover:text-primary'
               >
                 (232) 555 - 5555
               </a>
@@ -54,7 +54,7 @@ const ContactDetails = () => {
                 aria-label='SaborCup Email Address'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='hover:text-custom-blue'
+                className='hover:text-primary'
               >
                 info@saborcafe.com
               </a>
@@ -66,7 +66,7 @@ const ContactDetails = () => {
             <div className='flex space-x-4 mb-4'>
               <a
                 href='https://www.facebook.com'
-                className='hover:text-custom-blue transition duration-300 ease-in-out'
+                className='hover:text-primary transition duration-300 ease-in-out'
                 aria-label='Facebook'
                 target='_blank'
                 rel='noopener noreferrer'
@@ -75,7 +75,7 @@ const ContactDetails = () => {
               </a>
               <a
                 href='https://www.x.com/'
-                className='hover:text-custom-blue transition duration-300 ease-in-out'
+                className='hover:text-primary transition duration-300 ease-in-out'
                 aria-label='X/Twitter'
                 target='_blank'
                 rel='noopener noreferrer'
@@ -84,7 +84,7 @@ const ContactDetails = () => {
               </a>
               <a
                 href='https://www.instagram.com'
-                className='hover:text-custom-blue transition duration-300 ease-in-out'
+                className='hover:text-primary transition duration-300 ease-in-out'
                 aria-label='Instagram'
                 target='_blank'
                 rel='noopener noreferrer'
@@ -93,7 +93,7 @@ const ContactDetails = () => {
               </a>
               <a
                 href='https://www.pinterest.com'
-                className='hover:text-custom-blue transition duration-300 ease-in-out'
+                className='hover:text-primary transition duration-300 ease-in-out'
                 aria-label='Pinterest'
                 target='_blank'
                 rel='noopener noreferrer'
@@ -102,7 +102,7 @@ const ContactDetails = () => {
               </a>
               <a
                 href='https://www.tiktok.com'
-                className='hover:text-custom-blue transition duration-300 ease-in-out'
+                className='hover:text-primary transition duration-300 ease-in-out'
                 aria-label='TikTok'
                 target='_blank'
                 rel='noopener noreferrer'
@@ -111,7 +111,7 @@ const ContactDetails = () => {
               </a>
               <a
                 href='https://www.youtube.com'
-                className='hover:text-custom-blue transition duration-300 ease-in-out'
+                className='hover:text-primary transition duration-300 ease-in-out'
                 aria-label='YouTube'
                 target='_blank'
                 rel='noopener noreferrer'

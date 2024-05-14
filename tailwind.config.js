@@ -13,22 +13,20 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        'custom-blue': '#0e92ff',
+        primary: '#0E92FF', // Your current blue
+        black: '#000000', // Black for footer and navbar
+        white: '#FFFFFF', // White background
+        lightgray: '#F9FAFB', // Light gray background
+        background: '#f7f4e9',
+        accent1: '#b53320', // Darker tomato red
+        accent2: '#cc7a00', // Darker orange
+        accent3: '#B58900', // Darker yellow
+        accent4: '#357a38', // Darker green
       },
       fontFamily: {
         sans: ['var(--font-poppins)'],
       },
     },
   },
-  plugins: [
-    function ({ addUtilities }) {
-      const newUtilities = {
-        '.custom-blue-color': {
-          color: '#0e92ff',
-        },
-      };
-
-      addUtilities(newUtilities, ['responsive', 'hover']);
-    },
-  ],
+  plugins: [],
 };

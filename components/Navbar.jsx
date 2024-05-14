@@ -47,20 +47,20 @@ const Navbar = () => {
 
   const getLinkClass = (href) => {
     return pathname === href
-      ? 'text-[#0A93FE] text-xl font-medium transition duration-300 ease-in-out'
-      : 'text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out';
+      ? 'text-primary text-xl font-medium transition duration-300 ease-in-out'
+      : 'text-xl font-medium text-white hover:text-primary transition duration-300 ease-in-out';
   };
 
   const getDropdownLinkClass = (href) => {
     return pathname === href
-      ? 'px-4 py-2 bg-[#0A93FE] text-white'
-      : 'px-4 py-2 hover:bg-[#0A93FE] hover:text-white';
+      ? 'px-4 py-2 bg-primary text-white'
+      : 'px-4 py-2 hover:bg-primary hover:text-white';
   };
 
   return (
     <>
       <TopBanner />
-      <nav className='bg-black border-b border-[#0A93FE]'>
+      <nav className='bg-black border-b border-primary'>
         <div className='container mx-auto px-4'>
           <div className='flex justify-between items-center py-4'>
             <div className='flex items-center'>
@@ -103,14 +103,14 @@ const Navbar = () => {
                     <FaChevronDown
                       className={`ml-1 text-xl font-medium flex items-center transition duration-300 ease-in-out ${
                         isDropdownOpen
-                          ? 'text-[#0A93FE]'
+                          ? 'text-primary'
                           : 'text-white hover:custom-blue-color'
                       }`}
                     />
                   </button>
                 </div>
                 {isDropdownOpen && (
-                  <div className='absolute bg-black opacity-80 border border-[#0A93FE] text-white flex flex-col py-2 w-60 z-40'>
+                  <div className='absolute bg-black opacity-80 border border-primary text-white flex flex-col py-2 w-60 z-40'>
                     <Link
                       href='/menu/hot-coffee'
                       className={getDropdownLinkClass('/menu/hot-coffee')}

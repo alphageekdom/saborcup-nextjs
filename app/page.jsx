@@ -7,11 +7,11 @@ const Homepage = () => {
   return (
     <>
       <Hero />
-      <div className='bg-white'>
+      <div className='bg-background'>
         <Welcome />
       </div>
       <hr className='border-gray-200 my-0 md:hidden' />
-      <div className='bg-gray-50'>
+      <div className='bg-lightgray'>
         <Events />
       </div>
     </>

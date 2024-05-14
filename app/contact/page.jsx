@@ -7,9 +7,9 @@ const ContactPage = () => {
   const crumbs = [{ title: 'Contact', path: '/contact' }];
 
   return (
-    <section className='bg-white'>
+    <section className='bg-lightgrey'>
       <HeaderImage
-        imageUrl='https://images.unsplash.com/photo-1530811761207-8d9d22f0a141?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        imageUrl='https://images.unsplash.com/photo-1528747045269-390fe33c19f2?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         overlayColor='black'
       >
         <h1 className='text-4xl md:text-5xl font-bold'>Contact Us</h1>

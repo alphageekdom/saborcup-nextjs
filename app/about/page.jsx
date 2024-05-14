@@ -18,6 +18,9 @@ const AboutPage = () => {
         </p>
       </HeaderImage>
       <Breadcrumbs crumbs={crumbs} />
+      <h1 className='text-4xl md:text-5xl font-bold text-center my-8 tracking-wider '>
+        About Us
+      </h1>
       <About />
     </section>
   );

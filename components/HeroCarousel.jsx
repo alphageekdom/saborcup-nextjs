@@ -38,33 +38,33 @@ const HeroCarousel = () => {
           width={2000}
           height={100}
           sizes='100vw'
-          className='object-cover max-h-[500px]'
+          className='object-cover max-h-[300px]'
           priority
         />
         <div className='absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center'>
           <h2 className='text-3xl md:text-4xl lg:text-5xl text-white mb-6'>
             Check Out Our Menu
           </h2>
-          <Link href='/menu'>
-            <button className='bg-[#0A93FE] hover:bg-[#0877cc]  text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg'>
-              Explore
-            </button>
+          <Link
+            href='/menu'
+            className='bg-accent1 hover:bg-accent2 text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg z-10'
+          >
+            Explore
           </Link>
         </div>
         <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
-          <button
-            onClick={previousSlide}
-            className='btn btn-circle btn-outline'
-          >
+          <button onClick={previousSlide}>
             <MdKeyboardArrowLeft
               size={80}
               className='hover:text-white text-gray-300'
+              aria-label='Previous Image'
             />
           </button>
-          <button onClick={nextSlide} className='btn btn-circle btn-outline'>
+          <button onClick={nextSlide}>
             <MdKeyboardArrowRight
               size={80}
               className='hover:text-white text-gray-300'
+              aria-label='Next Image'
             />
           </button>
         </div>
@@ -83,30 +83,28 @@ const HeroCarousel = () => {
           width={2000}
           height={100}
           sizes='100vw'
-          className='object-cover max-h-[500px]'
-          loading='lazy'
+          className='object-cover max-h-[300px]'
+          priority
         />
         <div className='absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center'>
           <h2 className='text-3xl md:text-4xl lg:text-5xl text-white mb-6'>
             Try Our Signature Drinks
           </h2>
-          <Link href='/menu/signature-drinks'>
-            <button className='bg-[#0A93FE] hover:bg-[#0877cc]  text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg'>
-              Explore
-            </button>
+          <Link
+            href='/menu/signature-drinks'
+            className='bg-accent1 hover:bg-accent2 text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg z-10'
+          >
+            Explore
           </Link>
         </div>
         <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
-          <button
-            onClick={previousSlide}
-            className='btn btn-circle btn-outline'
-          >
+          <button onClick={previousSlide} aria-label='Previous Image'>
             <MdKeyboardArrowLeft
               size={80}
               className='hover:text-white text-gray-300'
             />
           </button>
-          <button onClick={nextSlide} className='btn btn-circle btn-outline'>
+          <button onClick={nextSlide} aria-label='Next Image'>
             <MdKeyboardArrowRight
               size={80}
               className='hover:text-white text-gray-300'
@@ -128,30 +126,28 @@ const HeroCarousel = () => {
           width={2000}
           height={100}
           sizes='100vw'
-          className='object-cover max-h-[500px]'
-          loading='lazy'
+          className='object-cover max-h-[300px]'
+          priority
         />
         <div className='absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center'>
           <h2 className='text-3xl md:text-4xl lg:text-5xl text-white mb-6'>
             Join Our Upcoming Events
           </h2>
-          <Link href='/events'>
-            <button className='bg-[#0A93FE] hover:bg-[#0877cc]  text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg'>
-              View
-            </button>
+          <Link
+            href='/events'
+            className='bg-accent1 hover:bg-accent2 text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg z-10'
+          >
+            View
           </Link>
         </div>
         <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
-          <button
-            onClick={previousSlide}
-            className='btn btn-circle btn-outline'
-          >
+          <button onClick={previousSlide} aria-label='Previous Image'>
             <MdKeyboardArrowLeft
               size={80}
               className='hover:text-white text-gray-300'
             />
           </button>
-          <button onClick={nextSlide} className='btn btn-circle btn-outline'>
+          <button onClick={nextSlide} aria-label='Next Image'>
             <MdKeyboardArrowRight
               size={80}
               className='hover:text-white text-gray-300'

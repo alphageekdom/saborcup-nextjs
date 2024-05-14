@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const HeaderImage = ({ imageUrl, overlayColor, children }) => {
   return (
-    <div className='relative h-[300px] md:h-[500px] w-full'>
+    <div className='relative h-[300px] w-full'>
       <Image
         src={imageUrl}
         width={1000}
