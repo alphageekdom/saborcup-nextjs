@@ -1,11 +1,10 @@
-// schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-}
-
-generator client {
-  provider = "prisma-client-js"
 }
 
 model Event {
@@ -32,7 +31,7 @@ model Message {
 }
 
 model Category {
-  id          Int      @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   name        String
   type        String
   description String
@@ -41,14 +40,14 @@ model Category {
 }
 
 model Item {
-  id            Int       @id @default(autoincrement())
-  name          String
-  type          String
-  availability  String
-  description   String
-  isFeatured    Boolean
-  isSeasonal    Boolean
-  images        String[]
-  prices        Json     
-  sizes         String[]
+  id           Int      @id @default(autoincrement())
+  name         String
+  type         String
+  availability String
+  description  String
+  isFeatured   Boolean
+  isSeasonal   Boolean
+  images       String[]
+  prices       Json
+  sizes        String[]
 }
