@@ -51,3 +51,12 @@ model Item {
   prices       Json
   sizes        String[]
 }
+
+model CartItem {
+  id       Int     @id @default(autoincrement())
+  name     String
+  size     String
+  quantity Int
+  price    Float
+  imageUrl String
+}

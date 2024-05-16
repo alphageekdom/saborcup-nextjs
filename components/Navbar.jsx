@@ -7,8 +7,9 @@ import { FaBars, FaTimes, FaShoppingCart, FaChevronDown } from 'react-icons/fa';
 import cafeLogo from '@/assets/images/SaborCup.png';
 import TopBanner from './TopBanner';
 import { usePathname } from 'next/navigation';
+import Cart from './Cart';
 
-const Navbar = () => {
+const Navbar = ({ toggleCart }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const pathname = usePathname();
@@ -156,12 +157,7 @@ const Navbar = () => {
               <Link href='/contact' className={getLinkClass('/contact')}>
                 Contact
               </Link>
-              <div className='flex items-center'>
-                <FaShoppingCart
-                  className='text-white hover:custom-blue-color cursor-pointer transition duration-300 ease-in-out'
-                  size={24}
-                />
-              </div>
+              <Cart />
             </div>
             <div className='md:hidden'>
               {isMobileMenuOpen ? (

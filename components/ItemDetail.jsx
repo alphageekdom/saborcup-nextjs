@@ -1,18 +1,30 @@
+'use client';
+
 import { useState } from 'react';
 import Image from 'next/image';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+import { useCart } from '@/context/CartContext';
 
 const ItemDetail = ({ item }) => {
+  const { addToCart } = useCart();
   const [selectedSize, setSelectedSize] = useState(item.sizes[0]);
+  const [quantity, setQuantity] = useState(1);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const handleSizeChange = (event) => {
     setSelectedSize(event.target.value);
   };
 
-  const handleAddToCart = () => {
-    // Implement your add to cart functionality here
-    console.log(`Added ${item.name} in size ${selectedSize} to cart`);
+  const handleAddToCart = async () => {
+    const cartItem = {
+      name: item.name,
+      size: selectedSize,
+      quantity,
+      price: parseFloat(item.prices[selectedSize]),
+      imageUrl: item.images[0],
+    };
+
+    addToCart(cartItem);
   };
 
   return (
@@ -86,9 +98,25 @@ const ItemDetail = ({ item }) => {
               ))}
             </select>
           </div>
+
+          <div className='mt-4'>
+            <label htmlFor='quantity' className='text-gray-700'>
+              Quantity:
+            </label>
+            <input
+              type='number'
+              id='quantity'
+              value={quantity}
+              onChange={(e) => setQuantity(Number(e.target.value))}
+              min='1'
+              className='ml-2 px-2 py-1 border border-gray-300 rounded mb-4'
+            />
+          </div>
+
           <button
             onClick={handleAddToCart}
-            className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600'
+            className='bg-accent1 hover:bg-accent2 text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg'
+            aria-label='Add to Cart'
           >
             Add to Cart
           </button>

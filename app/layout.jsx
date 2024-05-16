@@ -1,6 +1,7 @@
 import '@/assets/styles/global.css';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import { CartProvider } from '@/context/CartContext';
 import { Poppins } from 'next/font/google';
 
 const poppins_init = Poppins({
@@ -18,13 +19,15 @@ export const metadata = {
 
 const MainLayout = ({ children }) => {
   return (
-    <html lang='en' className={poppins_init}>
-      <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-      </body>
-    </html>
+    <CartProvider>
+      <html lang='en' className={poppins_init}>
+        <body>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </body>
+      </html>
+    </CartProvider>
   );
 };
 

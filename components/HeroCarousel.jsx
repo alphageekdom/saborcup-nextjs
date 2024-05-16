@@ -24,7 +24,7 @@ const HeroCarousel = () => {
   }, []);
 
   return (
-    <div className='carousel w-full max-h-[500px] block'>
+    <div className='carousel w-full max-h-[500px] block z-10'>
       {/* Slide 1: Checkout Menu */}
       <div
         id='slide1'
