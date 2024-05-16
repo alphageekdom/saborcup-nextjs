@@ -47,7 +47,7 @@ const EventCard = ({ event }) => {
         {!event.isPast && (
           <Link
             href={`/events/${event.id}`}
-            className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600'
+            className='bg-accent1 hover:bg-accent2 text-white font-bold py-2 px-4 rounded-md text-md shadow-lg'
             aria-label={`Learn more about ${event.title}`}
           >
             Learn More

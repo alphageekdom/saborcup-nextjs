@@ -37,7 +37,7 @@ const EventDetails = ({ eventId }) => {
   if (!event) return <p>Event not found</p>;
 
   return (
-    <div className='flex flex-col items-center gap-8 px-4 lg:px-0'>
+    <div className='flex flex-col items-center gap-8 p-4 lg:px-0 bg-background'>
       <div className='relative w-full max-w-4xl flex justify-center items-center'>
         <Image
           src={event.image}
@@ -55,19 +55,19 @@ const EventDetails = ({ eventId }) => {
         {event.description}
       </p>
       {event.summary && (
-        <div className='bg-white shadow p-4 rounded-lg w-full max-w-3xl'>
-          <h3 className='text-xl font-semibold text-blue-600'>Summary</h3>
+        <div className='bg-lightgray shadow p-4 rounded-lg w-full max-w-3xl'>
+          <h3 className='text-xl font-semibold text-black'>Summary</h3>
           <p className='mt-2 text-gray-700'>{event.summary}</p>
         </div>
       )}
       {event.importance && (
-        <div className='bg-white shadow p-4 rounded-lg w-full max-w-3xl'>
-          <h3 className='text-xl font-semibold text-blue-600'>Importance</h3>
+        <div className='bg-lightgray shadow p-4 rounded-lg w-full max-w-3xl'>
+          <h3 className='text-xl font-semibold text-accent1'>Importance</h3>
           <p className='mt-2 text-gray-700'>{event.importance}</p>
         </div>
       )}
-      <div className='bg-white shadow p-4 rounded-lg w-full max-w-3xl'>
-        <h3 className='text-xl font-semibold text-blue-600'>Event Details</h3>
+      <div className='bg-lightgray shadow p-4 rounded-lg w-full max-w-3xl'>
+        <h3 className='text-xl font-semibold text-accent4'>Event Details</h3>
         <p className='mt-2 text-gray-700'>
           <strong>Host:</strong> {event.host}
         </p>
@@ -89,7 +89,7 @@ const EventDetails = ({ eventId }) => {
       </div>
       <Link
         href='/events'
-        className='bg-[#0A93FE] hover:bg-[#0877cc]  text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg'
+        className='bg-accent1 hover:bg-accent2 text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg'
       >
         Back to Events
       </Link>

@@ -9,7 +9,7 @@ import TopBanner from './TopBanner';
 import { usePathname } from 'next/navigation';
 import Cart from './Cart';
 
-const Navbar = ({ toggleCart }) => {
+const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const pathname = usePathname();
@@ -55,7 +55,7 @@ const Navbar = ({ toggleCart }) => {
   const getDropdownLinkClass = (href) => {
     return pathname === href
       ? 'px-4 py-2 bg-primary text-white'
-      : 'px-4 py-2 hover:bg-primary hover:text-white';
+      : 'px-4 py-2 text-white hover:bg-primary';
   };
 
   return (
@@ -98,14 +98,14 @@ const Navbar = ({ toggleCart }) => {
                   </Link>
                   <button
                     onClick={toggleDropdown}
-                    className='text-xl font-medium text-white flex items-center hover:custom-blue-color transition duration-300 ease-in-out'
+                    className='text-xl font-medium text-white flex items-center hover:text-primary transition duration-300 ease-in-out'
                     aria-label='Dropdown Button'
                   >
                     <FaChevronDown
                       className={`ml-1 text-xl font-medium flex items-center transition duration-300 ease-in-out ${
                         isDropdownOpen
                           ? 'text-primary'
-                          : 'text-white hover:custom-blue-color'
+                          : 'text-white hover:text-primary'
                       }`}
                     />
                   </button>
@@ -162,13 +162,13 @@ const Navbar = ({ toggleCart }) => {
             <div className='md:hidden'>
               {isMobileMenuOpen ? (
                 <FaTimes
-                  className='text-white hover:custom-blue-color cursor-pointer transition duration-300 ease-in-out'
+                  className='text-white hover:text-primary cursor-pointer transition duration-300 ease-in-out'
                   size={24}
                   onClick={toggleMenu}
                 />
               ) : (
                 <FaBars
-                  className='text-white hover:custom-blue-color cursor-pointer transition duration-300 ease-in-out'
+                  className='text-white hover:text-primary cursor-pointer transition duration-300 ease-in-out'
                   size={24}
                   onClick={toggleMenu}
                 />
@@ -177,16 +177,12 @@ const Navbar = ({ toggleCart }) => {
           </div>
           {isMobileMenuOpen && (
             <div className='md:hidden flex flex-col space-y-4'>
-              <Link
-                href='/'
-                className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
-                onClick={closeMenu}
-              >
+              <Link href='/' className={getLinkClass('/')} onClick={closeMenu}>
                 Home
               </Link>
               <Link
                 href='/about'
-                className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
+                className={getLinkClass('/about')}
                 onClick={closeMenu}
               >
                 About
@@ -201,14 +197,18 @@ const Navbar = ({ toggleCart }) => {
                 </Link>
                 <button
                   onClick={toggleDropdown}
-                  className='text-xl font-medium text-white flex items-center hover:custom-blue-color transition duration-300 ease-in-out'
+                  className={`text-xl font-medium flex items-center transition duration-300 ease-in-out ${
+                    pathname.startsWith('/menu')
+                      ? 'text-primary'
+                      : 'text-white hover:text-primary'
+                  }`}
                   aria-label='Dropdown Button'
                 >
                   <FaChevronDown
                     className={`ml-1 text-xl font-medium flex items-center transition duration-300 ease-in-out ${
-                      isDropdownOpen
-                        ? 'text-[#0A93FE]'
-                        : 'text-white hover:custom-blue-color'
+                      isDropdownOpen || pathname.startsWith('/menu')
+                        ? 'text-primary'
+                        : 'text-white hover:text-primary'
                     }`}
                   />
                 </button>
@@ -217,42 +217,42 @@ const Navbar = ({ toggleCart }) => {
                 <div className='flex flex-col pb-4'>
                   <Link
                     href='/menu/hot-coffee'
-                    className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
+                    className={getDropdownLinkClass('/menu/hot-coffee')}
                     onClick={closeMenu}
                   >
                     Hot Coffee
                   </Link>
                   <Link
                     href='/menu/cold-coffee'
-                    className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
+                    className={getDropdownLinkClass('/menu/cold-coffee')}
                     onClick={closeMenu}
                   >
                     Cold Coffee
                   </Link>
                   <Link
                     href='/menu/hot-tea'
-                    className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
+                    className={getDropdownLinkClass('/menu/hot-tea')}
                     onClick={closeMenu}
                   >
                     Hot Tea
                   </Link>
                   <Link
                     href='/menu/iced-tea'
-                    className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
+                    className={getDropdownLinkClass('/menu/iced-tea')}
                     onClick={closeMenu}
                   >
                     Iced Tea
                   </Link>
                   <Link
                     href='/menu/lemonade'
-                    className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
+                    className={getDropdownLinkClass('/menu/lemonade')}
                     onClick={closeMenu}
                   >
                     Lemonade
                   </Link>
                   <Link
                     href='/menu/bakery'
-                    className='px-4 py-2 text-white hover:bg-[#0A93FE] hover:text-white'
+                    className={getDropdownLinkClass('/menu/bakery')}
                     onClick={closeMenu}
                   >
                     Bakery
@@ -261,24 +261,19 @@ const Navbar = ({ toggleCart }) => {
               )}
               <Link
                 href='/events'
-                className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
+                className={getLinkClass('/events')}
                 onClick={closeMenu}
               >
                 Events
               </Link>
               <Link
                 href='/contact'
-                className='text-xl font-medium text-white hover:custom-blue-color transition duration-300 ease-in-out'
+                className={getLinkClass('/contact')}
                 onClick={closeMenu}
               >
                 Contact
               </Link>
-              <div className='flex items-center pb-4'>
-                <FaShoppingCart
-                  className='text-white hover:custom-blue-color cursor-pointer transition duration-300 ease-in-out'
-                  size={24}
-                />
-              </div>
+              <Cart />
             </div>
           )}
         </div>

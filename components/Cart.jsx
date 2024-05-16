@@ -65,7 +65,7 @@ const Cart = () => {
     <>
       <div className='flex items-center'>
         <FaShoppingCart
-          className='text-white hover:text-blue-500 cursor-pointer transition duration-300 ease-in-out'
+          className='text-white hover:text-blue-500 mb-3 md:mb-0 cursor-pointer transition duration-300 ease-in-out'
           size={24}
           onClick={toggleCart}
         />
