@@ -1,4 +1,5 @@
 import '@/assets/styles/global.css';
+import ToasterConfig from '@/components/common/ToasterConfig';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import { CartProvider } from '@/context/CartContext';
@@ -25,6 +26,7 @@ const MainLayout = ({ children }) => {
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <ToasterConfig />
         </body>
       </html>
     </CartProvider>

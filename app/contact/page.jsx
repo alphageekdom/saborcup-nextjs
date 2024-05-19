@@ -1,6 +1,6 @@
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import ContactDetails from '@/components/ContactDetails';
-import HeaderImage from '@/components/HeaderImage';
+import HeaderImage from '@/components/common/HeaderImage';
 import React from 'react';
 
 const ContactPage = () => {

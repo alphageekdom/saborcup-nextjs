@@ -1,18 +1,17 @@
 'use client';
 
-import { AiOutlineClose } from 'react-icons/ai';
+import { IoClose } from 'react-icons/io5';
+
+import { GiBeachBag } from 'react-icons/gi';
+import { FaCheck } from 'react-icons/fa6';
+
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
-import Spinner from './Spinner';
+import Spinner from '../common/Spinner';
+import toast from 'react-hot-toast';
 
-const CartSidebar = ({
-  isOpen,
-  cartItems,
-  onRemoveItem,
-  onUpdateQuantity,
-  onClose,
-}) => {
+const CartSidebar = ({ isOpen, cartItems, onRemoveItem, onUpdateQuantity }) => {
   const { cart, fetchCartItems, loading } = useCart();
   const [total, setTotal] = useState(0);
   const [taxes, setTaxes] = useState(0);
@@ -35,32 +34,76 @@ const CartSidebar = ({
     }
   }, [cart]);
 
+  const confirmRemoveItem = (itemId) => {
+    toast(
+      (t) => (
+        <span
+          style={{
+            color: 'white',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          Delete item from cart?
+          <button
+            onClick={() => {
+              onRemoveItem(itemId);
+              toast.dismiss(t.id);
+            }}
+            className='ml-2'
+            style={{
+              color: 'white',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+            }}
+            aria-label='Confirm deletion'
+          >
+            <FaCheck className='over:transform hover:scale-150 transition-transform duration-200 ease-in-out' />
+          </button>
+        </span>
+      ),
+      {
+        style: {
+          background: '#0D92FF',
+          color: '#fff',
+        },
+      }
+    );
+  };
+
   useEffect(() => {
     if (isOpen) {
       fetchCartItems();
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
     }
+
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
   }, [isOpen, fetchCartItems]);
 
   return (
     <div
-      className={`fixed top-[-16px] md:top-0 right-0 h-full bg-white shadow-lg transform transition-transform z-20 ${
-        isOpen ? 'translate-x-0' : 'translate-x-full'
-      } w-full md:w-96`}
+      className={`right-0 h-screen bg-white shadow-lg transform transition-transform z-20 ${
+        isOpen ? 'translate-x-0' : 'translate-x-full hidden'
+      } w-[500px] h-full absolute top-[3.8rem] md:top-[3.8rem]`}
     >
-      <div className='flex justify-between p-4 bg-black text-white'>
-        <h2 className='text-lg'>Cart</h2>
-        <button onClick={onClose} aria-label='Close Cart'>
-          <AiOutlineClose
-            size={20}
-            className='hover:text-primary hover:transform hover:scale-125 transition-transform duration-200 ease-in-out'
-          />
-        </button>
+      <div className='flex justify-between p-4 bg-primary text-white'>
+        <h2 className='text-xl'>Cart</h2>
+        <p className='flex items-center gap-1'>
+          <GiBeachBag size={16} />
+          <span className='text-xl'>{cartItems.length}</span>
+        </p>
       </div>
 
       {loading ? (
         <Spinner loading={loading} />
       ) : (
-        <ul className='p-4'>
+        <ul className='p-4 overflow-y-auto max-h-[50vh]' id='items'>
           {cart.length === 0 ? (
             <li>
               <p className='text-center'>Your cart is empty</p>
@@ -109,11 +152,11 @@ const CartSidebar = ({
                     </div>
                   </div>
                   <button
-                    onClick={() => onRemoveItem(item.id)}
-                    className='text-red-500 hover:transform hover:scale-125 transition-transform duration-200 ease-in-out'
+                    onClick={() => confirmRemoveItem(item.id)}
+                    className='text-red-500 hover:transform hover:scale-150 transition-transform duration-200 ease-in-out'
                     aria-label='Remove Item'
                   >
-                    <AiOutlineClose />
+                    <IoClose size={24} />
                   </button>
                 </div>
                 {index < cartItems.length - 1 && (

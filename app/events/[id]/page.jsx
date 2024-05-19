@@ -1,5 +1,5 @@
 import React from 'react';
-import EventDetails from '@/components/EventDetails';
+import EventDetails from '@/components/events/EventDetails';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 
 const EventDetailsPage = ({ params }) => {

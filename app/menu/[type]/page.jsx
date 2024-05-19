@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
-import HeaderImage from '@/components/HeaderImage';
-import BeverageCard from '@/components/BeverageCard';
+import HeaderImage from '@/components/common/HeaderImage';
+import BeverageCard from '@/components/menu/BeverageCard';
 import { usePathname } from 'next/navigation';
-import Spinner from '@/components/Spinner';
-import ErrorMessage from '@/components/ErrorMessage';
+import Spinner from '@/components/common/Spinner';
+import ErrorMessage from '@/components/common/ErrorMessage';
 
 const MenuPage = () => {
   const [categories, setCategories] = useState([]);

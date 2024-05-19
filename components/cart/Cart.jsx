@@ -4,12 +4,18 @@ import { useState, useEffect } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import CartSidebar from './CartSidebar';
 
-const Cart = () => {
+const Cart = ({
+  onCartToggle,
+  isMobileMenuOpen,
+  setIsMobileMenuOpen,
+  closeCart,
+}) => {
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
     if (isCartOpen) {
+      console.log('Fetching cart items');
       fetch('/api/cart')
         .then((res) => res.json())
         .then((data) => {
@@ -59,13 +65,27 @@ const Cart = () => {
       .catch((error) => console.error('Error updating quantity:', error));
   };
 
-  const toggleCart = () => setIsCartOpen(!isCartOpen);
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+    if (!isCartOpen && isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+    if (onCartToggle) {
+      onCartToggle();
+    }
+  };
+
+  useEffect(() => {
+    if (closeCart && isCartOpen) {
+      setIsCartOpen(false);
+    }
+  }, [closeCart, isCartOpen]);
 
   return (
-    <>
-      <div className='flex items-center'>
+    <div className='flex items-center'>
+      <div className='relative'>
         <FaShoppingCart
-          className='text-white hover:text-blue-500 mb-3 md:mb-0 cursor-pointer transition duration-300 ease-in-out'
+          className='mb-0 cursor-pointer transition duration-300 ease-in-out text-white hover:text-primary'
           size={24}
           onClick={toggleCart}
         />
@@ -75,9 +95,8 @@ const Cart = () => {
         cartItems={cartItems}
         onRemoveItem={handleRemoveItem}
         onUpdateQuantity={handleUpdateQuantity}
-        onClose={toggleCart}
       />
-    </>
+    </div>
   );
 };
 

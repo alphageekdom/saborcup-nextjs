@@ -4,12 +4,15 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import { useCart } from '@/context/CartContext';
+import toast from 'react-hot-toast';
 
 const ItemDetail = ({ item }) => {
   const { addToCart } = useCart();
   const [selectedSize, setSelectedSize] = useState(item.sizes[0]);
   const [quantity, setQuantity] = useState(1);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const notify = () => toast('Here is your toast!');
 
   const handleSizeChange = (event) => {
     setSelectedSize(event.target.value);
@@ -25,6 +28,7 @@ const ItemDetail = ({ item }) => {
     };
 
     addToCart(cartItem);
+    toast.success('Item added to cart!');
   };
 
   return (

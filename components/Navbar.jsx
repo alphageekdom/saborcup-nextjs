@@ -3,19 +3,26 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
-import { FaBars, FaTimes, FaShoppingCart, FaChevronDown } from 'react-icons/fa';
+import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
 import cafeLogo from '@/assets/images/SaborCup.png';
 import TopBanner from './TopBanner';
 import { usePathname } from 'next/navigation';
-import Cart from './Cart';
+import Cart from './cart/Cart';
+import { useCart } from '@/context/CartContext';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [closeCart, setCloseCart] = useState(false);
   const pathname = usePathname();
+
+  const { cart } = useCart();
 
   const toggleMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+    if (!isMobileMenuOpen) {
+      setCloseCart(true);
+    }
   };
 
   const toggleDropdown = () => {
@@ -46,6 +53,12 @@ const Navbar = () => {
     setIsDropdownOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    if (closeCart) {
+      setCloseCart(false);
+    }
+  }, [closeCart]);
+
   const getLinkClass = (href) => {
     return pathname === href
       ? 'text-primary text-xl font-medium transition duration-300 ease-in-out'
@@ -58,10 +71,12 @@ const Navbar = () => {
       : 'px-4 py-2 text-white hover:bg-primary';
   };
 
+  const hasItems = cart.length > 0;
+
   return (
     <>
       <TopBanner />
-      <nav className='bg-black border-b border-primary'>
+      <nav className='bg-black border-b border-primary sticky top-0 z-20'>
         <div className='container mx-auto px-4'>
           <div className='flex justify-between items-center py-4'>
             <div className='flex items-center'>
@@ -157,9 +172,24 @@ const Navbar = () => {
               <Link href='/contact' className={getLinkClass('/contact')}>
                 Contact
               </Link>
-              <Cart />
+              <div className='relative'>
+                <Cart
+                  isMobileMenuOpen={isMobileMenuOpen}
+                  setIsMobileMenuOpen={setIsMobileMenuOpen}
+                  closeCart={closeCart}
+                />
+                {hasItems && <div className='badge'>1</div>}
+              </div>
             </div>
-            <div className='md:hidden'>
+            <div className='md:hidden flex items-center space-x-4 relative'>
+              <div>
+                <Cart
+                  isMobileMenuOpen={isMobileMenuOpen}
+                  setIsMobileMenuOpen={setIsMobileMenuOpen}
+                  closeCart={closeCart}
+                />
+                {hasItems && <div className='badge'>1</div>}
+              </div>
               {isMobileMenuOpen ? (
                 <FaTimes
                   className='text-white hover:text-primary cursor-pointer transition duration-300 ease-in-out'
@@ -176,7 +206,7 @@ const Navbar = () => {
             </div>
           </div>
           {isMobileMenuOpen && (
-            <div className='md:hidden flex flex-col space-y-4'>
+            <div className='md:hidden flex flex-col space-y-4 py-3'>
               <Link href='/' className={getLinkClass('/')} onClick={closeMenu}>
                 Home
               </Link>
@@ -190,7 +220,7 @@ const Navbar = () => {
               <div className='flex items-center'>
                 <Link
                   href='/menu'
-                  className={getLinkClass('/menu')}
+                  className='text-xl font-medium text-white hover:text-primary transition duration-300 ease-in-out'
                   onClick={closeMenu}
                 >
                   Menu
@@ -273,7 +303,6 @@ const Navbar = () => {
               >
                 Contact
               </Link>
-              <Cart />
             </div>
           )}
         </div>

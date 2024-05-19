@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import TwoColumnSection from './TwoColumnSection';
+import TwoColumnSection from './common/TwoColumnSection';
 import {
   FaFacebook,
   FaInstagram,

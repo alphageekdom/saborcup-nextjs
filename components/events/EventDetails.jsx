@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Spinner from './Spinner';
-import ErrorMessage from './ErrorMessage';
+import Spinner from '../common/Spinner';
+import ErrorMessage from '../common/ErrorMessage';
 
 const EventDetails = ({ eventId }) => {
   const [event, setEvent] = useState(null);

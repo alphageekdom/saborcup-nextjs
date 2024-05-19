@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
-import HeaderImage from '@/components/HeaderImage';
-import CategoryCard from '@/components/CategoryCard';
-import ErrorMessage from '@/components/ErrorMessage';
-import Spinner from '@/components/Spinner';
+import HeaderImage from '@/components/common/HeaderImage';
+import CategoryCard from '@/components/menu/CategoryCard';
+import ErrorMessage from '@/components/common/ErrorMessage';
+import Spinner from '@/components/common/Spinner';
 
 const CategoryPage = () => {
   const [categories, setCategories] = useState([]);

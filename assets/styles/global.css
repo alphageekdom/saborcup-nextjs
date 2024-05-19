@@ -2,10 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add this in your tailwind.css file if you haven't already */
+@layer components {
+  .badge {
+    @apply absolute bottom-3 left-3 bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm;
+  }
+  .rev-badge {
+    @apply absolute bottom-3 left-3 bg-white text-primary rounded-full w-6 h-6 flex items-center justify-center text-sm;
+  }
+}
+
 .custom-blue-color {
   color: #0e92ff;
 }
 
 .custom-shadow {
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.check-icon {
+  transition: transform 0.3s ease-in-out, font-weight 0.3s ease-in-out;
+}
+
+.check-icon:hover {
+  transform: scale(1.2);
+  font-weight: bold;
 }

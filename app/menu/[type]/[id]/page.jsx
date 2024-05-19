@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import { useParams, usePathname } from 'next/navigation';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import React from 'react';
-import Spinner from '@/components/Spinner';
-import ItemDetail from '@/components/ItemDetail';
-import ErrorMessage from '@/components/ErrorMessage';
+import Spinner from '@/components/common/Spinner';
+import ItemDetail from '@/components/menu/ItemDetail';
+import ErrorMessage from '@/components/common/ErrorMessage';
 
 const ItemPage = () => {
   const [item, setItem] = useState(null);

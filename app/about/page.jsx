@@ -1,6 +1,6 @@
 import About from '@/components/About';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
-import HeaderImage from '@/components/HeaderImage';
+import HeaderImage from '@/components/common/HeaderImage';
 import React from 'react';
 
 const AboutPage = () => {

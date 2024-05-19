@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import React from 'react';
-import EventCard from '@/components/EventCard';
+import EventCard from '@/components/events/EventCard';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
-import Spinner from '@/components/Spinner';
-import ErrorMessage from '@/components/ErrorMessage';
-import HeaderImage from '@/components/HeaderImage';
+import Spinner from '@/components/common/Spinner';
+import ErrorMessage from '@/components/common/ErrorMessage';
+import HeaderImage from '@/components/common/HeaderImage';
 
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
