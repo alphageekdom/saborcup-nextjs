@@ -89,7 +89,9 @@ const CartSidebar = ({ isOpen, cartItems, onRemoveItem, onUpdateQuantity }) => {
   return (
     <div
       className={`right-0 h-screen bg-white shadow-lg transform transition-transform z-20 ${
-        isOpen ? 'translate-x-0' : 'translate-x-full hidden'
+        isOpen
+          ? 'translate-x-0 right-[-21%] md:right-[-40%] w-screen md:w-96'
+          : 'translate-x-full hidden'
       } w-[500px] h-full absolute top-[3.8rem] md:top-[3.8rem]`}
     >
       <div className='flex justify-between p-4 bg-primary text-white'>

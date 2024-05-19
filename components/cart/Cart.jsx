@@ -82,7 +82,7 @@ const Cart = ({
   }, [closeCart, isCartOpen]);
 
   return (
-    <div className='flex items-center'>
+    <div className='flex items-center w-full max-w-none m-0 p-0'>
       <div className='relative'>
         <FaShoppingCart
           className='mb-0 cursor-pointer transition duration-300 ease-in-out text-white hover:text-primary'
