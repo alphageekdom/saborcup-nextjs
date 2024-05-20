@@ -2,15 +2,30 @@
 
 import { IoClose } from 'react-icons/io5';
 import { GiBeachBag } from 'react-icons/gi';
-import { FaCheck } from 'react-icons/fa6';
+import { FaCheck, FaPlus, FaMinus } from 'react-icons/fa6';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import toast from 'react-hot-toast';
+import { useCart } from '@/context/CartContext';
 
-const CartSidebar = ({ isOpen, cartItems, onRemoveItem, onUpdateQuantity }) => {
+const CartSidebar = ({
+  isOpen,
+  cartItems,
+  onRemoveItem,
+  handleClearCart,
+  onUpdateQuantity,
+}) => {
   const [total, setTotal] = useState(0);
   const [taxes, setTaxes] = useState(0);
   const [grandTotal, setGrandTotal] = useState(0);
+  const { cart } = useCart();
+
+  useEffect(() => {
+    console.log('Cart Sidebar: cartItems', cart);
+    if (!Array.isArray(cart)) {
+      console.error('Cart is not an array:', cart);
+    }
+  }, [cart]);
 
   useEffect(() => {
     const calculateTotal = (items) => {
@@ -29,7 +44,7 @@ const CartSidebar = ({ isOpen, cartItems, onRemoveItem, onUpdateQuantity }) => {
     }
   }, [cartItems]);
 
-  const confirmRemoveItem = (itemId) => {
+  const confirmRemoveItem = (item) => {
     toast(
       (t) => (
         <span
@@ -43,7 +58,7 @@ const CartSidebar = ({ isOpen, cartItems, onRemoveItem, onUpdateQuantity }) => {
           Delete item from cart?
           <button
             onClick={() => {
-              onRemoveItem(itemId);
+              onRemoveItem(item.id);
               toast.dismiss(t.id);
             }}
             className='ml-2'
@@ -68,6 +83,45 @@ const CartSidebar = ({ isOpen, cartItems, onRemoveItem, onUpdateQuantity }) => {
     );
   };
 
+  const confirmClearCart = () => {
+    toast(
+      (t) => (
+        <span
+          style={{
+            color: 'white',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          Clear all items from cart?
+          <button
+            onClick={() => {
+              handleClearCart();
+              toast.dismiss(t.id);
+            }}
+            className='ml-2'
+            style={{
+              color: 'white',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+            }}
+            aria-label='Confirm clear all'
+          >
+            <FaCheck className='hover:transform hover:scale-150 transition-transform duration-200 ease-in-out' />
+          </button>
+        </span>
+      ),
+      {
+        style: {
+          background: '#0D92FF',
+          color: '#fff',
+        },
+      }
+    );
+  };
+
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add('overflow-hidden');
@@ -79,6 +133,8 @@ const CartSidebar = ({ isOpen, cartItems, onRemoveItem, onUpdateQuantity }) => {
       document.body.classList.remove('overflow-hidden');
     };
   }, [isOpen]);
+
+  // console.log(cartItems);
 
   return (
     <div
@@ -104,7 +160,7 @@ const CartSidebar = ({ isOpen, cartItems, onRemoveItem, onUpdateQuantity }) => {
         ) : (
           cartItems.map((item, index) => (
             <li key={item.id} className='flex flex-col pt-4'>
-              <div className='flex items-center justify-between'>
+              <div className='flex items-center justify-evenly'>
                 <Image
                   src={item.imageUrl}
                   alt={item.name}
@@ -128,7 +184,7 @@ const CartSidebar = ({ isOpen, cartItems, onRemoveItem, onUpdateQuantity }) => {
                           className='px-2 py-1 bg-gray-200'
                           aria-label='Decrease Quantity'
                         >
-                          -
+                          <FaMinus />
                         </button>
                         <span className='px-2'>{item.quantity}</span>
                         <button
@@ -138,14 +194,14 @@ const CartSidebar = ({ isOpen, cartItems, onRemoveItem, onUpdateQuantity }) => {
                           className='px-2 py-1 bg-gray-200'
                           aria-label='Increase Quantity'
                         >
-                          +
+                          <FaPlus />
                         </button>
                       </div>
                     </div>
                   </div>
                 </div>
                 <button
-                  onClick={() => confirmRemoveItem(item.id)}
+                  onClick={() => confirmRemoveItem(item)}
                   className='text-red-500 hover:transform hover:scale-150 transition-transform duration-200 ease-in-out'
                   aria-label='Remove Item'
                 >
@@ -161,6 +217,19 @@ const CartSidebar = ({ isOpen, cartItems, onRemoveItem, onUpdateQuantity }) => {
       </ul>
 
       <div className='p-4 border-t'>
+        <div className='flex justify-end items-center mb-4'>
+          <button
+            onClick={confirmClearCart}
+            disabled={cartItems.length === 0}
+            className={`px-4 py-2 ${
+              cartItems.length === 0
+                ? 'bg-gray-300 cursor-not-allowed'
+                : 'bg-red-500 text-white'
+            } rounded`}
+          >
+            Clear All
+          </button>
+        </div>
         <p className='flex justify-between'>
           <span>Total:</span>
           <span>${total.toFixed(2)}</span>

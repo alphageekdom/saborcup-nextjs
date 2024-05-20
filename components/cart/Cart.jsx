@@ -11,9 +11,16 @@ const Cart = ({
   setIsMobileMenuOpen,
   closeCart,
 }) => {
-  const { cart, fetchCart } = useCart();
+  const {
+    cart,
+    fetchCart,
+    removeFromCart,
+    updateCartItemQuantity,
+    clearCart,
+    setCartChanged,
+    cartChanged,
+  } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartChanged, setCartChanged] = useState(false);
   const [cartFetched, setCartFetched] = useState(false);
 
   useEffect(() => {
@@ -22,45 +29,28 @@ const Cart = ({
       setCartFetched(true);
       setCartChanged(false);
     }
-  }, [isCartOpen, cartFetched, fetchCart]);
+  }, [isCartOpen, cartFetched, fetchCart, setCartChanged]);
 
   useEffect(() => {
     if (cartChanged) {
       fetchCart();
       setCartChanged(false);
     }
-  }, [cartChanged, fetchCart]);
+  }, [cartChanged, fetchCart, setCartChanged]);
 
-  const handleRemoveItem = (id) => {
-    fetch('/api/cart/delete', {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ id }),
-    })
-      .then((res) => res.json())
-      .then(() => {
-        setCartChanged(true);
-      })
-      .catch((error) => console.error('Error removing item:', error));
+  const handleRemoveItem = (productId) => {
+    removeFromCart(productId);
+    setCartChanged(true);
   };
 
-  const handleUpdateQuantity = (id, quantity) => {
-    if (quantity < 1) return;
+  const handleUpdateQuantity = (productId, quantity) => {
+    updateCartItemQuantity(productId, quantity);
+    setCartChanged(true);
+  };
 
-    fetch('/api/cart/update', {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ id, quantity }),
-    })
-      .then((res) => res.json())
-      .then(() => {
-        setCartChanged(true);
-      })
-      .catch((error) => console.error('Error updating quantity:', error));
+  const handleClearCart = () => {
+    clearCart();
+    setCartChanged(true);
   };
 
   const toggleCart = () => {
@@ -95,6 +85,7 @@ const Cart = ({
         cartItems={cart}
         isOpen={isCartOpen}
         onRemoveItem={handleRemoveItem}
+        handleClearCart={handleClearCart}
         onUpdateQuantity={handleUpdateQuantity}
       />
     </div>
