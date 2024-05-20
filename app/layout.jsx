@@ -2,6 +2,7 @@ import '@/assets/styles/global.css';
 import ToasterConfig from '@/components/common/ToasterConfig';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import TopBanner from '@/components/TopBanner';
 import { CartProvider } from '@/context/CartContext';
 import { Poppins } from 'next/font/google';
 
@@ -23,6 +24,7 @@ const MainLayout = ({ children }) => {
     <CartProvider>
       <html lang='en' className={poppins_init}>
         <body>
+          <TopBanner />
           <Navbar />
           <main>{children}</main>
           <Footer />

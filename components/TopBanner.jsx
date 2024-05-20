@@ -11,14 +11,14 @@ import { GiCoffeePot } from 'react-icons/gi';
 
 const TopBanner = () => {
   return (
-    <div className='bg-white text-black py-2 px-4'>
+    <div className='bg-white text-black py-2 px-4 h-14 flex justify-center items-center'>
       <div className='container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center'>
         <div className='text-lg font-bold flex items-center mb-2 sm:mb-0 max-sm:hidden'>
           Welcome to SaborCup
           <GiCoffeePot size={20} className='ml-2' />
         </div>
 
-        <div className='flex flex-wrap justify-center sm:justify-end space-x-4'>
+        <div className='flex flex-wrap justify-center items-center sm:justify-end space-x-4'>
           <a
             href='https://www.facebook.com'
             className='hover:text-custom-blue transition duration-300 ease-in-out'

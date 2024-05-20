@@ -15,10 +15,14 @@ const CartSidebar = ({
   handleClearCart,
   onUpdateQuantity,
 }) => {
+  const { cart } = useCart();
   const [total, setTotal] = useState(0);
   const [taxes, setTaxes] = useState(0);
   const [grandTotal, setGrandTotal] = useState(0);
-  const { cart } = useCart();
+
+  const [scrollY, setScrollY] = useState(0);
+  const [navbarHeight, setNavbarHeight] = useState(0);
+  const [fixedNavbarHeight, setFixedNavbarHeight] = useState(0);
 
   useEffect(() => {
     console.log('Cart Sidebar: cartItems', cart);
@@ -134,15 +138,47 @@ const CartSidebar = ({
     };
   }, [isOpen]);
 
-  // console.log(cartItems);
+  useEffect(() => {
+    const navbar = document.querySelector('.sticky-navbar');
+    if (navbar) {
+      setNavbarHeight(navbar.offsetHeight);
+    } else {
+      setNavbarHeight(navbar.offsetHeight - 55);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    const navbar = document.querySelector('.sticky-navbar');
+    if (navbar) {
+      setNavbarHeight(navbar.offsetHeight + 52);
+    }
+
+    const fixedNavbar = document.querySelector('.fixed-navbar');
+    if (fixedNavbar) {
+      setFixedNavbarHeight(fixedNavbar.offsetHeight);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const cartTop = scrollY > 100 ? fixedNavbarHeight : navbarHeight;
 
   return (
     <div
-      className={`right-0 h-screen bg-white shadow-lg transform transition-transform z-20 ${
+      className={`fixed top-42 right-0 max-h-full h-96 bg-white shadow-lg transform transition-transform z-20 ${
         isOpen
-          ? 'translate-x-0 right-[-21%] md:right-[-40%] w-screen md:w-96'
+          ? 'translate-x-0 overflow-y-auto w-screen md:w-96'
           : 'translate-x-full hidden'
-      } w-[500px] h-full absolute top-[3.8rem] md:top-[3.8rem]`}
+      }`}
+      style={{ top: `${cartTop}px` }}
     >
       <div className='flex justify-between p-4 bg-primary text-white'>
         <h2 className='text-xl'>Cart</h2>
@@ -154,7 +190,7 @@ const CartSidebar = ({
 
       <ul className='p-4 overflow-y-auto max-h-[50vh]' id='items'>
         {cartItems.length === 0 ? (
-          <li>
+          <li className='flex justify-center items-center h-full'>
             <p className='text-center'>Your cart is empty</p>
           </li>
         ) : (
