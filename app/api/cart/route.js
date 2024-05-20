@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/utils/prisma';
 
+// GET /api/cart
 export const GET = async () => {
   try {
     const cartItems = await prisma.cartItem.findMany();
@@ -19,6 +20,7 @@ export const GET = async () => {
   }
 };
 
+// POST /api/cart
 export const POST = async (request) => {
   try {
     const { name, size, quantity, price, imageUrl } = await request.json();

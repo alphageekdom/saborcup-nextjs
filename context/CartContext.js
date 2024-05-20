@@ -10,7 +10,7 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const fetchCartItems = async () => {
+  const fetchCart = async () => {
     setLoading(true);
     try {
       const response = await fetch('/api/cart');
@@ -28,7 +28,7 @@ export const CartProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchCartItems();
+    fetchCart();
   }, []);
 
   const addToCart = async (cartItem) => {
@@ -70,12 +70,8 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    fetchCartItems();
-  }, []);
-
   return (
-    <CartContext.Provider value={{ cart, addToCart, fetchCartItems }}>
+    <CartContext.Provider value={{ cart, addToCart, fetchCart }}>
       {children}
     </CartContext.Provider>
   );

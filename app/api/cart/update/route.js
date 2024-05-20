@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/utils/prisma';
 
+// PUT /api/cart/update
 export const PUT = async (request) => {
   const { id, quantity } = await request.json();
   try {

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/utils/prisma';
 
+// DELETE /api/cart/delete
 export const DELETE = async (req) => {
   try {
     const { id } = await req.json();

@@ -51,6 +51,7 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsDropdownOpen(false);
+    setCloseCart(true);
   }, [pathname]);
 
   useEffect(() => {
@@ -70,8 +71,6 @@ const Navbar = () => {
       ? 'px-4 py-2 bg-primary text-white'
       : 'px-4 py-2 text-white hover:bg-primary';
   };
-
-  const hasItems = cart.length > 0;
 
   return (
     <>
@@ -178,7 +177,7 @@ const Navbar = () => {
                   setIsMobileMenuOpen={setIsMobileMenuOpen}
                   closeCart={closeCart}
                 />
-                {hasItems && <div className='badge'>1</div>}
+                {cart.length > 0 && <span className='badge'>1</span>}
               </div>
             </div>
             <div className='md:hidden flex items-center space-x-4 relative'>
@@ -188,7 +187,7 @@ const Navbar = () => {
                   setIsMobileMenuOpen={setIsMobileMenuOpen}
                   closeCart={closeCart}
                 />
-                {hasItems && <div className='badge'>1</div>}
+                {cart.length > 0 && <div className='badge'>1</div>}
               </div>
               {isMobileMenuOpen ? (
                 <FaTimes

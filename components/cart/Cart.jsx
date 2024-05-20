@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import CartSidebar from './CartSidebar';
+import { useCart } from '@/context/CartContext';
 
 const Cart = ({
   onCartToggle,
@@ -10,28 +11,25 @@ const Cart = ({
   setIsMobileMenuOpen,
   closeCart,
 }) => {
-  const [cartItems, setCartItems] = useState([]);
+  const { cart, fetchCart } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartChanged, setCartChanged] = useState(false);
+  const [cartFetched, setCartFetched] = useState(false);
 
   useEffect(() => {
-    if (isCartOpen) {
-      console.log('Fetching cart items');
-      fetch('/api/cart')
-        .then((res) => res.json())
-        .then((data) => {
-          if (Array.isArray(data)) {
-            setCartItems(data);
-          } else {
-            console.error('Fetched data is not an array:', data);
-            setCartItems([]);
-          }
-        })
-        .catch((error) => {
-          console.error('Error fetching cart items:', error);
-          setCartItems([]);
-        });
+    if (isCartOpen && !cartFetched) {
+      fetchCart();
+      setCartFetched(true);
+      setCartChanged(false);
     }
-  }, [isCartOpen]);
+  }, [isCartOpen, cartFetched, fetchCart]);
+
+  useEffect(() => {
+    if (cartChanged) {
+      fetchCart();
+      setCartChanged(false);
+    }
+  }, [cartChanged, fetchCart]);
 
   const handleRemoveItem = (id) => {
     fetch('/api/cart/delete', {
@@ -42,7 +40,9 @@ const Cart = ({
       body: JSON.stringify({ id }),
     })
       .then((res) => res.json())
-      .then(() => setCartItems(cartItems.filter((item) => item.id !== id)))
+      .then(() => {
+        setCartChanged(true);
+      })
       .catch((error) => console.error('Error removing item:', error));
   };
 
@@ -57,10 +57,8 @@ const Cart = ({
       body: JSON.stringify({ id, quantity }),
     })
       .then((res) => res.json())
-      .then((updatedItem) => {
-        setCartItems(
-          cartItems.map((item) => (item.id === id ? updatedItem : item))
-        );
+      .then(() => {
+        setCartChanged(true);
       })
       .catch((error) => console.error('Error updating quantity:', error));
   };
@@ -72,6 +70,9 @@ const Cart = ({
     }
     if (onCartToggle) {
       onCartToggle();
+    }
+    if (!isCartOpen) {
+      setCartFetched(false);
     }
   };
 
@@ -91,8 +92,8 @@ const Cart = ({
         />
       </div>
       <CartSidebar
+        cartItems={cart}
         isOpen={isCartOpen}
-        cartItems={cartItems}
         onRemoveItem={handleRemoveItem}
         onUpdateQuantity={handleUpdateQuantity}
       />
