@@ -25,12 +25,12 @@ const CartMenu = ({
   const [navbarHeight, setNavbarHeight] = useState(0);
   const [fixedNavbarHeight, setFixedNavbarHeight] = useState(0);
 
-  useEffect(() => {
-    console.log('Cart Sidebar: cartItems', cart);
-    if (!Array.isArray(cart)) {
-      console.error('Cart is not an array:', cart);
-    }
-  }, [cart]);
+  // useEffect(() => {
+  //   console.log('Cart Sidebar: cartItems', cart);
+  //   if (!Array.isArray(cart)) {
+  //     console.error('Cart is not an array:', cart);
+  //   }
+  // }, [cart]);
 
   useEffect(() => {
     const calculateTotal = (items) => {
@@ -171,8 +171,6 @@ const CartMenu = ({
   }, []);
 
   const cartTop = scrollY > 100 ? fixedNavbarHeight : navbarHeight;
-
-  console.log(cartItems);
 
   return (
     <div

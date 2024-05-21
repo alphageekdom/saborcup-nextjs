@@ -6,6 +6,8 @@ const EventCard = ({ event }) => {
   const cardClass = event.isPast ? 'opacity-50' : 'opacity-100';
   const textClass = event.isPast ? 'text-gray-500' : 'text-black';
 
+  console.log('Event Card', event);
+
   return (
     <article
       className={`p-4 rounded-lg shadow-lg transition transform hover:scale-105 ${cardClass} custom-shadow`}

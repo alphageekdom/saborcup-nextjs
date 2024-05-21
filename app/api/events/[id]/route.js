@@ -4,8 +4,8 @@ import prisma from '@/utils/prisma';
 //GET app/api/events
 export const GET = async (request, { params }) => {
   try {
-    const event = await prisma.eventue({
-      where: { id: parseInt(params.id) },
+    const event = await prisma.event.findUnique({
+      where: { id: params.id },
     });
 
     if (!event) {

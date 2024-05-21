@@ -36,6 +36,8 @@ const EventDetails = ({ eventId }) => {
   if (error) return <ErrorMessage message={error} />;
   if (!event) return <p>Event not found</p>;
 
+  console.log(event);
+
   return (
     <div className='flex flex-col items-center gap-8 p-4 lg:px-0 bg-background'>
       <div className='relative w-full max-w-4xl flex justify-center items-center'>
