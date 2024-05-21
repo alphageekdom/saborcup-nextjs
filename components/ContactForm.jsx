@@ -30,7 +30,9 @@ const ContactForm = () => {
       !formData.subject ||
       !formData.message
     ) {
-      console.log('okay');
+      setError('Please fill out all fields.');
+      setLoading(false);
+      return;
     }
 
     try {
@@ -48,6 +50,11 @@ const ContactForm = () => {
 
       setNotification('Message sent successfully. Thank you!');
       // Clear form fields after successful submission if needed
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setTimeout(() => {
+        setNotification('');
+      }, 3000);
+
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       console.error('Error submitting message:', error);
@@ -87,7 +94,7 @@ const ContactForm = () => {
             onChange={handleChange}
             placeholder='Email'
             disabled={loading}
-            className='w-full px-4 py-2 border-b border-white bg-transparent text-white  focus:outline-none focus:border-white'
+            className='w-full px-4 py-2 border-b border-white bg-transparent text-white  focus:outline-none focus:border-white focus:bg-black'
           />
         </div>
         <div className='mb-4'>

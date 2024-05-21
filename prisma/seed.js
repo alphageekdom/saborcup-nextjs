@@ -3,10 +3,11 @@ const fs = require('fs');
 
 const prisma = new PrismaClient();
 
-// Read the data from 'events.json'
+// Read the data from JSON files
 const events = JSON.parse(fs.readFileSync('./events.json', 'utf8'));
 const categories = JSON.parse(fs.readFileSync('./menu.json', 'utf8'));
 const items = JSON.parse(fs.readFileSync('./beverages.json', 'utf8'));
+let cartItems = JSON.parse(fs.readFileSync('./cart.json', 'utf8'));
 
 async function main() {
   console.log('Seeding events...');
@@ -28,33 +29,63 @@ async function main() {
     });
   }
 
+  console.log('Seeding categories...');
   for (const category of categories) {
     await prisma.category.create({
       data: {
         name: category.name,
         type: category.type,
         description: category.description,
-        isFeatured: category.isFeatured,
+        isFeatured: Boolean(category.isFeatured),
         image: category.image,
       },
     });
   }
 
-  // Seed data for menu items
+  console.log('Seeding items...');
+  const itemMap = {};
   for (const item of items) {
-    await prisma.item.create({
+    const createdItem = await prisma.item.create({
       data: {
         name: item.name,
         type: item.type,
         availability: item.availability,
         description: item.description,
-        isFeatured: item.isFeatured,
-        isSeasonal: item.isSeasonal,
+        isFeatured: Boolean(item.isFeatured),
+        isSeasonal: Boolean(item.isSeasonal),
         images: { set: item.images },
         prices: item.prices,
         sizes: { set: item.sizes },
       },
     });
+    itemMap[item.name] = createdItem.id;
+  }
+
+  // Update cartItems with the correct item IDs
+  cartItems = cartItems.map((cartItem) => ({
+    ...cartItem,
+    itemId: itemMap[cartItem.name],
+  }));
+
+  console.log('Seeding cart items...');
+  for (const cartItem of cartItems) {
+    if (cartItem.itemId) {
+      await prisma.cartItem.create({
+        data: {
+          type: cartItem.type,
+          name: cartItem.name,
+          size: cartItem.size,
+          quantity: cartItem.quantity,
+          price: cartItem.price,
+          imageUrl: cartItem.imageUrl,
+          itemId: cartItem.itemId, // Ensure itemId is correctly assigned
+        },
+      });
+    } else {
+      console.error(
+        `Failed to add item to cart: Item with name ${cartItem.name} not found`
+      );
+    }
   }
 
   console.log('Seeding completed.');

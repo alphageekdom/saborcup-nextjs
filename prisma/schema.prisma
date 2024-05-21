@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Event {
-  id          Int      @id @default(autoincrement())
+  id          String    @id @default(uuid())
   title       String
   description String
   summary     String
@@ -22,7 +22,7 @@ model Event {
 }
 
 model Message {
-  id        Int      @id @default(autoincrement())
+  id        String     @id @default(uuid())
   name      String
   email     String
   subject   String
@@ -31,7 +31,7 @@ model Message {
 }
 
 model Category {
-  id          Int     @id @default(autoincrement())
+  id          String @id @default(uuid())
   name        String
   type        String
   description String
@@ -39,8 +39,20 @@ model Category {
   image       String
 }
 
+model CartItem {
+  id        String  @id @default(uuid())
+  name      String
+  size      String
+  type      String
+  quantity  Int
+  price     Float
+  imageUrl  String
+  itemId    String
+  item      Item    @relation(fields: [itemId], references: [id])
+}
+
 model Item {
-  id           Int      @id @default(autoincrement())
+  id           String      @id @default(uuid())
   name         String
   type         String
   availability String
@@ -50,13 +62,5 @@ model Item {
   images       String[]
   prices       Json
   sizes        String[]
-}
-
-model CartItem {
-  id       Int     @id @default(autoincrement())
-  name     String
-  size     String
-  quantity Int
-  price    Float
-  imageUrl String
+  CartItems    CartItem[]
 }

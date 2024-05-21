@@ -7,7 +7,7 @@ export const PUT = async (request) => {
     const { productId, quantity } = await request.json();
 
     await prisma.cartItem.update({
-      where: { id: parseInt(productId) },
+      where: { id: productId },
       data: { quantity },
     });
 

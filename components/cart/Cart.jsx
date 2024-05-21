@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
-import CartSidebar from './CartSidebar';
+import CartMenu from './CartMenu';
 import { useCart } from '@/context/CartContext';
 
 const Cart = ({
@@ -81,7 +81,7 @@ const Cart = ({
           onClick={toggleCart}
         />
       </div>
-      <CartSidebar
+      <CartMenu
         cartItems={cart}
         isOpen={isCartOpen}
         onRemoveItem={handleRemoveItem}

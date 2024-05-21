@@ -15,7 +15,7 @@ export const GET = async (request, { params }) => {
     }
 
     const item = await prisma.item.findUnique({
-      where: { id: Number(id) },
+      where: { id: String(id) },
     });
 
     if (!item) {

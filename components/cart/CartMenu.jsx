@@ -7,8 +7,9 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import toast from 'react-hot-toast';
 import { useCart } from '@/context/CartContext';
+import Link from 'next/link';
 
-const CartSidebar = ({
+const CartMenu = ({
   isOpen,
   cartItems,
   onRemoveItem,
@@ -171,9 +172,11 @@ const CartSidebar = ({
 
   const cartTop = scrollY > 100 ? fixedNavbarHeight : navbarHeight;
 
+  console.log(cartItems);
+
   return (
     <div
-      className={`fixed top-42 right-0 max-h-full h-96 bg-white shadow-lg transform transition-transform z-20 ${
+      className={`fixed top-42 right-0 max-h-full h-[500px] bg-white shadow-lg transform transition-transform z-20 ${
         isOpen
           ? 'translate-x-0 overflow-y-auto w-screen md:w-96'
           : 'translate-x-full hidden'
@@ -197,13 +200,20 @@ const CartSidebar = ({
           cartItems.map((item, index) => (
             <li key={item.id} className='flex flex-col pt-4'>
               <div className='flex items-center justify-evenly'>
-                <Image
-                  src={item.imageUrl}
-                  alt={item.name}
-                  width={64}
-                  height={64}
-                  className='w-16 h-16 object-cover'
-                />
+                <Link
+                  href={`/menu/${item.type
+                    .toLowerCase()
+                    .split(' ')
+                    .join('-')}/${item.itemId}`}
+                >
+                  <Image
+                    src={item.imageUrl}
+                    alt={item.name}
+                    width={64}
+                    height={64}
+                    className='w-16 h-16 object-cover'
+                  />
+                </Link>
                 <div className='flex-1 ml-4'>
                   <div className='flex justify-between'>
                     <div>
@@ -283,4 +293,4 @@ const CartSidebar = ({
   );
 };
 
-export default CartSidebar;
+export default CartMenu;

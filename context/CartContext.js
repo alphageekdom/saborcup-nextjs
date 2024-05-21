@@ -48,6 +48,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = async (cartItem) => {
     setLoading(true);
     try {
+      console.log(cartItem);
       const response = await fetch('/api/cart', {
         method: 'POST',
         headers: {

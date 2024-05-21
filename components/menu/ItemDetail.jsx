@@ -22,6 +22,8 @@ const ItemDetail = ({ item }) => {
     const cartItem = {
       name: item.name,
       size: selectedSize,
+      type: item.type,
+      itemId: item.id,
       quantity,
       price: parseFloat(item.prices[selectedSize]),
       imageUrl: item.images[0],

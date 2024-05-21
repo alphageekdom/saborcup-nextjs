@@ -23,7 +23,8 @@ export const GET = async () => {
 // POST /api/cart
 export const POST = async (request) => {
   try {
-    const { name, size, quantity, price, imageUrl } = await request.json();
+    const { name, size, quantity, price, imageUrl, type, itemId } =
+      await request.json();
 
     if (typeof price !== 'number' || isNaN(price)) {
       throw new Error('Price must be a valid number');
@@ -48,9 +49,11 @@ export const POST = async (request) => {
         data: {
           name,
           size,
+          type,
           quantity,
           price: parseFloat(price.toFixed(2)),
           imageUrl,
+          itemId,
         },
       });
 

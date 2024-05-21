@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "name": "Espresso",
     "type": "Hot Coffee",
     "prices": {
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "id": 2,
     "name": "Iced Coffee",
     "type": "Cold Coffee",
     "prices": {
@@ -35,7 +33,6 @@
     ]
   },
   {
-    "id": 3,
     "name": "Earl Grey Tea",
     "type": "Hot Tea",
     "prices": {
@@ -53,7 +50,6 @@
     ]
   },
   {
-    "id": 4,
     "name": "Peach Green Tea Lemonade",
     "type": "Lemonade",
     "prices": {
@@ -70,7 +66,6 @@
     ]
   },
   {
-    "id": 5,
     "name": "Concha",
     "type": "Bakery",
     "prices": {
@@ -86,7 +81,6 @@
     ]
   },
   {
-    "id": 6,
     "name": "Americano",
     "type": "Hot Coffee",
     "prices": {
@@ -104,7 +98,6 @@
     ]
   },
   {
-    "id": 7,
     "name": "Cold Brew",
     "type": "Cold Coffee",
     "prices": {
@@ -121,7 +114,6 @@
     ]
   },
   {
-    "id": 8,
     "name": "Green Tea Latte",
     "type": "Hot Tea",
     "prices": {
@@ -139,7 +131,6 @@
     ]
   },
   {
-    "id": 9,
     "name": "Classic Lemonade",
     "type": "Lemonade",
     "prices": {
@@ -156,7 +147,6 @@
     ]
   },
   {
-    "id": 10,
     "name": "Croissant",
     "type": "Bakery",
     "prices": {
@@ -172,7 +162,6 @@
     ]
   },
   {
-    "id": 11,
     "name": "Cappuccino",
     "type": "Hot Coffee",
     "prices": {
@@ -190,7 +179,6 @@
     ]
   },
   {
-    "id": 12,
     "name": "Latte",
     "type": "Hot Coffee",
     "prices": {
@@ -208,7 +196,6 @@
     ]
   },
   {
-    "id": 13,
     "name": "Mocha",
     "type": "Hot Coffee",
     "prices": {
@@ -226,7 +213,6 @@
     ]
   },
   {
-    "id": 14,
     "name": "Iced Latte",
     "type": "Cold Coffee",
     "prices": {
@@ -243,7 +229,6 @@
     ]
   },
   {
-    "id": 15,
     "name": "Frappuccino",
     "type": "Cold Coffee",
     "prices": {
@@ -260,7 +245,6 @@
     ]
   },
   {
-    "id": 16,
     "name": "Nitro Cold Brew",
     "type": "Cold Coffee",
     "prices": {
@@ -277,7 +261,6 @@
     ]
   },
   {
-    "id": 17,
     "name": "Chai Tea Latte",
     "type": "Hot Tea",
     "prices": {
@@ -295,7 +278,6 @@
     ]
   },
   {
-    "id": 18,
     "name": "Iced Tea",
     "type": "Iced Tea",
     "prices": {
@@ -312,7 +294,6 @@
     ]
   },
   {
-    "id": 19,
     "name": "Strawberry Lemonade",
     "type": "Lemonade",
     "prices": {
@@ -329,7 +310,6 @@
     ]
   },
   {
-    "id": 20,
     "name": "Mango Lemonade",
     "type": "Lemonade",
     "prices": {
@@ -346,7 +326,6 @@
     ]
   },
   {
-    "id": 21,
     "name": "Sparkling Lemonade",
     "type": "Lemonade",
     "prices": {
@@ -363,7 +342,6 @@
     ]
   },
   {
-    "id": 22,
     "name": "Mojito Iced Tea",
     "type": "Iced Tea",
     "prices": {
@@ -380,7 +358,6 @@
     ]
   },
   {
-    "id": 23,
     "name": "Blueberry Muffin",
     "type": "Bakery",
     "prices": {
@@ -396,7 +373,6 @@
     ]
   },
   {
-    "id": 24,
     "name": "Chocolate Chip Cookie",
     "type": "Bakery",
     "prices": {
@@ -412,7 +388,6 @@
     ]
   },
   {
-    "id": 25,
     "name": "Churros",
     "type": "Bakery",
     "prices": {
@@ -428,7 +403,6 @@
     ]
   },
   {
-    "id": 26,
     "name": "Habiscus Iced Tea",
     "type": "Iced Tea",
     "prices": {
@@ -445,7 +419,6 @@
     ]
   },
   {
-    "id": 27,
     "name": "Lemon Green Iced Tea",
     "type": "Iced Tea",
     "prices": {
@@ -462,7 +435,6 @@
     ]
   },
   {
-    "id": 28,
     "name": "Strawberry Habiscus Iced Tea",
     "type": "Iced Tea",
     "prices": {
@@ -479,7 +451,6 @@
     ]
   },
   {
-    "id": 29,
     "name": "Canela Hot Tea",
     "type": "Hot Tea",
     "prices": {
@@ -496,7 +467,6 @@
     ]
   },
   {
-    "id": 30,
     "name": "White Hot Tea",
     "type": "Hot Tea",
     "prices": {

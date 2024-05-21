@@ -6,7 +6,7 @@ export const DELETE = async (req) => {
   try {
     const { productId } = await req.json();
     await prisma.cartItem.delete({
-      where: { id: Number(productId) },
+      where: { id: productId },
     });
 
     const cartItems = await prisma.cartItem.findMany();
