@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/utils/prisma';
 
-export const POST = async () => {
+export const DELETE = async () => {
   try {
     await prisma.cartItem.deleteMany();
 

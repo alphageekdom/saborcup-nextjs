@@ -105,7 +105,7 @@ export const CartProvider = ({ children }) => {
   const clearCart = async () => {
     setLoading(true);
     try {
-      const response = await fetch('/api/cart/clear', { method: 'POST' });
+      const response = await fetch('/api/cart/clear', { method: 'DELETE' });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'Failed to clear cart');
       setCart([]);
