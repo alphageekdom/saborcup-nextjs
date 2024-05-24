@@ -29,9 +29,8 @@ const Cart = ({
   useEffect(() => {
     if (isCartOpen) {
       fetchCart();
-      setCartChanged(false);
     }
-  }, [isCartOpen, fetchCart, setCartChanged]);
+  }, [isCartOpen, fetchCart]);
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
@@ -45,17 +44,14 @@ const Cart = ({
 
   const handleRemoveItem = (productId) => {
     removeFromCart(productId);
-    setCartChanged(true);
   };
 
   const handleUpdateQuantity = (productId, quantity) => {
     updateCartItemQuantity(productId, quantity);
-    setCartChanged(true);
   };
 
   const handleClearCart = () => {
     clearCart();
-    setCartChanged(true);
   };
 
   useEffect(() => {

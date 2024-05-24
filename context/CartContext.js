@@ -1,6 +1,12 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from 'react';
 
 const CartContext = createContext();
 
@@ -11,7 +17,7 @@ export const CartProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [cartChanged, setCartChanged] = useState(false); // Added to track changes in cart
 
-  const fetchCart = async () => {
+  const fetchCart = useCallback(async () => {
     setLoading(true);
     setCartChanged(false); // Reset cartChanged status after fetching
     try {
@@ -26,7 +32,7 @@ export const CartProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchCart();
