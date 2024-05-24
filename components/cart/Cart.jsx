@@ -21,10 +21,8 @@ const Cart = ({
     updateCartItemQuantity,
     clearCart,
     loading,
-    setCartChanged,
   } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartFetched, setCartFetched] = useState(false);
 
   useEffect(() => {
     if (isCartOpen) {

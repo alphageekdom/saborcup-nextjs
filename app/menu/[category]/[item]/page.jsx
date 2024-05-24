@@ -51,18 +51,26 @@ const ItemPage = () => {
     { title: `${product?.name}`, path: `${pathname}` },
   ];
 
-  if (loading) return <Spinner />;
-
-  if (error) return <ErrorMessage />;
   return (
     <div className='container mx-auto p-12'>
-      <Breadcrumbs items={breadcrumbItems} />
-      <h1 className='text-4xl font-bold text-center text-black mb-10'>
-        {item?.name}
-      </h1>
-      <div className='custom-shadow'>
-        <Item product={product} />
-      </div>
+      {loading ? (
+        <Spinner />
+      ) : error ? (
+        <ErrorMessage error={error.message} />
+      ) : !product ? (
+        'Product not found...'
+      ) : (
+        <>
+          <Breadcrumbs items={breadcrumbItems} />
+          <h1 className='text-4xl font-bold text-center text-black mb-10'>
+            {product.name}{' '}
+            {/* Assuming `item` is `product`, based on your context */}
+          </h1>
+          <div className='custom-shadow'>
+            <Item product={product} />
+          </div>
+        </>
+      )}
     </div>
   );
 };

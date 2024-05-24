@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { useCart } from '@/context/CartContext';
+
 import { IoClose } from 'react-icons/io5';
 import { GiBeachBag } from 'react-icons/gi';
 import { FaCheck, FaPlus, FaMinus } from 'react-icons/fa6';
@@ -13,9 +15,7 @@ import Spinner from '../common/Spinner';
 import ErrorMessage from '../common/ErrorMessage';
 
 const CartMenu = ({
-  error,
   isOpen,
-  loading,
   cartItems,
   onRemoveItem,
   handleClearCart,
@@ -29,9 +29,12 @@ const CartMenu = ({
   const [navbarHeight, setNavbarHeight] = useState(0);
   const [fixedNavbarHeight, setFixedNavbarHeight] = useState(0);
 
+  const { fetchCart } = useCart();
+
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add('overflow-hidden');
+      fetchCart();
     } else {
       document.body.classList.remove('overflow-hidden');
     }
@@ -39,7 +42,7 @@ const CartMenu = ({
     return () => {
       document.body.classList.remove('overflow-hidden');
     };
-  }, [isOpen]);
+  }, [isOpen, fetchCart]);
 
   useEffect(() => {
     const navbar = document.querySelector('.sticky-navbar');
@@ -199,21 +202,25 @@ const CartMenu = ({
           </li>
         ) : (
           cartItems?.map((item, index) => (
-            <li key={item?.id} className='flex flex-col pt-4'>
+            <li key={index} className='flex flex-col pt-4'>
               <div className='flex items-center justify-evenly'>
                 <Link
                   href={`/menu/${
                     item?.type?.replace(' ', '-').toLowerCase() || ''
                   }/${item?.itemId}`}
                 >
-                  <Image
-                    src={item?.imageUrl}
-                    alt={item?.name}
-                    width={64}
-                    height={64}
-                    className='w-16 h-16 object-cover rounded-full'
-                    priority
-                  />
+                  {item.imageUrl ? (
+                    <Image
+                      src={item.imageUrl}
+                      alt={item.name}
+                      width={300}
+                      height={300}
+                      className='object-cover w-16 h-16  rounded-lg'
+                      priority
+                    />
+                  ) : (
+                    <div className='placeholder-image'>No image available</div>
+                  )}
                 </Link>
                 <div className='flex-1 ml-4'>
                   <div className='flex justify-between'>

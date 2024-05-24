@@ -5,11 +5,16 @@ import prisma from '@/utils/prisma';
 export const DELETE = async (req) => {
   try {
     const { productId } = await req.json();
+
+    console.log(productId);
+
     await prisma.cartItem.delete({
       where: { id: productId },
     });
 
     const cartItems = await prisma.cartItem.findMany();
+
+    // console.log(cartItems);
 
     return NextResponse.json(cartItems);
   } catch (error) {
