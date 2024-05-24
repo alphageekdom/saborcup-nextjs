@@ -52,6 +52,49 @@ const CartMenu = ({
     }
   }, [cartItems]);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    const navbar = document.querySelector('.sticky-navbar');
+    if (navbar) {
+      setNavbarHeight(navbar.offsetHeight);
+    } else {
+      setNavbarHeight(navbar.offsetHeight - 55);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    const navbar = document.querySelector('.sticky-navbar');
+    if (navbar) {
+      setNavbarHeight(navbar.offsetHeight + 52);
+    }
+
+    const fixedNavbar = document.querySelector('.fixed-navbar');
+    if (fixedNavbar) {
+      setFixedNavbarHeight(fixedNavbar.offsetHeight);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const confirmRemoveItem = (item) => {
     toast(
       (t) => (
@@ -133,49 +176,6 @@ const CartMenu = ({
       }
     );
   };
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add('overflow-hidden');
-    } else {
-      document.body.classList.remove('overflow-hidden');
-    }
-
-    return () => {
-      document.body.classList.remove('overflow-hidden');
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
-    const navbar = document.querySelector('.sticky-navbar');
-    if (navbar) {
-      setNavbarHeight(navbar.offsetHeight);
-    } else {
-      setNavbarHeight(navbar.offsetHeight - 55);
-    }
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    const navbar = document.querySelector('.sticky-navbar');
-    if (navbar) {
-      setNavbarHeight(navbar.offsetHeight + 52);
-    }
-
-    const fixedNavbar = document.querySelector('.fixed-navbar');
-    if (fixedNavbar) {
-      setFixedNavbarHeight(fixedNavbar.offsetHeight);
-    }
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   const cartTop = scrollY > 100 ? fixedNavbarHeight : navbarHeight;
 
