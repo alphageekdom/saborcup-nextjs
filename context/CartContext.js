@@ -36,7 +36,7 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     fetchCart();
-  }, []);
+  }, [fetchCart]);
 
   const addToCart = async (cartItem) => {
     setLoading(true);
