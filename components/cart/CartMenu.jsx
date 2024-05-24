@@ -134,9 +134,9 @@ const CartMenu = ({
     );
   };
 
-  if (loading) return 'Loading...';
+  if (loading) return <Spinner />;
 
-  if (error) return error.message;
+  if (error) return <ErrorMessage error={error.message} />;
 
   const confirmClearCart = () => {
     toast(

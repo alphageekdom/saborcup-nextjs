@@ -4,23 +4,15 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 
 import { useCart } from '@/context/CartContext';
-
-import Spinner from './common/Spinner';
-import ErrorMessage from './common/ErrorMessage';
 import ItemDetails from './menu/itemDetails';
 
 const Item = ({ product }) => {
-  const { loading, error } = useCart();
   const mountCount = useRef(0);
 
   useEffect(() => {
     console.log(`Component mounted. Mount count: ${mountCount.current}`);
     mountCount.current++;
   }, []);
-
-  if (loading) return <Spinner />;
-
-  if (error) return <ErrorMessage error={error.message} />;
 
   if (!product) {
     return <div>Item not found</div>;
