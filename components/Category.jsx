@@ -50,6 +50,8 @@ const Category = ({ category }) => {
     (product) => product.type === title?.name
   );
 
+  if (loading) return <Spinner />;
+
   return (
     <div>
       <Breadcrumbs items={breadcrumbItems} />

@@ -42,6 +42,13 @@ const ItemDetails = ({ item, loading, error }) => {
     setSelectedSize(event.target.value);
   };
 
+  const handleQuantityChange = (e) => {
+    const newQuantity = parseInt(e.target.value, 10);
+    if (!isNaN(newQuantity) && newQuantity > 0) {
+      setQuantity(newQuantity);
+    }
+  };
+
   const handleAddWhatIsSelected = async () => {
     if (!selectedSize) {
       toast.error('Please select a size.');
@@ -153,7 +160,7 @@ const ItemDetails = ({ item, loading, error }) => {
               type='number'
               id='quantity'
               value={quantity}
-              onChange={(e) => setQuantity(Number(e.target.value))}
+              onChange={(e) => handleQuantityChange(Number(e.target.value))}
               min='1'
               className='ml-2 px-2 py-1 border border-gray-300 rounded mb-4'
             />

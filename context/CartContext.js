@@ -55,7 +55,19 @@ export const CartProvider = ({ children }) => {
       const data = await response.json();
       if (!response.ok)
         throw new Error(data.error || 'Failed to add item to cart');
-      setCart((prevCart) => [...prevCart, data].sort((a, b) => a.id - b.id));
+
+      setCart((prevCart) => {
+        const existingItemIndex = prevCart.findIndex(
+          (item) => item.id === data.id
+        );
+        if (existingItemIndex !== -1) {
+          const updatedCart = [...prevCart];
+          updatedCart[existingItemIndex].quantity += 1; // assuming quantity field exists
+          return updatedCart.sort((a, b) => a.id - b.id);
+        } else {
+          return [...prevCart, data].sort((a, b) => a.id - b.id);
+        }
+      });
       setCartChanged(true); // Indicate that cart has changed
     } catch (error) {
       console.error('Error adding to cart:', error.message);
