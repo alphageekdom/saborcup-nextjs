@@ -7,6 +7,7 @@ import { useCart } from '@/context/CartContext';
 import toast from 'react-hot-toast';
 import Spinner from '../common/Spinner';
 import ErrorMessage from '../common/ErrorMessage';
+import ButtonWithSpinner from '../common/ButtonSpinner';
 
 const ItemDetails = ({ product }) => {
   const { addToCart, loading, error } = useCart();
@@ -131,10 +132,11 @@ const ItemDetails = ({ product }) => {
 
           <button
             onClick={handleAddToCart}
-            className='bg-accent1 hover:bg-accent2 text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg'
+            className='bg-accent1 hover:bg-accent2 text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg flex items-center justify-center'
             aria-label='Add to Cart'
+            disabled={loading}
           >
-            Add to Cart
+            {loading ? <ButtonWithSpinner /> : 'Add to Cart'}
           </button>
         </div>
       </div>
