@@ -51,6 +51,9 @@ const ItemPage = () => {
     { title: `${product?.name}`, path: `${pathname}` },
   ];
 
+  if (loading) return <Spinner />;
+
+  if (error) return <ErrorMessage />;
   return (
     <div className='container mx-auto p-12'>
       <Breadcrumbs items={breadcrumbItems} />

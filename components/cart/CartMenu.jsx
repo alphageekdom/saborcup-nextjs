@@ -30,29 +30,6 @@ const CartMenu = ({
   const [fixedNavbarHeight, setFixedNavbarHeight] = useState(0);
 
   useEffect(() => {
-    const calculateTotal = (items) => {
-      let total = 0;
-      items.forEach((item) => {
-        if (item && item.price && item.quantity) {
-          total += item.price * item.quantity;
-        }
-      });
-      setTotal(total);
-      const taxRate = 0.08;
-      setTaxes(total * taxRate);
-      setGrandTotal(total + total * taxRate);
-    };
-
-    if (Array.isArray(cartItems) && cartItems.length > 0) {
-      calculateTotal(cartItems);
-    } else {
-      setTotal(0);
-      setTaxes(0);
-      setGrandTotal(0);
-    }
-  }, [cartItems]);
-
-  useEffect(() => {
     if (isOpen) {
       document.body.classList.add('overflow-hidden');
     } else {
@@ -95,6 +72,29 @@ const CartMenu = ({
     };
   }, []);
 
+  useEffect(() => {
+    const calculateTotal = (items) => {
+      let total = 0;
+      items.forEach((item) => {
+        if (item && item.price && item.quantity) {
+          total += item.price * item.quantity;
+        }
+      });
+      setTotal(total);
+      const taxRate = 0.08;
+      setTaxes(total * taxRate);
+      setGrandTotal(total + total * taxRate);
+    };
+
+    if (Array.isArray(cartItems) && cartItems.length > 0) {
+      calculateTotal(cartItems);
+    } else {
+      setTotal(0);
+      setTaxes(0);
+      setGrandTotal(0);
+    }
+  }, [cartItems]);
+
   const confirmRemoveItem = (item) => {
     toast(
       (t) => (
@@ -133,10 +133,6 @@ const CartMenu = ({
       }
     );
   };
-
-  if (loading) return <Spinner />;
-
-  if (error) return <ErrorMessage error={error.message} />;
 
   const confirmClearCart = () => {
     toast(

@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import EventCard from '@/components/events/EventCard';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
-import Spinner from '@/components/common/Spinner';
 import ErrorMessage from '@/components/common/ErrorMessage';
 import HeaderImage from '@/components/common/HeaderImage';
 
@@ -34,7 +33,6 @@ const EventsPage = () => {
     fetchEvents();
   }, []);
 
-  if (loading) return <Spinner />;
   if (error) return <ErrorMessage message={error} />;
 
   return (

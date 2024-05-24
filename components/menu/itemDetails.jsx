@@ -33,11 +33,11 @@ const ItemDetails = ({ product }) => {
     toast.success('Item added to cart!');
   };
 
-  console.log(product);
+  // if (loading) return <Spinner />;
 
-  if (loading) return <Spinner />;
+  // if (error) return <ErrorMessage />;
 
-  if (error) return <ErrorMessage />;
+  if (!product) return 'Not product found...';
 
   return (
     <div className='mx-auto p-4 relative'>

@@ -37,8 +37,6 @@ const Category = ({ category }) => {
     fetchProducts();
   }, []);
 
-  if (loading) return <Spinner />;
-
   if (error) return <ErrorMessage message={error} />;
 
   const title = category.find((type) => type.type === params?.category);
