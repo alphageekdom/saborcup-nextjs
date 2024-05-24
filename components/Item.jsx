@@ -3,8 +3,6 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 
-import { useParams, usePathname } from 'next/navigation';
-
 import { useCart } from '@/context/CartContext';
 
 import Spinner from './common/Spinner';
@@ -20,13 +18,13 @@ const Item = ({ product }) => {
     mountCount.current++;
   }, []);
 
-  if (!product) {
-    return <div>Item not found</div>;
-  }
-
   if (loading) return <Spinner />;
 
   if (error) return <ErrorMessage error={error.message} />;
+
+  if (!product) {
+    return <div>Item not found</div>;
+  }
 
   return (
     <div>
