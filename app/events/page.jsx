@@ -6,6 +6,7 @@ import EventCard from '@/components/events/EventCard';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import ErrorMessage from '@/components/common/ErrorMessage';
 import HeaderImage from '@/components/common/HeaderImage';
+import Spinner from '@/components/common/Spinner';
 
 const EventsPage = () => {
   const [events, setEvents] = useState([]);
@@ -33,7 +34,9 @@ const EventsPage = () => {
     fetchEvents();
   }, []);
 
-  if (error) return <ErrorMessage message={error} />;
+  if (loading) return <Spinner />;
+
+  if (error) return <ErrorMessage />;
 
   return (
     <section className='bg-white'>
