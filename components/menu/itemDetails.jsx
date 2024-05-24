@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import { useCart } from '@/context/CartContext';
 import toast from 'react-hot-toast';
-import Spinner from '../common/Spinner';
 import ErrorMessage from '../common/ErrorMessage';
 import ButtonWithSpinner from '../common/ButtonSpinner';
 import { useParams, usePathname } from 'next/navigation';
@@ -19,11 +18,11 @@ const ItemDetails = ({ item, loading, error }) => {
   const params = useParams();
   const pathname = usePathname();
 
-  const { item: url } = params;
+  const { item: productId } = params;
 
   const fetchProduct = useCallback(async () => {
     try {
-      const response = await fetch(`/api/product/${url}`);
+      const response = await fetch(`/api/product/${productId}`);
       const itemData = await response.json();
       if (!response.ok) {
         throw new Error('Failed to fetch item');
@@ -32,11 +31,13 @@ const ItemDetails = ({ item, loading, error }) => {
     } catch (error) {
       console.error('Error fetching item:', error.message);
     }
-  }, [url]);
+  }, [productId]);
 
   useEffect(() => {
-    fetchProduct();
-  }, [fetchProduct]);
+    if (productId) {
+      fetchProduct(productId);
+    }
+  }, [fetchProduct, productId]);
 
   const handleSizeChange = (event) => {
     setSelectedSize(event.target.value);
@@ -78,8 +79,6 @@ const ItemDetails = ({ item, loading, error }) => {
   if (!item) return 'No item found...';
 
   if (error) return <ErrorMessage error={error.message} />;
-
-  console.log(product);
 
   return (
     <div className='mx-auto p-4 relative'>

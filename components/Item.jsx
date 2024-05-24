@@ -3,9 +3,7 @@
 import React from 'react';
 import { useState, useEffect, useRef, useCallback } from 'react';
 
-import { useCart } from '@/context/CartContext';
 import ItemDetails from './menu/itemDetails';
-import Spinner from './common/Spinner';
 import ErrorMessage from './common/ErrorMessage';
 
 const Item = ({ product }) => {

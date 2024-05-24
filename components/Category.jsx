@@ -14,12 +14,13 @@ const Category = ({ category }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const pathname = usePathname();
   const params = useParams();
+
+  const { category: productId } = useParams();
 
   const mountCount = useRef(0);
 
-  const fetchProducts = async () => {
+  const fetchProduct = async () => {
     setLoading(true);
     try {
       const response = await fetch('/api/product');
@@ -34,8 +35,10 @@ const Category = ({ category }) => {
   useEffect(() => {
     console.log(`Category mounted. Mount count: ${mountCount.current}`);
     mountCount.current++;
-    fetchProducts();
-  }, []);
+    if (productId) {
+      fetchProduct(productId);
+    }
+  }, [productId]);
 
   if (error) return <ErrorMessage message={error} />;
 
@@ -43,7 +46,7 @@ const Category = ({ category }) => {
 
   const breadcrumbItems = [
     { title: 'Menu', path: '/menu' },
-    { title: `${title?.name}`, path: `${pathname}` },
+    { title: `${title?.name}`, path: `/menu/${productId}` },
   ];
 
   const filteredProducts = products.filter(

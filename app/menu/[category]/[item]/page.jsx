@@ -7,7 +7,6 @@ import { useParams, usePathname } from 'next/navigation';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import ErrorMessage from '@/components/common/ErrorMessage';
 
-import { convertToSerializeableObject } from '@/utils/convertToObject';
 import Item from '@/components/Item';
 
 const ItemPage = () => {
@@ -18,15 +17,14 @@ const ItemPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const params = useParams();
   const pathname = usePathname();
 
-  const { item } = useParams();
+  const { item: productID, category } = useParams();
 
   const fetchItem = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await fetch(`/api/product/${params?.item}`);
+      const response = await fetch(`/api/product/${productID}`);
 
       const itemData = await response.json();
 
@@ -39,17 +37,22 @@ const ItemPage = () => {
     } finally {
       setLoading(false);
     }
-  }, [params?.item]);
+  }, [productID]);
 
   useEffect(() => {
     fetchItem();
-  }, [params?.item, fetchItem]);
+  }, [fetchItem]);
 
   const breadcrumbItems = [
     { title: 'Menu', path: '/menu' },
-    { title: `${product?.type}`, path: `/menu/${params?.category}` },
-    { title: `${product?.name}`, path: `${pathname}` },
+    { title: `${product?.type}`, path: `/menu/${category}` },
+    {
+      title: `${product?.name}`,
+      path: `/menu/${category}/${productID}`,
+    },
   ];
+
+  console.log(productID);
 
   return (
     <div className='container mx-auto p-12'>
