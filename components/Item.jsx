@@ -20,8 +20,6 @@ const Item = ({ product }) => {
 
   const mountCount = useRef(0);
 
-  console.log(params);
-
   const fetchItem = useCallback(async () => {
     try {
       const response = await fetch(`/api/product/${params?.item}`);

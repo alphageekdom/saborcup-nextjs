@@ -6,8 +6,6 @@ export const GET = async (request, { params }) => {
   try {
     const { id } = params;
 
-    console.log(id);
-
     if (!id) {
       console.log('Item ID is undefined or null');
       return NextResponse.json(

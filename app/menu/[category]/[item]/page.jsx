@@ -29,7 +29,6 @@ const ItemPage = () => {
       const response = await fetch(`/api/product/${params?.item}`);
 
       const itemData = await response.json();
-      console.log(itemData);
 
       if (!response.ok) {
         throw new Error('Failed to fetch item');

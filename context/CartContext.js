@@ -9,9 +9,11 @@ export const useCart = () => useContext(CartContext);
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [cartChanged, setCartChanged] = useState(false); // Added to track changes in cart
 
   const fetchCart = async () => {
     setLoading(true);
+    setCartChanged(false); // Reset cartChanged status after fetching
     try {
       const response = await fetch('/api/cart');
       const data = await response.json();
@@ -41,7 +43,8 @@ export const CartProvider = ({ children }) => {
       const data = await response.json();
       if (!response.ok)
         throw new Error(data.error || 'Failed to add item to cart');
-      setCart(data.sort((a, b) => a.id - b.id));
+      setCart((prevCart) => [...prevCart, data].sort((a, b) => a.id - b.id));
+      setCartChanged(true); // Indicate that cart has changed
     } catch (error) {
       console.error('Error adding to cart:', error.message);
     } finally {
@@ -60,7 +63,12 @@ export const CartProvider = ({ children }) => {
       const data = await response.json();
       if (!response.ok)
         throw new Error(data.error || 'Failed to update item quantity');
-      setCart(data.sort((a, b) => a.id - b.id));
+      setCart((prevCart) =>
+        prevCart.map((item) =>
+          item.id === productId ? { ...item, quantity } : item
+        )
+      );
+      setCartChanged(true); // Indicate that cart has changed
     } catch (error) {
       console.error('Error updating item quantity:', error.message);
     } finally {
@@ -80,6 +88,7 @@ export const CartProvider = ({ children }) => {
       if (!response.ok)
         throw new Error(data.error || 'Failed to remove item from cart');
       setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+      setCartChanged(true); // Indicate that cart has changed
     } catch (error) {
       console.error('Error removing from cart:', error.message);
     } finally {
@@ -94,6 +103,7 @@ export const CartProvider = ({ children }) => {
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'Failed to clear cart');
       setCart([]);
+      setCartChanged(true); // Indicate that cart has been cleared
     } catch (error) {
       console.error('Error clearing cart:', error.message);
     } finally {
@@ -110,6 +120,8 @@ export const CartProvider = ({ children }) => {
         updateCartItemQuantity,
         removeFromCart,
         clearCart,
+        fetchCart,
+        setCartChanged,
       }}
     >
       {children}

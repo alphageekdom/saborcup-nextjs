@@ -20,28 +20,28 @@ const Cart = ({
     removeFromCart,
     updateCartItemQuantity,
     clearCart,
-    setCartChanged,
-    cartChanged,
     loading,
-    error,
+    setCartChanged,
   } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartFetched, setCartFetched] = useState(false);
 
   useEffect(() => {
-    if (isCartOpen && !cartFetched) {
+    if (isCartOpen) {
       fetchCart();
-      setCartFetched(true);
       setCartChanged(false);
     }
-  }, [isCartOpen, cartFetched, fetchCart, setCartChanged]);
+  }, [isCartOpen, fetchCart, setCartChanged]);
 
-  useEffect(() => {
-    if (cartChanged) {
-      fetchCart();
-      setCartChanged(false);
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+    if (!isCartOpen && isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
     }
-  }, [cartChanged, fetchCart, setCartChanged]);
+    if (onCartToggle) {
+      onCartToggle();
+    }
+  };
 
   const handleRemoveItem = (productId) => {
     removeFromCart(productId);
@@ -56,19 +56,6 @@ const Cart = ({
   const handleClearCart = () => {
     clearCart();
     setCartChanged(true);
-  };
-
-  const toggleCart = () => {
-    setIsCartOpen(!isCartOpen);
-    if (!isCartOpen && isMobileMenuOpen) {
-      setIsMobileMenuOpen(false);
-    }
-    if (onCartToggle) {
-      onCartToggle();
-    }
-    if (!isCartOpen) {
-      setCartFetched(false);
-    }
   };
 
   useEffect(() => {
@@ -88,7 +75,6 @@ const Cart = ({
       </div>
       <CartMenu
         cartItems={cart}
-        error={error}
         loading={loading}
         isOpen={isCartOpen}
         onRemoveItem={handleRemoveItem}
