@@ -48,10 +48,10 @@ model CartItem {
   price     Float
   imageUrl  String
   itemId    String
-  item      Item    @relation(fields: [itemId], references: [id])
+  item      Product    @relation(fields: [itemId], references: [id])
 }
 
-model Item {
+model Product {
   id           String      @id @default(uuid())
   name         String
   type         String

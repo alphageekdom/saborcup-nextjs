@@ -13,7 +13,7 @@ const EventsPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const crumbs = [{ title: 'Events', path: '/events' }];
+  const breadcrumbItems = [{ title: 'Menu', path: '/events' }];
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -49,7 +49,7 @@ const EventsPage = () => {
           SaborCup community.
         </p>
       </HeaderImage>
-      <Breadcrumbs crumbs={crumbs} />
+      <Breadcrumbs items={breadcrumbItems} />
       <div className='container mx-auto px-6'>
         <h1 className='text-4xl font-bold text-center text-black mb-10'>
           Upcoming Events

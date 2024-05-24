@@ -1,0 +1,32 @@
+[
+  {
+    "id": "order1",
+    "userId": "john.doe@example.com",
+    "totalPrice": 100.0,
+    "status": "Pending",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "items": [
+      {
+        "id": "item1",
+        "quantity": 2,
+        "price": 10.0,
+        "productId": "Espresso"
+      }
+    ]
+  },
+  {
+    "id": "order2",
+    "userId": "jane.smith@example.com",
+    "totalPrice": 50.0,
+    "status": "Completed",
+    "createdAt": "2024-02-01T00:00:00.000Z",
+    "items": [
+      {
+        "id": "item2",
+        "quantity": 1,
+        "price": 50.0,
+        "productId": "Iced Coffee"
+      }
+    ]
+  }
+]

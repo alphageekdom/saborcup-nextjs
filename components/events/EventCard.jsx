@@ -1,12 +1,11 @@
 import React from 'react';
-import Image from 'next/image';
+
 import Link from 'next/link';
+import Image from 'next/image';
 
 const EventCard = ({ event }) => {
   const cardClass = event.isPast ? 'opacity-50' : 'opacity-100';
   const textClass = event.isPast ? 'text-gray-500' : 'text-black';
-
-  console.log('Event Card', event);
 
   return (
     <article
@@ -16,7 +15,7 @@ const EventCard = ({ event }) => {
       tabIndex='0'
     >
       <Image
-        src={event.image}
+        src={event?.image}
         alt={`${event.title} event`}
         width={500}
         height={500}

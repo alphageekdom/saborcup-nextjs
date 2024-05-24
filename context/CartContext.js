@@ -1,6 +1,12 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from 'react';
 
 const CartContext = createContext();
 
@@ -13,48 +19,40 @@ export const CartProvider = ({ children }) => {
   const [cartFetched, setCartFetched] = useState(false);
 
   // Fetch items to cart
-  const fetchCart = async () => {
+  const fetchCart = useCallback(async () => {
     setLoading(true);
+
     try {
       const response = await fetch('/api/cart');
       const data = await response.json();
+
       if (!response.ok) {
         throw new Error(data.error || 'Failed to fetch cart items');
       }
 
-      if (!Array.isArray(data)) {
-        console.error('Fetched cart data is not an array:', data);
-        setCart([]);
-      } else {
-        setCart(data.sort((a, b) => a.id - b.id));
-      }
+      setCart(data.sort((a, b) => a.id - b.id));
     } catch (error) {
       console.error('Error fetching cart items:', error.message);
-      console.error('Error details:', error);
       setCart([]);
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
-    if (cartChanged) {
-      fetchCart();
-      setCartChanged(false);
-    }
-  }, [cartChanged]);
+    fetchCart();
+  }, [fetchCart]);
 
   // Add item to cart
-  const addToCart = async (cartItem) => {
+  const addToCart = useCallback(async (cartItem) => {
     setLoading(true);
     try {
-      console.log(cartItem);
-      const response = await fetch('/api/cart', {
+      const response = await fetch('/api/cart/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(cartItem),
+        body: JSON.stringify({ cartItem }),
       });
 
       const data = await response.json();
@@ -64,28 +62,36 @@ export const CartProvider = ({ children }) => {
 
       setCart((prevCart) => {
         const existingItem = prevCart.find(
-          (item) => item.name === cartItem.name && item.size === cartItem.size
+          (item) =>
+            item.itemId === cartItem.itemId &&
+            item.size === cartItem.size &&
+            item.name === cartItem.name &&
+            item.type === cartItem.type &&
+            item.price === cartItem.price
         );
 
         if (existingItem) {
-          return prevCart
-            .map((item) =>
-              item.name === cartItem.name && item.size === cartItem.size
-                ? { ...item, quantity: item.quantity + cartItem.quantity }
-                : item
-            )
-            .sort((a, b) => a.id - b.id);
+          const updatedCart = prevCart.map((item) =>
+            item.itemId === cartItem.itemId &&
+            item.size === cartItem.size &&
+            item.name === cartItem.name &&
+            item.type === cartItem.type &&
+            item.price === cartItem.price
+              ? { ...item, quantity: item.quantity + cartItem.quantity }
+              : item
+          );
+          return updatedCart.sort((a, b) => a.id - b.id);
         } else {
-          return [...prevCart, data].sort((a, b) => a.id - b.id);
+          const validData = data.filter((item) => item && item.id); // Filter out any undefined items
+          return [...prevCart, ...validData].sort((a, b) => a.id - b.id);
         }
       });
     } catch (error) {
       console.error('Error adding to cart:', error.message);
-      console.error('Error details:', error);
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   // Update quantity of item in cart
   const updateCartItemQuantity = async (productId, quantity) => {
@@ -105,26 +111,44 @@ export const CartProvider = ({ children }) => {
         throw new Error(data.error || 'Failed to update item quantity');
       }
 
-      if (!Array.isArray(data)) {
-        console.error('Fetched cart data is not an array:', data);
-        setCart([]);
-      } else {
-        setCart(data.sort((a, b) => a.id - b.id));
-      }
-      setCartChanged(true);
+      setCart((prevCart) => {
+        const existingItem = prevCart.find(
+          (item) =>
+            item.itemId === cartItem.itemId &&
+            item.size === cartItem.size &&
+            item.name === cartItem.name &&
+            item.type === cartItem.type &&
+            item.price === cartItem.price
+        );
+
+        if (existingItem) {
+          const updatedCart = prevCart.map((item) =>
+            item.itemId === cartItem.itemId &&
+            item.size === cartItem.size &&
+            item.name === cartItem.name &&
+            item.type === cartItem.type &&
+            item.price === cartItem.price
+              ? { ...item, quantity: item.quantity + cartItem.quantity }
+              : item
+          );
+          return updatedCart.sort((a, b) => a.id - b.id);
+        } else {
+          const validData = data.filter((item) => item && item.id); // Filter out any undefined items
+          return [...prevCart, ...validData].sort((a, b) => a.id - b.id);
+        }
+      });
     } catch (error) {
       console.error('Error updating item quantity in cart:', error.message);
-      console.error('Error details:', error);
     } finally {
       setLoading(false);
     }
   };
 
   // Remove item from cart
-  const removeFromCart = async (productId) => {
+  const removeFromCart = useCallback(async (productId) => {
     setLoading(true);
     try {
-      const response = await fetch('/api/cart/delete', {
+      const response = await fetch(`/api/cart/delete/${productId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -138,26 +162,19 @@ export const CartProvider = ({ children }) => {
         throw new Error(data.error || 'Failed to remove item from cart');
       }
 
-      if (!Array.isArray(data)) {
-        console.error('Fetched cart data is not an array:', data);
-        setCart([]);
-      } else {
-        setCart(data.sort((a, b) => a.id - b.id));
-      }
-      setCartChanged(data);
+      setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
     } catch (error) {
-      console.error('Error removing from car:', error.message);
-      console.error('Error details:', error);
+      console.error('Error removing from cart:', error.message);
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   // Clear items from cart
-  const clearCart = async () => {
+  const clearCart = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch('/api/cart/delete', {
+      const response = await fetch('/api/cart/clear', {
         method: 'POST',
       });
 
@@ -170,11 +187,10 @@ export const CartProvider = ({ children }) => {
       setCart([]);
     } catch (error) {
       console.error('Error clearing cart:', error.message);
-      console.error('Error details:', error);
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   return (
     <CartContext.Provider

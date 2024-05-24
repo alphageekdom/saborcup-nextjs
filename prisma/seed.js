@@ -5,8 +5,8 @@ const prisma = new PrismaClient();
 
 // Read the data from JSON files
 const events = JSON.parse(fs.readFileSync('./events.json', 'utf8'));
-const categories = JSON.parse(fs.readFileSync('./menu.json', 'utf8'));
-const items = JSON.parse(fs.readFileSync('./beverages.json', 'utf8'));
+const categories = JSON.parse(fs.readFileSync('./categories.json', 'utf8'));
+const products = JSON.parse(fs.readFileSync('./products.json', 'utf8'));
 let cartItems = JSON.parse(fs.readFileSync('./cart.json', 'utf8'));
 
 async function main() {
@@ -42,29 +42,29 @@ async function main() {
     });
   }
 
-  console.log('Seeding items...');
-  const itemMap = {};
-  for (const item of items) {
-    const createdItem = await prisma.item.create({
+  console.log('Seeding products...');
+  const productMap = {};
+  for (const product of products) {
+    const createdItem = await prisma.product.create({
       data: {
-        name: item.name,
-        type: item.type,
-        availability: item.availability,
-        description: item.description,
-        isFeatured: Boolean(item.isFeatured),
-        isSeasonal: Boolean(item.isSeasonal),
-        images: { set: item.images },
-        prices: item.prices,
-        sizes: { set: item.sizes },
+        name: product.name,
+        type: product.type,
+        availability: product.availability,
+        description: product.description,
+        isFeatured: Boolean(product.isFeatured),
+        isSeasonal: Boolean(product.isSeasonal),
+        images: { set: product.images },
+        prices: product.prices,
+        sizes: { set: product.sizes },
       },
     });
-    itemMap[item.name] = createdItem.id;
+    productMap[product.name] = createdItem.id;
   }
 
   // Update cartItems with the correct item IDs
   cartItems = cartItems.map((cartItem) => ({
     ...cartItem,
-    itemId: itemMap[cartItem.name],
+    itemId: productMap[cartItem.name],
   }));
 
   console.log('Seeding cart items...');

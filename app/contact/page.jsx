@@ -4,7 +4,7 @@ import HeaderImage from '@/components/common/HeaderImage';
 import React from 'react';
 
 const ContactPage = () => {
-  const crumbs = [{ title: 'Contact', path: '/contact' }];
+  const breadcrumbItems = [{ title: 'Contact', path: '/contact' }];
 
   return (
     <section className='bg-lightgrey'>
@@ -17,7 +17,7 @@ const ContactPage = () => {
           Whether it{`'`}s feedback or questions, we{`'`}ve got you covered.
         </p>
       </HeaderImage>
-      <Breadcrumbs crumbs={crumbs} />
+      <Breadcrumbs items={breadcrumbItems} />
       <ContactDetails />
     </section>
   );

@@ -1,21 +1,32 @@
-import Image from 'next/image';
 import React from 'react';
+
+import Image from 'next/image';
+
+import PropTypes from 'prop-types';
+
 import ErrorCup from '@/assets/images/ErrorCupWhite.png';
 
 const ErrorMessage = ({ message }) => {
   return (
-    <div className='flex flex-col items-center justify-center h-screen bg-custom-blue'>
-      <h1 className='text-7xl font-bold mb-4 text-white'>Oops!</h1>
-      <p className='text-xlg text-white'>{message}</p>
+    <div className='flex flex-col items-center justify-center min-h-screen bg-custom-blue p-4'>
+      <h1 className='text-5xl md:text-7xl font-bold mb-4 text-white'>Oops!</h1>
+      <p className='text-lg md:text-xl text-white mb-4 text-center'>
+        {message}
+      </p>
       <Image
         src={ErrorCup}
         alt='Error Coffee Cup'
         width={200}
         height={200}
         priority
+        className='animate-bounce'
       />
     </div>
   );
+};
+
+ErrorMessage.propTypes = {
+  message: PropTypes.string.isRequired,
 };
 
 export default ErrorMessage;

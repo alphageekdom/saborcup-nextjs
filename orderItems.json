@@ -1,0 +1,14 @@
+[
+  {
+    "orderId": "order1",
+    "productId": "Espresso",
+    "quantity": 2,
+    "price": 4.0
+  },
+  {
+    "orderId": "order2",
+    "productId": "Iced Coffee",
+    "quantity": 1,
+    "price": 3.0
+  }
+]

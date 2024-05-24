@@ -1,7 +1,9 @@
 import React from 'react';
+
+import Link from 'next/link';
+
 import { FaChevronDown } from 'react-icons/fa6';
 import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 
 const MobileMenu = ({
   isMobileMenuOpen,

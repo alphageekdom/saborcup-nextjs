@@ -1,7 +1,9 @@
 import React from 'react';
+
 import Image from 'next/image';
-import TwoColumnSection from '../common/TwoColumnSection';
 import Link from 'next/link';
+
+import TwoColumnSection from '../common/TwoColumnSection';
 
 const Events = () => {
   return (

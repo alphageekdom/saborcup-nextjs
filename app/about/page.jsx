@@ -4,7 +4,7 @@ import HeaderImage from '@/components/common/HeaderImage';
 import React from 'react';
 
 const AboutPage = () => {
-  const crumbs = [{ title: 'About', path: '/about' }];
+  const breadcrumbItems = [{ title: 'About', path: '/about' }];
 
   return (
     <section className='bg-white'>
@@ -17,7 +17,7 @@ const AboutPage = () => {
           Experience the essence of Latin flavors in every cup
         </p>
       </HeaderImage>
-      <Breadcrumbs crumbs={crumbs} />
+      <Breadcrumbs items={breadcrumbItems} />
       <h1 className='text-4xl md:text-5xl font-bold text-center my-8 tracking-wider '>
         About Us
       </h1>

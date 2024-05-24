@@ -1,6 +1,9 @@
 import React from 'react';
+
 import Image from 'next/image';
+
 import cafeLogo from '@/assets/images/SaborCupAlt.png';
+
 import TwoColumnSection from './common/TwoColumnSection';
 
 const Welcome = () => {

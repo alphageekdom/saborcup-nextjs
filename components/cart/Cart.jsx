@@ -1,8 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+
 import { FaShoppingCart } from 'react-icons/fa';
+
 import CartMenu from './CartMenu';
+
 import { useCart } from '@/context/CartContext';
 
 const Cart = ({
@@ -19,6 +22,8 @@ const Cart = ({
     clearCart,
     setCartChanged,
     cartChanged,
+    loading,
+    error,
   } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartFetched, setCartFetched] = useState(false);
@@ -83,6 +88,8 @@ const Cart = ({
       </div>
       <CartMenu
         cartItems={cart}
+        error={error}
+        loading={loading}
         isOpen={isCartOpen}
         onRemoveItem={handleRemoveItem}
         handleClearCart={handleClearCart}

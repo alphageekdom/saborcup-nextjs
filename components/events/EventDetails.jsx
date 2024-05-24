@@ -1,8 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+
 import Image from 'next/image';
 import Link from 'next/link';
+
 import Spinner from '../common/Spinner';
 import ErrorMessage from '../common/ErrorMessage';
 
@@ -35,8 +37,6 @@ const EventDetails = ({ eventId }) => {
   if (loading) return <Spinner />;
   if (error) return <ErrorMessage message={error} />;
   if (!event) return <p>Event not found</p>;
-
-  console.log(event);
 
   return (
     <div className='flex flex-col items-center gap-8 p-4 lg:px-0 bg-background'>

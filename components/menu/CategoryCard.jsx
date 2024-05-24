@@ -1,10 +1,13 @@
 import React from 'react';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const CategoryCard = ({ category }) => {
+  const pathname = usePathname();
   return (
     <Link
-      href={`/menu/${category.type}`}
+      href={`${pathname}/${category.type}`}
       className='bg-white rounded-lg shadow-lg overflow-hidden custom-shadow'
     >
       <div className='relative'>

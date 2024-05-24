@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Image from 'next/image';
+
 import TwoColumnSection from '@/components/common/TwoColumnSection';
 
 const About = () => {

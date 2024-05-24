@@ -1,0 +1,18 @@
+[
+  {
+    "email": "john.doe@example.com",
+    "password": "$2a$10$EIXb01aXQISlFzrlK5rOZ.7RQdBO.y1kPU2s1T5BQ8HEZk2J0J1uK",
+    "name": "John Doe",
+    "role": "user",
+    "createdAt": "2024-05-01T10:20:30.000Z",
+    "updatedAt": "2024-05-01T10:20:30.000Z"
+  },
+  {
+    "email": "jane.smith@example.com",
+    "password": "$2a$10$7QqQ1G7P9OeF8rZ8aY1Q8O4/FVJ5.k/7PXjTn/6gYw/wQ5IZe8l2i",
+    "name": "Jane Smith",
+    "role": "admin",
+    "createdAt": "2024-05-02T14:50:10.000Z",
+    "updatedAt": "2024-05-02T14:50:10.000Z"
+  }
+]

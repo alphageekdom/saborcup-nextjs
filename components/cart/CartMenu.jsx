@@ -1,22 +1,26 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+
+import Image from 'next/image';
+import Link from 'next/link';
+
 import { IoClose } from 'react-icons/io5';
 import { GiBeachBag } from 'react-icons/gi';
 import { FaCheck, FaPlus, FaMinus } from 'react-icons/fa6';
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import toast from 'react-hot-toast';
-import { useCart } from '@/context/CartContext';
-import Link from 'next/link';
+import Spinner from '../common/Spinner';
+import ErrorMessage from '../common/ErrorMessage';
 
 const CartMenu = ({
+  error,
   isOpen,
+  loading,
   cartItems,
   onRemoveItem,
   handleClearCart,
   onUpdateQuantity,
 }) => {
-  const { cart } = useCart();
   const [total, setTotal] = useState(0);
   const [taxes, setTaxes] = useState(0);
   const [grandTotal, setGrandTotal] = useState(0);
@@ -25,18 +29,13 @@ const CartMenu = ({
   const [navbarHeight, setNavbarHeight] = useState(0);
   const [fixedNavbarHeight, setFixedNavbarHeight] = useState(0);
 
-  // useEffect(() => {
-  //   console.log('Cart Sidebar: cartItems', cart);
-  //   if (!Array.isArray(cart)) {
-  //     console.error('Cart is not an array:', cart);
-  //   }
-  // }, [cart]);
-
   useEffect(() => {
     const calculateTotal = (items) => {
       let total = 0;
       items.forEach((item) => {
-        total += item.price * item.quantity;
+        if (item && item.price && item.quantity) {
+          total += item.price * item.quantity;
+        }
       });
       setTotal(total);
       const taxRate = 0.08;
@@ -44,8 +43,12 @@ const CartMenu = ({
       setGrandTotal(total + total * taxRate);
     };
 
-    if (Array.isArray(cartItems)) {
+    if (Array.isArray(cartItems) && cartItems.length > 0) {
       calculateTotal(cartItems);
+    } else {
+      setTotal(0);
+      setTaxes(0);
+      setGrandTotal(0);
     }
   }, [cartItems]);
 
@@ -63,8 +66,8 @@ const CartMenu = ({
           Delete item from cart?
           <button
             onClick={() => {
-              onRemoveItem(item.id);
-              toast.dismiss(t.id);
+              onRemoveItem(item?.id);
+              toast.dismiss(t?.id);
             }}
             className='ml-2'
             style={{
@@ -103,7 +106,7 @@ const CartMenu = ({
           <button
             onClick={() => {
               handleClearCart();
-              toast.dismiss(t.id);
+              toast.dismiss(t?.id);
             }}
             className='ml-2'
             style={{
@@ -172,9 +175,11 @@ const CartMenu = ({
 
   const cartTop = scrollY > 100 ? fixedNavbarHeight : navbarHeight;
 
+  console.log(cartItems);
+
   return (
     <div
-      className={`fixed top-42 right-0 max-h-full h-[500px] bg-white shadow-lg transform transition-transform z-20 ${
+      className={`fixed top-42 right-0 max-h-full h-[500px] bg-white shadow-lg transform transition-transform ${
         isOpen
           ? 'translate-x-0 overflow-y-auto w-screen md:w-96'
           : 'translate-x-full hidden'
@@ -185,55 +190,56 @@ const CartMenu = ({
         <h2 className='text-xl'>Cart</h2>
         <p className='flex items-center gap-1'>
           <GiBeachBag size={16} />
-          <span className='text-xl'>{cartItems.length}</span>
+          <span className='text-xl'>{cartItems?.length}</span>
         </p>
       </div>
 
       <ul className='p-4 overflow-y-auto max-h-[50vh]' id='items'>
-        {cartItems.length === 0 ? (
+        {cartItems?.length === 0 ? (
           <li className='flex justify-center items-center h-full'>
             <p className='text-center'>Your cart is empty</p>
           </li>
         ) : (
-          cartItems.map((item, index) => (
-            <li key={item.id} className='flex flex-col pt-4'>
+          cartItems?.map((item, index) => (
+            <li key={item?.id} className='flex flex-col pt-4'>
               <div className='flex items-center justify-evenly'>
                 <Link
-                  href={`/menu/${item.type
-                    .toLowerCase()
-                    .split(' ')
-                    .join('-')}/${item.itemId}`}
+                  href={`/menu/${
+                    item?.type?.replace(' ', '-').toLowerCase() || ''
+                  }/${item?.itemId}`}
                 >
                   <Image
-                    src={item.imageUrl}
-                    alt={item.name}
+                    src={item?.imageUrl}
+                    alt={item?.name}
                     width={64}
                     height={64}
-                    className='w-16 h-16 object-cover'
+                    className='w-16 h-16 object-cover rounded-full'
+                    priority
                   />
                 </Link>
                 <div className='flex-1 ml-4'>
                   <div className='flex justify-between'>
                     <div>
-                      <h3 className='text-lg'>{item.name}</h3>
-                      <p className='italic text-gray-500'>{item.size}</p>
+                      <h3 className='text-lg'>{item?.name}</h3>
+                      <p className='italic text-gray-500'>{item?.size}</p>
                     </div>
                     <div className='flex flex-row mr-8 justify-center items-center'>
-                      <p className='mr-2'>${item.price.toFixed(2)} x</p>
+                      <p className='mr-2'>${item?.price?.toFixed(2)} x</p>
                       <div className='flex items-center justify-end'>
                         <button
                           onClick={() =>
-                            onUpdateQuantity(item.id, item.quantity - 1)
+                            item?.quantity > 1 &&
+                            onUpdateQuantity(item?.id, item?.quantity - 1)
                           }
                           className='px-2 py-1 bg-gray-200'
                           aria-label='Decrease Quantity'
                         >
                           <FaMinus />
                         </button>
-                        <span className='px-2'>{item.quantity}</span>
+                        <span className='px-2'>{item?.quantity}</span>
                         <button
                           onClick={() =>
-                            onUpdateQuantity(item.id, item.quantity + 1)
+                            onUpdateQuantity(item?.id, item?.quantity + 1)
                           }
                           className='px-2 py-1 bg-gray-200'
                           aria-label='Increase Quantity'
@@ -252,7 +258,7 @@ const CartMenu = ({
                   <IoClose size={24} />
                 </button>
               </div>
-              {index < cartItems.length - 1 && (
+              {index < cartItems?.length - 1 && (
                 <hr className='mt-4 border-t border-gray-200' />
               )}
             </li>
@@ -264,7 +270,7 @@ const CartMenu = ({
         <div className='flex justify-end items-center mb-4'>
           <button
             onClick={confirmClearCart}
-            disabled={cartItems.length === 0}
+            disabled={cartItems?.length === 0}
             className={`px-4 py-2 ${
               cartItems.length === 0
                 ? 'bg-gray-300 cursor-not-allowed'
@@ -276,15 +282,15 @@ const CartMenu = ({
         </div>
         <p className='flex justify-between'>
           <span>Total:</span>
-          <span>${total.toFixed(2)}</span>
+          <span>${total?.toFixed(2)}</span>
         </p>
         <p className='flex justify-between'>
           <span>Taxes:</span>
-          <span>${taxes.toFixed(2)}</span>
+          <span>${taxes?.toFixed(2)}</span>
         </p>
         <p className='flex justify-between font-bold'>
           <span>Grand Total:</span>
-          <span>${grandTotal.toFixed(2)}</span>
+          <span>${grandTotal?.toFixed(2)}</span>
         </p>
       </div>
     </div>

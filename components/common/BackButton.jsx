@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
+import React from 'react';
 
-const handleBack = () => {
+const handleBack = (e) => {
+  e.preventDefault();
   window.history.back();
 };
 

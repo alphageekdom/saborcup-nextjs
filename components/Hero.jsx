@@ -1,11 +1,14 @@
 import React from 'react';
+
 import HeroCarousel from './HeroCarousel';
+
+import slides from '@/data/slides';
 
 const Hero = () => {
   return (
-    <>
-      <HeroCarousel />
-    </>
+    <div className='relative'>
+      <HeroCarousel slides={slides} />
+    </div>
   );
 };
 

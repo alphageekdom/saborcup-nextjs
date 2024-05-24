@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Hot Coffee",
+    "type": "hot-coffee",
+    "description": "A sip of rich Hispanic heritage in every cup.",
+    "image": "https://images.unsplash.com/photo-1583165278997-0250ea5d72e2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZXNwcmVzc298ZW58MHx8MHx8fDA%3D"
+  },
+  {
+    "id": 2,
+    "name": "Cold Coffee",
+    "type": "cold-coffee",
+    "description": "Tradition meets innovation in every refreshing sip.",
+    "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sZCUyMGNvZmZlZXxlbnwwfDB8MHx8fDA%3D"
+  },
+  {
+    "id": 3,
+    "name": "Hot Tea",
+    "type": "hot-tea",
+    "description": "Warmth and hospitality in every aromatic embrace.",
+    "image": "https://images.unsplash.com/photo-1562097691-905c0a23ee19?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWFybCUyMGdyZXklMjB0ZWF8ZW58MHx8MHx8fDA%3D"
+  },
+  {
+    "id": 4,
+    "name": "Iced Tea",
+    "type": "iced-tea",
+    "description": "A tranquil oasis of crisp refreshment awaits",
+    "image": "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aWNlZCUyMHRlYXxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    "id": 5,
+    "name": "Lemonade",
+    "type": "lemonade",
+    "description": "Vibrant homage to refreshing zest in every sip.",
+    "image": "https://images.unsplash.com/photo-1527271982979-83fea3eb3582?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVhY2glMjBsZW1vbmFkZXxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    "id": 6,
+    "name": "Bakery",
+    "type": "bakery",
+    "description": "A journey through comforting flavors of Hispanic baking traditions.",
+    "image": "https://images.unsplash.com/photo-1617859047277-9f47d2bd9696?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29uY2hhfGVufDB8fDB8fHww"
+  }
+]

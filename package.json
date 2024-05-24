@@ -7,15 +7,18 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prisma:seed": "node prisma/seed.js",
+    "seed:data": "node prisma/seed.js",
     "delete:data": "node prisma/delete.js",
     "postinstall": "prisma generate && prisma migrate deploy"
   },
   "dependencies": {
     "@prisma/client": "^5.13.0",
     "@railway/cli": "^3.5.2",
+    "bcryptjs": "^2.4.3",
+    "js-cookie": "^3.0.5",
     "mapbox-gl": "^3.3.0",
     "next": "^14.2.3",
+    "next-auth": "^4.24.7",
     "pg": "^8.11.5",
     "prisma": "^5.13.0",
     "react": "^18",
@@ -23,7 +26,8 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^5.2.1",
     "react-map-gl": "^7.1.7",
-    "react-spinners": "^0.13.8"
+    "react-spinners": "^0.13.8",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "eslint": "^8",

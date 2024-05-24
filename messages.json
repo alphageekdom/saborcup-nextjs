@@ -1,0 +1,18 @@
+[
+  {
+    "userEmail": "john.doe@example.com",
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "subject": "Question about the event",
+    "message": "Hi, I have a question about the upcoming event. Can you provide more details?",
+    "createdAt": "2024-05-20T12:34:56.000Z"
+  },
+  {
+    "userEmail": "jane.smith@example.com",
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "subject": "Feedback on your service",
+    "message": "Hello, I wanted to provide some feedback on the service I received. It was excellent!",
+    "createdAt": "2024-05-21T09:45:23.000Z"
+  }
+]

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import TwoColumnSection from './common/TwoColumnSection';
+
 import {
   FaFacebook,
   FaInstagram,
@@ -10,6 +10,8 @@ import {
   FaYoutube,
 } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
+
+import TwoColumnSection from './common/TwoColumnSection';
 import ContactForm from './ContactForm';
 
 const ContactDetails = () => {
