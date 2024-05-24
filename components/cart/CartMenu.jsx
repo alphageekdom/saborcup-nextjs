@@ -91,6 +91,10 @@ const CartMenu = ({
     );
   };
 
+  if (loading) return 'Loading...';
+
+  if (error) return error.message;
+
   const confirmClearCart = () => {
     toast(
       (t) => (
@@ -174,8 +178,6 @@ const CartMenu = ({
   }, []);
 
   const cartTop = scrollY > 100 ? fixedNavbarHeight : navbarHeight;
-
-  console.log(cartItems);
 
   return (
     <div
