@@ -107,12 +107,12 @@ const CartMenu = ({ isSidebarOpen, onClose, onCartToggle }) => {
 
   return (
     <div
-      className={`bg-opacity-50 h-full z-50 ${
+      className={`bg-opacity-50 h-full z-40 ${
         isSidebarOpen ? 'block' : 'hidden'
       }`}
     >
       <div
-        className={`transform transition-transform ${
+        className={`transform transition-transform  ${
           isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ top: navbarHeight }}

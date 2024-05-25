@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-const HeaderImage = ({ imageUrl, overlayColor = 'black', children }) => {
+const HeaderImage = ({ imageUrl, children }) => {
   return (
     <div className='relative w-full h-[300px]'>
       <Image
@@ -12,9 +12,7 @@ const HeaderImage = ({ imageUrl, overlayColor = 'black', children }) => {
         className='object-cover w-full h-full'
         priority
       />
-      <div
-        className={`absolute top-0 left-0 w-full h-full opacity-50 bg-${overlayColor}`}
-      ></div>
+      <div className='absolute top-0 left-0 w-full h-full opacity-50 overlay'></div>
       <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10'>
         {children}
       </div>

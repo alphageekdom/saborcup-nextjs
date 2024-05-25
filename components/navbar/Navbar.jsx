@@ -159,7 +159,7 @@ const Navbar = () => {
             <NavLink href='/contact' onClick={closeMenu}>
               Contact
             </NavLink>
-            <div className='relative'>
+            <div className='relative z-10'>
               <Cart
                 isMobileMenuOpen={isMobileMenuOpen}
                 setIsMobileMenuOpen={setIsMobileMenuOpen}

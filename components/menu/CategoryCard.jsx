@@ -10,7 +10,7 @@ const CategoryCard = ({ category }) => {
       href={`${pathname}/${category.type}`}
       className='bg-white rounded-lg shadow-lg overflow-hidden custom-shadow'
     >
-      <div className='relative'>
+      <div className='relative transform transition duration-300 ease-in-out hover:scale-105'>
         <div
           className='h-64 bg-cover bg-center relative'
           style={{ backgroundImage: `url(${category.image})` }}

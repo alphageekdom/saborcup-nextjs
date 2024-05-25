@@ -28,13 +28,12 @@ const ItemPage = () => {
   ];
 
   return (
-    <div className='container mx-auto p-12'>
-      <Breadcrumbs items={breadcrumbItems} />
-      <h1 className='text-4xl font-bold text-center text-black mb-10'>
-        {product.name}{' '}
-        {/* Assuming `item` is `product`, based on your context */}
-      </h1>
-      <div className='custom-shadow'>
+    <div className='bg-gray-100'>
+      <div className='container mx-auto p-12'>
+        <Breadcrumbs items={breadcrumbItems} />
+        <h1 className='text-4xl font-bold text-center text-black mb-10'>
+          {product.name}
+        </h1>
         <Item productID={productID} />
       </div>
     </div>

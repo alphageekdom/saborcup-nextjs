@@ -3,14 +3,14 @@
     "name": "Espresso",
     "type": "Hot Coffee",
     "categoryId": "Hot Coffee",
+    "description": "A classic shot of concentrated coffee, crafted to deliver a robust and deeply satisfying taste. Perfect for a quick, invigorating boost any time of day.",
     "prices": {
-      "Small": 2.0,
-      "Medium": 2.5,
-      "Large": 3.0
+      "Small": 2.06,
+      "Medium": 2.58,
+      "Large": 3.09
     },
     "sizes": ["Small", "Medium", "Large"],
     "availability": "Year-round",
-    "description": "A classic shot of concentrated coffee.",
     "isFeatured": true,
     "isSeasonal": false,
     "isNew": false,
@@ -22,13 +22,13 @@
     "name": "Iced Coffee",
     "type": "Cold Coffee",
     "categoryId": "Cold Coffee",
+    "description": "Chilled coffee served over ice, providing a smooth and refreshing experience. Ideal for hot Southern California days.",
     "prices": {
-      "Regular": 3.0,
-      "Large": 4.0
+      "Regular": 3.09,
+      "Large": 4.12
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Chilled coffee served over ice.",
     "isFeatured": true,
     "isSeasonal": false,
     "isNew": false,
@@ -40,6 +40,7 @@
     "name": "Earl Grey Tea",
     "type": "Hot Tea",
     "categoryId": "Hot Tea",
+    "description": "A distinguished black tea flavored with aromatic bergamot, offering a refined and soothing beverage experience. Perfectly crafted for tea lovers seeking a moment of tranquility.",
     "prices": {
       "Small": 2.5,
       "Medium": 3.0,
@@ -47,7 +48,6 @@
     },
     "sizes": ["Small", "Medium", "Large"],
     "availability": "Year-round",
-    "description": "A black tea flavored with bergamot.",
     "isFeatured": true,
     "isSeasonal": false,
     "isNew": false,
@@ -77,12 +77,12 @@
     "name": "Concha",
     "type": "Bakery",
     "categoryId": "Bakery",
+    "description": "Enjoy a traditional Mexican sweet bread with a beautifully crunchy topping. Each bite of this concha offers a taste of heritage and sweetness, perfect with a cup of café de olla.",
     "prices": {
-      "Regular": 2.0
+      "Regular": 3.1
     },
     "sizes": ["Regular"],
     "availability": "Year-round",
-    "description": "A traditional Mexican sweet bread with a crunchy topping.",
     "isFeatured": true,
     "isSeasonal": false,
     "isNew": false,
@@ -94,14 +94,14 @@
     "name": "Americano",
     "type": "Hot Coffee",
     "categoryId": "Hot Coffee",
+    "description": "Espresso combined with hot water for a dilution that’s both flavorful and approachable. An excellent morning pick-me-up that reflects the laid-back yet sophisticated vibe of the coast.",
     "prices": {
-      "Small": 2.5,
-      "Medium": 3.0,
-      "Large": 3.5
+      "Small": 3.2,
+      "Medium": 3.9,
+      "Large": 4.5
     },
     "sizes": ["Small", "Medium", "Large"],
     "availability": "Year-round",
-    "description": "Espresso diluted with hot water.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -113,13 +113,13 @@
     "name": "Cold Brew",
     "type": "Cold Coffee",
     "categoryId": "Cold Coffee",
+    "description": "Crafted with time and precision, this cold brew coffee offers a smooth, invigorating flavor profile, ideal for the warm SoCal weather. Its rich, deep notes make it a favorite among coffee enthusiasts.",
     "prices": {
-      "Regular": 3.5,
-      "Large": 4.5
+      "Regular": 5.1,
+      "Large": 6.2
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Smooth and refreshing coffee brewed with cold water.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -131,14 +131,14 @@
     "name": "Green Tea Latte",
     "type": "Hot Tea",
     "categoryId": "Hot Tea",
+    "description": "A soothing blend of finely ground matcha and steamed milk, this latte offers a creamy texture and a boost of antioxidants. A perfect choice for a healthy start to your day.",
     "prices": {
-      "Small": 3.0,
-      "Medium": 3.5,
-      "Large": 4.0
+      "Small": 4.3,
+      "Medium": 5.0,
+      "Large": 5.8
     },
     "sizes": ["Small", "Medium", "Large"],
     "availability": "Year-round",
-    "description": "Matcha green tea powder mixed with steamed milk.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -150,13 +150,13 @@
     "name": "Classic Lemonade",
     "type": "Lemonade",
     "categoryId": "Lemonade",
+    "description": "Freshly squeezed lemons blended with just the right amount of sweetness. This classic lemonade is a refreshing treat that speaks to the sunny days of Southern California.",
     "prices": {
-      "Regular": 3.0,
-      "Large": 4.0
+      "Regular": 4.5,
+      "Large": 5.4
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Freshly squeezed lemon juice mixed with water and sugar.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -168,12 +168,12 @@
     "name": "Croissant",
     "type": "Bakery",
     "categoryId": "Bakery",
+    "description": "A flaky, buttery croissant that pairs perfectly with any coffee. This delightful pastry is an ode to the traditional French technique with a Southern California twist.",
     "prices": {
-      "Regular": 2.5
+      "Regular": 3.5
     },
     "sizes": ["Regular"],
     "availability": "Year-round",
-    "description": "Buttery and flaky pastry perfect for breakfast or a snack.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -185,14 +185,14 @@
     "name": "Cappuccino",
     "type": "Hot Coffee",
     "categoryId": "Hot Coffee",
+    "description": "Rich espresso topped with a thick layer of foamy milk. This classic cappuccino blends the bold flavors of coffee with the creaminess of milk, a true coffee lover’s delight.",
     "prices": {
-      "Small": 3.0,
-      "Medium": 3.5,
-      "Large": 4.0
+      "Small": 4.0,
+      "Medium": 4.7,
+      "Large": 5.4
     },
     "sizes": ["Small", "Medium", "Large"],
     "availability": "Year-round",
-    "description": "Espresso with equal parts steamed milk and milk foam.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -204,14 +204,14 @@
     "name": "Latte",
     "type": "Hot Coffee",
     "categoryId": "Hot Coffee",
+    "description": "Our latte combines soft-textured milk with a shot of espresso, crowned with a touch of foam. It’s the perfect blend for those who appreciate a milder, creamier coffee flavor.",
     "prices": {
-      "Small": 3.5,
-      "Medium": 4.0,
-      "Large": 4.5
+      "Small": 4.5,
+      "Medium": 5.2,
+      "Large": 5.9
     },
     "sizes": ["Small", "Medium", "Large"],
     "availability": "Year-round",
-    "description": "Espresso with steamed milk and a small amount of milk foam.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -223,14 +223,14 @@
     "name": "Mocha",
     "type": "Hot Coffee",
     "categoryId": "Hot Coffee",
+    "description": "A decadent blend of rich espresso, creamy milk, and velvety chocolate, topped with a swirl of whipped cream. It’s a luxurious treat that chocolate and coffee lovers will adore.",
     "prices": {
-      "Small": 4.0,
-      "Medium": 4.5,
-      "Large": 5.0
+      "Small": 5.2,
+      "Medium": 6.0,
+      "Large": 6.8
     },
     "sizes": ["Small", "Medium", "Large"],
     "availability": "Year-round",
-    "description": "Espresso with steamed milk, chocolate syrup, and whipped cream.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -242,13 +242,13 @@
     "name": "Iced Latte",
     "type": "Cold Coffee",
     "categoryId": "Cold Coffee",
+    "description": "Chilled and refreshing, our iced latte is a smooth blend of espresso and cold milk over ice. It’s the perfect escape from the heat, keeping you cool and caffeinated.",
     "prices": {
-      "Regular": 4.0,
-      "Large": 5.0
+      "Regular": 5.2,
+      "Large": 6.5
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Espresso with cold milk served over ice.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -260,13 +260,13 @@
     "name": "Frappuccino",
     "type": "Cold Coffee",
     "categoryId": "Cold Coffee",
+    "description": "An icy blend of coffee, milk, and your choice of flavor, topped with whipped cream. This frappuccino is a delightful frosty treat that’s both energizing and indulgent.",
     "prices": {
-      "Regular": 5.0,
-      "Large": 6.0
+      "Regular": 6.5,
+      "Large": 7.8
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Blended coffee beverage with milk, ice, and flavorings.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -278,13 +278,13 @@
     "name": "Nitro Cold Brew",
     "type": "Cold Coffee",
     "categoryId": "Cold Coffee",
+    "description": "Infused with nitrogen for a silky texture and a rich, creamy head, our nitro cold brew is both a visual and flavorful delight. Its smooth, cascading pour is as mesmerizing as it is delicious.",
     "prices": {
-      "Regular": 5.5,
-      "Large": 6.5
+      "Regular": 6.7,
+      "Large": 7.9
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Cold brew infused with nitrogen for a creamy texture and rich flavor.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -296,14 +296,14 @@
     "name": "Chai Tea Latte",
     "type": "Hot Tea",
     "categoryId": "Hot Tea",
+    "description": "Spiced chai steeped with precision, blended with steamed milk, and topped with a sprinkle of cinnamon. This latmatcha perfect balance between spicy and sweet, a warm hug in a cup.",
     "prices": {
-      "Small": 4.0,
-      "Medium": 4.5,
-      "Large": 5.0
+      "Small": 4.9,
+      "Medium": 5.6,
+      "Large": 6.3
     },
     "sizes": ["Small", "Medium", "Large"],
     "availability": "Year-round",
-    "description": "Spiced black tea mixed with steamed milk.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -315,13 +315,13 @@
     "name": "Iced Tea",
     "type": "Iced Tea",
     "categoryId": "Iced Tea",
+    "description": "A refreshing chilled brew of either black or herbal tea, perfectly iced to beat the Southern California heat. Served year-round, it's a staple for any tea lover.",
     "prices": {
-      "Regular": 2.5,
-      "Large": 3.0
+      "Regular": 3.85,
+      "Large": 4.65
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Chilled black tea or herbal tea served over ice.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -333,13 +333,13 @@
     "name": "Strawberry Lemonade",
     "type": "Lemonade",
     "categoryId": "Lemonade",
+    "description": "Our strawberry lemonade mixes traditional tangy lemonade with a splash of sweet strawberry syrup, offering a refreshing drink that's as vibrant as a SoCal sunset.",
     "prices": {
-      "Regular": 4.0,
-      "Large": 5.0
+      "Regular": 5.2,
+      "Large": 6.5
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Classic lemonade with a splash of strawberry syrup.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -351,13 +351,13 @@
     "name": "Mango Lemonade",
     "type": "Lemonade",
     "categoryId": "Lemonade",
+    "description": "A tropical twist on our classic lemonade, infused with ripe mango puree. It's a sweet, refreshing choice that captures the essence of Southern California's diverse flavors.",
     "prices": {
-      "Regular": 4.0,
-      "Large": 5.0
+      "Regular": 5.2,
+      "Large": 6.5
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Classic lemonade with mango puree for a tropical twist.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -369,13 +369,13 @@
     "name": "Sparkling Lemonade",
     "type": "Lemonade",
     "categoryId": "Lemonade",
+    "description": "Fizzy and refreshing, our sparkling lemonade is a bubbly alternative to our classic lemonade, offering a crisp finish to quench your thirst.",
     "prices": {
-      "Regular": 4.0,
-      "Large": 5.0
+      "Regular": 5.2,
+      "Large": 6.5
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Carbonated lemonade for a fizzy, refreshing drink.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -387,13 +387,13 @@
     "name": "Mojito Iced Tea",
     "type": "Iced Tea",
     "categoryId": "Iced Tea",
+    "description": "A non-alcoholic take on the classic mojito, this iced tea is infused with fresh mint and a hint of lavender, making it a unique and refreshing beverage choice.",
     "prices": {
-      "Regular": 4.0,
-      "Large": 5.0
+      "Regular": 5.2,
+      "Large": 6.5
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Classic non-alcholic Mojito infused with lavender syrup for a floral touch.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -405,12 +405,12 @@
     "name": "Blueberry Muffin",
     "type": "Bakery",
     "categoryId": "Bakery",
+    "description": "Bursting with fresh blueberries, our muffins are a sweet treat perfect for any time of day. Enjoy the taste of freshly baked goodness with every bite.",
     "prices": {
-      "Regular": 2.5
+      "Regular": 3.25
     },
     "sizes": ["Regular"],
     "availability": "Year-round",
-    "description": "Moist muffin studded with juicy blueberries.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -422,12 +422,12 @@
     "name": "Chocolate Chip Cookie",
     "type": "Bakery",
     "categoryId": "Bakery",
+    "description": "A classic favorite, our chocolate chip cookies are loaded with rich, melty chips. Each cookie offers a taste of nostalgia and comfort.",
     "prices": {
-      "Regular": 2.0
+      "Regular": 2.6
     },
     "sizes": ["Regular"],
     "availability": "Year-round",
-    "description": "Classic cookie loaded with chocolate chips for a sweet treat.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -439,12 +439,12 @@
     "name": "Churros",
     "type": "Bakery",
     "categoryId": "Bakery",
+    "description": "Crisp on the outside, soft on the inside, our churros are dusted with cinnamon sugar and served with a side of chocolate dipping sauce. A traditional treat with a touch of indulgence.",
     "prices": {
-      "Regular": 3.0
+      "Regular": 4.5
     },
     "sizes": ["Regular"],
     "availability": "Year-round",
-    "description": "Fried dough pastry dusted with cinnamon sugar, served with chocolate dipping sauce.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -456,13 +456,13 @@
     "name": "Habiscus Iced Tea",
     "type": "Iced Tea",
     "categoryId": "Iced Tea",
+    "description": "Our hibiscus iced tea is vibrantly colored and tart, with a floral aroma and refreshing finish. It's an exquisite choice for cooling down on a hot day.",
     "prices": {
-      "Regular": 4.0,
-      "Large": 5.0
+      "Regular": 5.2,
+      "Large": 6.5
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Indulge in the timeless refreshment of hibiscus iced tea, enhanced with a hint of floral allure from infused lavender syrup",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -474,13 +474,13 @@
     "name": "Lemon Green Iced Tea",
     "type": "Iced Tea",
     "categoryId": "Iced Tea",
+    "description": "Delicately flavored with lemon, our green iced tea offers a subtle citrus zest that enhances the natural antioxidants of green tea. It's both healthful and delightful, perfect for sipping on a warm Southern California day.",
     "prices": {
-      "Regular": 4.0,
-      "Large": 5.0
+      "Regular": 5.2,
+      "Large": 6.5
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Savor the invigorating zest of lemon green iced tea, complemented by a subtle infusion of refreshing lavender syrup for a delightful floral twist.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -492,13 +492,13 @@
     "name": "Strawberry Habiscus Iced Tea",
     "type": "Iced Tea",
     "categoryId": "Iced Tea",
+    "description": "This enticing blend of sweet strawberries and tangy hibiscus makes our iced tea a colorful and delicious beverage. It's as appealing to the eye as it is to the palate.",
     "prices": {
-      "Regular": 4.0,
-      "Large": 5.0
+      "Regular": 5.2,
+      "Large": 6.5
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Experience the delightful fusion of sweet strawberries and tangy hibiscus in our Strawberry Hibiscus Iced Tea, elevated with a touch of floral essence from infused lavender syrup.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -510,13 +510,13 @@
     "name": "Canela Hot Tea",
     "type": "Hot Tea",
     "categoryId": "Hot Tea",
+    "description": "Savor the sweet-spicy flavors of canela in our hot tea. This aromatic beverage is steeped with cinnamon sticks for a naturally sweet and warming drink.",
     "prices": {
-      "Regular": 4.0,
-      "Large": 5.0
+      "Regular": 5.2,
+      "Large": 6.5
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Immerse yourself in the enchanting blend of cinnamon-infused hot tea, where the warmth of canela intertwines with delightful hints of sweetness, creating a cozy and aromatic beverage experience.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
@@ -528,13 +528,13 @@
     "name": "White Hot Tea",
     "type": "Hot Tea",
     "categoryId": "Hot Tea",
+    "description": "Our white hot tea is subtle and refined, offering a lightly floral aroma and a smooth taste. It's a perfect soothing drink for a peaceful moment.",
     "prices": {
-      "Regular": 4.0,
-      "Large": 5.0
+      "Regular": 5.2,
+      "Large": 6.5
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "description": "Experience the delicate harmony of hot white tea, where subtle flavors dance gracefully amidst the gentle warmth, offering a soothing and refined tea indulgence.",
     "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,

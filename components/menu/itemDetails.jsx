@@ -65,15 +65,15 @@ const ItemDetails = ({ product }) => {
   if (!product) return <ErrorMessage error='Product not found' />;
 
   return (
-    <div className='mx-auto p-4 relative'>
+    <div className='mx-auto p-8 relative'>
       <div className='flex flex-col md:flex-row items-center justify-center'>
-        <div className='w-full md:w-1/2 md:pr-8 relative'>
+        <div className='w-full md:w-1/2 md:pr-8 relative flex justify-center'>
           <Image
             src={product.images[currentImageIndex]}
             alt={product.name}
             width={300}
             height={300}
-            className='h-64 w-full md:w-full md:h-[500px] object-cover md:rounded-lg'
+            className='h-64 w-64 md:w-full md:h-[500px] object-cover rounded-full md:rounded-lg custom-shadow mb-6  md:mb-0'
             priority
           />
           {product.images.length > 1 && (

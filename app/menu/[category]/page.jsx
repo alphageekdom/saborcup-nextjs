@@ -29,12 +29,11 @@ const CategoryPage = () => {
   const category = convertToSerializeableObject(categories);
 
   return (
-    <section className='bg-white'>
+    <section>
       <HeaderImage
         imageUrl={
           'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         }
-        overlayColor='black'
       >
         <h1 className='text-4xl md:text-5xl font-bold mb-3'>{title?.name}</h1>
         <p className='text-lg md:text-xl'>{title?.description}</p>
