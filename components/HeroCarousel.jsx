@@ -49,7 +49,7 @@ const HeroCarousel = ({ slides, interval = 5000 }) => {
             </h2>
             <Link
               href={slide.link}
-              className='bg-accent1 hover:bg-accent2 text-white font-bold py-1 px-4 md:py-3 md:px-10 rounded-md text-xl shadow-lg z-10'
+              className='bg-primary hover:bg-blue-500 text-white font-bold py-1 px-4 md:py-3 md:px-10 rounded-md text-xl shadow-lg z-10'
             >
               {slide.buttonText}
             </Link>

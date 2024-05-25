@@ -6,14 +6,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { useCart } from '@/context/CartContext';
-import { IoClose } from 'react-icons/io5';
 
 import { FaCheck, FaPlus, FaMinus, FaTrash } from 'react-icons/fa6';
 import toast from 'react-hot-toast';
-import Spinner from '../common/Spinner';
-import ErrorMessage from '../common/ErrorMessage';
 
-const CartMenu = ({ isSidebarOpen, onClose, onCartToggle }) => {
+const CartMenu = ({ isSidebarOpen }) => {
   const [total, setTotal] = useState(0);
   const [taxes, setTaxes] = useState(0);
   const [grandTotal, setGrandTotal] = useState(0);
@@ -61,9 +58,11 @@ const CartMenu = ({ isSidebarOpen, onClose, onCartToggle }) => {
     }
   }, [cart]);
 
-  const handleClearCart = () => {
-    cart.forEach((item) => removeFromCart(item.id));
-    toast.success('Cart cleared successfully!');
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    }).format(amount);
   };
 
   const confirmClearCart = () => {
@@ -187,7 +186,7 @@ const CartMenu = ({ isSidebarOpen, onClose, onCartToggle }) => {
                   </div>
                   <button
                     onClick={() => removeFromCart(item.id)}
-                    className='text-red-500 hover:transform hover:scale-150 transition-transform duration-200 ease-in-out'
+                    className='text-red-500 hover:text-red-600 hover:transform'
                     aria-label='Remove Item'
                   >
                     <FaTrash size={24} />
@@ -208,7 +207,7 @@ const CartMenu = ({ isSidebarOpen, onClose, onCartToggle }) => {
               className={`px-4 py-2 ${
                 cart.length === 0
                   ? 'bg-gray-300 cursor-not-allowed'
-                  : 'bg-red-500 text-white'
+                  : 'bg-red-500 hover:bg-red-600 text-white'
               } rounded`}
             >
               Clear All
@@ -216,15 +215,15 @@ const CartMenu = ({ isSidebarOpen, onClose, onCartToggle }) => {
           </div>
           <p className='flex justify-between'>
             <span>Total:</span>
-            <span>${total?.toFixed(2)}</span>
+            <span className='tracking-wider'>{formatCurrency(total)}</span>
           </p>
           <p className='flex justify-between'>
             <span>Taxes:</span>
-            <span>${taxes?.toFixed(2)}</span>
+            <span className='tracking-wider'>{formatCurrency(taxes)}</span>
           </p>
           <p className='flex justify-between font-bold'>
             <span>Grand Total:</span>
-            <span>${grandTotal?.toFixed(2)}</span>
+            <span className='tracking-wider'>{formatCurrency(grandTotal)}</span>
           </p>
         </div>
       </div>

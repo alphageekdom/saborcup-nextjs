@@ -21,7 +21,7 @@ const slides = [
     alt: 'Upcoming Events',
     title: 'Join Our Upcoming Events',
     link: '/events',
-    buttonText: 'View',
+    buttonText: 'Explore',
   },
 ];
 
