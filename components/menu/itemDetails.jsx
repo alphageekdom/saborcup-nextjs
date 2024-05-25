@@ -15,15 +15,13 @@ const ItemDetails = ({ product }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [loading, setLoading] = useState(false);
 
+  const sizeColors = ['bg-accent4', 'bg-accent5', 'bg-accent6'];
+
   useEffect(() => {
     if (product?.sizes?.length > 0) {
       setSelectedSize(product.sizes[0]);
     }
   }, [product]);
-
-  const handleSizeChange = (event) => {
-    setSelectedSize(event.target.value);
-  };
 
   const handleQuantityChange = (e) => {
     const newQuantity = parseInt(e.target.value, 10);
@@ -69,13 +67,13 @@ const ItemDetails = ({ product }) => {
   return (
     <div className='mx-auto p-4 relative'>
       <div className='flex flex-col md:flex-row items-center justify-center'>
-        <div className='md:w-1/2 md:pr-8 relative'>
+        <div className='w-full md:w-1/2 md:pr-8 relative'>
           <Image
             src={product.images[currentImageIndex]}
             alt={product.name}
             width={300}
             height={300}
-            className='h-64 w-64 md:w-full md:h-[500px] object-cover md:rounded-lg'
+            className='h-64 w-full md:w-full md:h-[500px] object-cover md:rounded-lg'
             priority
           />
           {product.images.length > 1 && (
@@ -108,9 +106,10 @@ const ItemDetails = ({ product }) => {
 
         <div className='md:w-1/2 mt-4 md:mt-0'>
           <h2 className='text-2xl font-bold text-left text-black mb-3'>
-            {product.name}
+            {product.name}{' '}
+            <span className='text-gray-600 t'>({product.type})</span>
           </h2>
-          <p className='text-gray-600 text-lg mt-2'>{product.type}</p>
+          <p className='text-gray-600 text-lg mt-2'>{product.description}</p>
           <div className='flex items-center mt-4'>
             {Object.entries(product.prices).map(([size, price]) => (
               <p key={size} className='mr-2'>
@@ -118,19 +117,15 @@ const ItemDetails = ({ product }) => {
               </p>
             ))}
           </div>
-          <p className='text-gray-700 mt-2'>
-            Availability: {product.availability}
-          </p>
-          <p className='text-gray-700 mt-4'>{product.description}</p>
 
           <div className='mt-4'>
-            {product?.sizes?.map((size) => (
+            {product?.sizes?.map((size, index) => (
               <button
                 key={size}
                 onClick={() => setSelectedSize(size)}
-                className={`mx-2 px-4 py-2 rounded-full text-white font-medium ${
+                className={`mx-2 px-4 py-2 rounded-md text-white font-medium ${
                   selectedSize === size
-                    ? 'bg-blue-500'
+                    ? sizeColors[index % sizeColors.length]
                     : 'bg-gray-300 hover:bg-gray-400'
                 }`}
                 aria-label={`Select size ${size}`}
@@ -148,12 +143,11 @@ const ItemDetails = ({ product }) => {
               type='number'
               id='quantity'
               value={quantity}
-              onChange={(e) => handleQuantityChange(Number(e.target.value))}
+              onChange={(e) => handleQuantityChange(e)}
               min='1'
-              className='ml-2 px-2 py-1 border border-gray-300 rounded mb-4'
+              className='ml-2 px-2 py-1 border border-gray-300 rounded mb-4 no-arrows'
             />
           </div>
-
           <button
             onClick={handleAddToCart}
             className='bg-accent1 hover:bg-accent2 text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg flex items-center justify-center'

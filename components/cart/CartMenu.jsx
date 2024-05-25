@@ -6,15 +6,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { useCart } from '@/context/CartContext';
-
 import { IoClose } from 'react-icons/io5';
-import { GiBeachBag } from 'react-icons/gi';
-import { FaCheck, FaPlus, FaMinus } from 'react-icons/fa6';
+
+import { FaCheck, FaPlus, FaMinus, FaTrash } from 'react-icons/fa6';
 import toast from 'react-hot-toast';
 import Spinner from '../common/Spinner';
 import ErrorMessage from '../common/ErrorMessage';
 
-const CartMenu = ({ isOpen }) => {
+const CartMenu = ({ isSidebarOpen, onClose, onCartToggle }) => {
   const [total, setTotal] = useState(0);
   const [taxes, setTaxes] = useState(0);
   const [grandTotal, setGrandTotal] = useState(0);
@@ -25,10 +24,10 @@ const CartMenu = ({ isOpen }) => {
     useCart();
 
   useEffect(() => {
-    if (isOpen) {
+    if (isSidebarOpen) {
       fetchCart();
     }
-  }, [isOpen, fetchCart]);
+  }, [isSidebarOpen, fetchCart]);
 
   useEffect(() => {
     const navbar = document.querySelector('.sticky-navbar');
@@ -81,7 +80,7 @@ const CartMenu = ({ isOpen }) => {
           Clear all items from cart?
           <button
             onClick={() => {
-              handleClearCart();
+              clearCart();
               toast.dismiss(t?.id);
             }}
             className='ml-2'
@@ -107,21 +106,18 @@ const CartMenu = ({ isOpen }) => {
   };
 
   return (
-    <div className='relative'>
+    <div
+      className={`bg-opacity-50 h-full z-50 ${
+        isSidebarOpen ? 'block' : 'hidden'
+      }`}
+    >
       <div
-        className={`absolute right-0 bg-white shadow-lg transform transition-transform ${
-          isOpen ? 'block' : 'hidden'
-        } w-screen md:w-96`}
+        className={`transform transition-transform ${
+          isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+        style={{ top: navbarHeight }}
       >
-        <div className='flex justify-between p-4 bg-primary text-white'>
-          <h2 className='text-xl'>Cart</h2>
-          <p className='flex items-center gap-1'>
-            <GiBeachBag size={16} />
-            <span className='text-xl'>{cart.length}</span>
-          </p>
-        </div>
-
-        <ul className='p-4 overflow-y-auto max-h-[50vh]' id='items'>
+        <ul className='p-4 overflow-y-auto max-h-[65vh]' id='items'>
           {cart?.length === 0 ? (
             <li className='flex justify-center items-center h-full'>
               <p className='text-center'>Your cart is empty</p>
@@ -141,7 +137,7 @@ const CartMenu = ({ isOpen }) => {
                         alt={item.name}
                         width={300}
                         height={300}
-                        className='object-cover w-16 h-16  rounded-lg'
+                        className='object-cover w-16 h-16 rounded-lg'
                         priority
                       />
                     ) : (
@@ -167,7 +163,7 @@ const CartMenu = ({ isOpen }) => {
                                 item?.quantity - 1
                               )
                             }
-                            className='px-2 py-1 bg-gray-200'
+                            className='px-2 py-1 bg-gray-200 rounded-l-md'
                             aria-label='Decrease Quantity'
                           >
                             <FaMinus />
@@ -175,9 +171,12 @@ const CartMenu = ({ isOpen }) => {
                           <span className='px-2'>{item?.quantity}</span>
                           <button
                             onClick={() =>
-                              onUpdateQuantity(item?.id, item?.quantity + 1)
+                              updateCartItemQuantity(
+                                item?.id,
+                                item?.quantity + 1
+                              )
                             }
-                            className='px-2 py-1 bg-gray-200'
+                            className='px-2 py-1 bg-gray-200 rounded-r-md'
                             aria-label='Increase Quantity'
                           >
                             <FaPlus />
@@ -191,7 +190,7 @@ const CartMenu = ({ isOpen }) => {
                     className='text-red-500 hover:transform hover:scale-150 transition-transform duration-200 ease-in-out'
                     aria-label='Remove Item'
                   >
-                    <IoClose size={24} />
+                    <FaTrash size={24} />
                   </button>
                 </div>
                 {index < cart?.length - 1 && (
@@ -201,7 +200,6 @@ const CartMenu = ({ isOpen }) => {
             ))
           )}
         </ul>
-
         <div className='p-4 border-t'>
           <div className='flex justify-end items-center mb-4'>
             <button

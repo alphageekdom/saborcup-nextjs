@@ -26,7 +26,7 @@ const Item = ({ productID }) => {
   if (!product) return <ErrorMessage error='Product not found' />;
 
   return (
-    <div className='custom-shadow'>
+    <div className='product-shadow'>
       <ItemDetails product={product} />
     </div>
   );

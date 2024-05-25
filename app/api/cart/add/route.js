@@ -39,8 +39,6 @@ export const POST = async (request) => {
 
     const cartItems = await prisma.cartItem.findMany();
 
-    console.log(cartItems);
-
     return NextResponse.json(cartItems); // Return all cart items as response
   } catch (error) {
     console.error('Error while adding new item to cart:', error);

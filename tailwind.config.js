@@ -22,6 +22,9 @@ module.exports = {
         accent2: '#cc7a00', // Darker orange
         accent3: '#B58900', // Darker yellow
         accent4: '#357a38', // Darker green
+        accent5: '#004d80', // Darker blue
+        accent6: '#732673', // Darker purple
+        accent7: '#4d3d00', // Darker brown
       },
       fontFamily: {
         sans: ['var(--font-poppins)'],
