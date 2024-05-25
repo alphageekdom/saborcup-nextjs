@@ -2,7 +2,7 @@ import React from 'react';
 
 import Image from 'next/image';
 
-import cafeLogo from '@/assets/images/SaborCupAlt.png';
+import CafeLogo from '@/public/images/SaborCupAlt.png';
 
 import TwoColumnSection from './common/TwoColumnSection';
 
@@ -12,7 +12,7 @@ const Welcome = () => {
       <div className='container mx-auto px-4 py-8 md:py-16 flex flex-col md:flex-row items-center justify-between'>
         <div className='md:w-1/2 flex flex-col items-center justify-center mb-8 md:mb-0'>
           <Image
-            src={cafeLogo}
+            src={CafeLogo}
             alt='SaborCup Logo'
             width={500}
             height={500}

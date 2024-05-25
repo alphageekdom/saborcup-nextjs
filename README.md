@@ -1,6 +1,6 @@
 # SaborCup
 
-![Project Screenshot](/public/images/sabor-cup-homepage.jpeg)
+![Project Screenshot](/public/readme/sabor-cup-homepage.jpeg)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -20,7 +20,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 This is a small coffee shop web app for a niche Mexican-American owned small business.
 
-![Project Screenshot](/public/images/product-page.jpeg)
+![Project Screenshot](/public/readme/product-page.jpeg)
 
 ## Features
 
@@ -42,7 +42,7 @@ For example:
 -Database: PostgreSQL with -Prisma ORM
 -Deployment: Vercel
 
-![Project Screenshot](/public/images/cart.jpeg)
+![Project Screenshot](/public/readme/cart.jpeg)
 
 ## API Endpoints
 

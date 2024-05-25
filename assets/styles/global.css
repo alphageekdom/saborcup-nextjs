@@ -61,3 +61,13 @@
   );
   border-image-slice: fill 1;
 }
+
+.header-overlay {
+  border-width: 10px;
+  border-style: solid;
+  border-image-source: linear-gradient(
+    hsl(0, 0%, 0%, 0.3),
+    hsl(207, 100%, 53%, 0.3)
+  );
+  border-image-slice: fill 1;
+}

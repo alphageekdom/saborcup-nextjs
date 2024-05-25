@@ -3,7 +3,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 const HeroCarousel = ({ slides, interval = 5000 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -43,7 +42,7 @@ const HeroCarousel = ({ slides, interval = 5000 }) => {
             className='object-cover max-h-[500px]'
             priority
           />
-          <div className='absolute inset-0 flex flex-col justify-center items-center overlay'>
+          <div className='absolute inset-0 flex flex-col justify-center items-center header-overlay'>
             <h2 className='text-4xl md:text-6xl  text-white mb-6'>
               {slide.title}
             </h2>
@@ -66,20 +65,6 @@ const HeroCarousel = ({ slides, interval = 5000 }) => {
               />
             ))}
           </div>
-          {/* <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
-            <button onClick={previousSlide} aria-label='Previous Image'>
-              <MdKeyboardArrowLeft
-                size={80}
-                className='hover:text-white text-gray-300'
-              />
-            </button>
-            <button onClick={nextSlide} aria-label='Next Image'>
-              <MdKeyboardArrowRight
-                size={80}
-                className='hover:text-white text-gray-300'
-              />
-            </button>
-          </div> */}
         </div>
       ))}
     </div>

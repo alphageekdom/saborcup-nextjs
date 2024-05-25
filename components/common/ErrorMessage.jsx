@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import PropTypes from 'prop-types';
 
-import ErrorCup from '@/assets/images/ErrorCupWhite.png';
+import ErrorCup from '@/public/images/ErrorCupWhite.png';
 
 const ErrorMessage = ({ message }) => {
   return (

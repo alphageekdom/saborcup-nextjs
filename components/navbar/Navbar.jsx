@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 
 import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
 
-import cafeLogo from '@/assets/images/SaborCup.png';
+import CafeLogo from '@/public/images/SaborCup.png';
 
 import Cart from '../cart/Cart';
 import NavLink from './NavLink';
@@ -100,7 +100,7 @@ const Navbar = () => {
             <Link href='/'>
               <Image
                 className='w-30 h-15'
-                src={cafeLogo}
+                src={CafeLogo}
                 alt='Coffee Shop Logo'
                 width={100}
                 height='auto'
