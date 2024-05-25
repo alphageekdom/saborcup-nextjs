@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
+import useCategories from '@/components/hooks/useCategories';
+
 import { convertToSerializeableObject } from '@/utils/convertToObject';
 
 import HeaderImage from '@/components/common/HeaderImage';
@@ -11,32 +13,10 @@ import Spinner from '@/components/common/Spinner';
 import ErrorMessage from '@/components/common/ErrorMessage';
 
 const CategoryPage = () => {
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const { categories, loading, error } = useCategories();
 
   const pathname = usePathname();
   const path = pathname.split('/')[2];
-
-  const fetchCategory = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch('/api/category');
-      if (!response.ok) {
-        throw new Error('Failed to fetch category');
-      }
-      const data = await response.json();
-      setCategories(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchCategory();
-  }, []);
 
   if (loading) return <Spinner />;
 

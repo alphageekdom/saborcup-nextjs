@@ -16,7 +16,6 @@ export const POST = async (request) => {
       },
     });
 
-    let cartItems;
     if (existingCartItem) {
       // If the item exists, update the quantity
       await prisma.cartItem.update({
@@ -38,7 +37,9 @@ export const POST = async (request) => {
       });
     }
 
-    cartItems = await prisma.cartItem.findMany();
+    const cartItems = await prisma.cartItem.findMany();
+
+    console.log(cartItems);
 
     return NextResponse.json(cartItems); // Return all cart items as response
   } catch (error) {

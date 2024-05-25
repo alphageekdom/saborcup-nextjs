@@ -37,7 +37,7 @@ export const DELETE = async (req) => {
     console.log('Deleted item:', productId);
 
     const cartItems = await prisma.cartItem.findMany();
-    console.log('Updated cart items:', cartItemArray);
+    console.log('Updated cart items:', cartItems);
 
     return NextResponse.json(cartItems);
   } catch (error) {

@@ -14,34 +14,20 @@ import toast from 'react-hot-toast';
 import Spinner from '../common/Spinner';
 import ErrorMessage from '../common/ErrorMessage';
 
-const CartMenu = ({
-  isOpen,
-  cartItems,
-  onRemoveItem,
-  handleClearCart,
-  onUpdateQuantity,
-}) => {
+const CartMenu = ({ isOpen }) => {
   const [total, setTotal] = useState(0);
   const [taxes, setTaxes] = useState(0);
   const [grandTotal, setGrandTotal] = useState(0);
 
-  const [scrollY, setScrollY] = useState(0);
   const [navbarHeight, setNavbarHeight] = useState(0);
-  const [fixedNavbarHeight, setFixedNavbarHeight] = useState(0);
 
-  const { fetchCart } = useCart();
+  const { cart, removeFromCart, updateCartItemQuantity, fetchCart, clearCart } =
+    useCart();
 
   useEffect(() => {
     if (isOpen) {
-      document.body.classList.add('overflow-hidden');
       fetchCart();
-    } else {
-      document.body.classList.remove('overflow-hidden');
     }
-
-    return () => {
-      document.body.classList.remove('overflow-hidden');
-    };
   }, [isOpen, fetchCart]);
 
   useEffect(() => {
@@ -49,30 +35,8 @@ const CartMenu = ({
     if (navbar) {
       setNavbarHeight(navbar.offsetHeight);
     } else {
-      setNavbarHeight(navbar.offsetHeight - 55);
+      setNavbarHeight(navbar.offsetHeight - 50);
     }
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    const navbar = document.querySelector('.sticky-navbar');
-    if (navbar) {
-      setNavbarHeight(navbar.offsetHeight + 52);
-    }
-
-    const fixedNavbar = document.querySelector('.fixed-navbar');
-    if (fixedNavbar) {
-      setFixedNavbarHeight(fixedNavbar.offsetHeight);
-    }
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
   }, []);
 
   useEffect(() => {
@@ -89,52 +53,18 @@ const CartMenu = ({
       setGrandTotal(total + total * taxRate);
     };
 
-    if (Array.isArray(cartItems) && cartItems.length > 0) {
-      calculateTotal(cartItems);
+    if (Array.isArray(cart) && cart.length > 0) {
+      calculateTotal(cart);
     } else {
       setTotal(0);
       setTaxes(0);
       setGrandTotal(0);
     }
-  }, [cartItems]);
+  }, [cart]);
 
-  const confirmRemoveItem = (item) => {
-    toast(
-      (t) => (
-        <span
-          style={{
-            color: 'white',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          Delete item from cart?
-          <button
-            onClick={() => {
-              onRemoveItem(item?.id);
-              toast.dismiss(t?.id);
-            }}
-            className='ml-2'
-            style={{
-              color: 'white',
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-            }}
-            aria-label='Confirm deletion'
-          >
-            <FaCheck className='over:transform hover:scale-150 transition-transform duration-200 ease-in-out' />
-          </button>
-        </span>
-      ),
-      {
-        style: {
-          background: '#0D92FF',
-          color: '#fff',
-        },
-      }
-    );
+  const handleClearCart = () => {
+    cart.forEach((item) => removeFromCart(item.id));
+    toast.success('Cart cleared successfully!');
   };
 
   const confirmClearCart = () => {
@@ -176,127 +106,129 @@ const CartMenu = ({
     );
   };
 
-  const cartTop = scrollY > 100 ? fixedNavbarHeight : navbarHeight;
-
   return (
-    <div
-      className={`fixed top-42 right-0 max-h-full h-[500px] bg-white shadow-lg transform transition-transform ${
-        isOpen
-          ? 'translate-x-0 overflow-y-auto w-screen md:w-96'
-          : 'translate-x-full hidden'
-      }`}
-      style={{ top: `${cartTop}px` }}
-    >
-      <div className='flex justify-between p-4 bg-primary text-white'>
-        <h2 className='text-xl'>Cart</h2>
-        <p className='flex items-center gap-1'>
-          <GiBeachBag size={16} />
-          <span className='text-xl'>{cartItems?.length}</span>
-        </p>
-      </div>
+    <div className='relative'>
+      <div
+        className={`absolute right-0 bg-white shadow-lg transform transition-transform ${
+          isOpen ? 'block' : 'hidden'
+        } w-screen md:w-96`}
+      >
+        <div className='flex justify-between p-4 bg-primary text-white'>
+          <h2 className='text-xl'>Cart</h2>
+          <p className='flex items-center gap-1'>
+            <GiBeachBag size={16} />
+            <span className='text-xl'>{cart.length}</span>
+          </p>
+        </div>
 
-      <ul className='p-4 overflow-y-auto max-h-[50vh]' id='items'>
-        {cartItems?.length === 0 ? (
-          <li className='flex justify-center items-center h-full'>
-            <p className='text-center'>Your cart is empty</p>
-          </li>
-        ) : (
-          cartItems?.map((item, index) => (
-            <li key={index} className='flex flex-col pt-4'>
-              <div className='flex items-center justify-evenly'>
-                <Link
-                  href={`/menu/${
-                    item?.type?.replace(' ', '-').toLowerCase() || ''
-                  }/${item?.itemId}`}
-                >
-                  {item.imageUrl ? (
-                    <Image
-                      src={item.imageUrl}
-                      alt={item.name}
-                      width={300}
-                      height={300}
-                      className='object-cover w-16 h-16  rounded-lg'
-                      priority
-                    />
-                  ) : (
-                    <div className='placeholder-image'>No image available</div>
-                  )}
-                </Link>
-                <div className='flex-1 ml-4'>
-                  <div className='flex justify-between'>
-                    <div>
-                      <h3 className='text-lg'>{item?.name}</h3>
-                      <p className='italic text-gray-500'>{item?.size}</p>
-                    </div>
-                    <div className='flex flex-row mr-8 justify-center items-center'>
-                      <p className='mr-2'>${item?.price?.toFixed(2)} x</p>
-                      <div className='flex items-center justify-end'>
-                        <button
-                          onClick={() =>
-                            item?.quantity > 1 &&
-                            onUpdateQuantity(item?.id, item?.quantity - 1)
-                          }
-                          className='px-2 py-1 bg-gray-200'
-                          aria-label='Decrease Quantity'
-                        >
-                          <FaMinus />
-                        </button>
-                        <span className='px-2'>{item?.quantity}</span>
-                        <button
-                          onClick={() =>
-                            onUpdateQuantity(item?.id, item?.quantity + 1)
-                          }
-                          className='px-2 py-1 bg-gray-200'
-                          aria-label='Increase Quantity'
-                        >
-                          <FaPlus />
-                        </button>
+        <ul className='p-4 overflow-y-auto max-h-[50vh]' id='items'>
+          {cart?.length === 0 ? (
+            <li className='flex justify-center items-center h-full'>
+              <p className='text-center'>Your cart is empty</p>
+            </li>
+          ) : (
+            cart?.map((item, index) => (
+              <li key={index} className='flex flex-col pt-4'>
+                <div className='flex items-center justify-evenly'>
+                  <Link
+                    href={`/menu/${
+                      item?.type?.replace(' ', '-').toLowerCase() || ''
+                    }/${item?.itemId}`}
+                  >
+                    {item.imageUrl ? (
+                      <Image
+                        src={item.imageUrl}
+                        alt={item.name}
+                        width={300}
+                        height={300}
+                        className='object-cover w-16 h-16  rounded-lg'
+                        priority
+                      />
+                    ) : (
+                      <div className='placeholder-image'>
+                        No image available
+                      </div>
+                    )}
+                  </Link>
+                  <div className='flex-1 ml-4'>
+                    <div className='flex justify-between'>
+                      <div>
+                        <h3 className='text-lg'>{item?.name}</h3>
+                        <p className='italic text-gray-500'>{item?.size}</p>
+                      </div>
+                      <div className='flex flex-row mr-8 justify-center items-center'>
+                        <p className='mr-2'>${item?.price?.toFixed(2)} x</p>
+                        <div className='flex items-center justify-end'>
+                          <button
+                            onClick={() =>
+                              item?.quantity > 1 &&
+                              updateCartItemQuantity(
+                                item?.id,
+                                item?.quantity - 1
+                              )
+                            }
+                            className='px-2 py-1 bg-gray-200'
+                            aria-label='Decrease Quantity'
+                          >
+                            <FaMinus />
+                          </button>
+                          <span className='px-2'>{item?.quantity}</span>
+                          <button
+                            onClick={() =>
+                              onUpdateQuantity(item?.id, item?.quantity + 1)
+                            }
+                            className='px-2 py-1 bg-gray-200'
+                            aria-label='Increase Quantity'
+                          >
+                            <FaPlus />
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <button
+                    onClick={() => removeFromCart(item.id)}
+                    className='text-red-500 hover:transform hover:scale-150 transition-transform duration-200 ease-in-out'
+                    aria-label='Remove Item'
+                  >
+                    <IoClose size={24} />
+                  </button>
                 </div>
-                <button
-                  onClick={() => confirmRemoveItem(item)}
-                  className='text-red-500 hover:transform hover:scale-150 transition-transform duration-200 ease-in-out'
-                  aria-label='Remove Item'
-                >
-                  <IoClose size={24} />
-                </button>
-              </div>
-              {index < cartItems?.length - 1 && (
-                <hr className='mt-4 border-t border-gray-200' />
-              )}
-            </li>
-          ))
-        )}
-      </ul>
+                {index < cart?.length - 1 && (
+                  <hr className='mt-4 border-t border-gray-200' />
+                )}
+              </li>
+            ))
+          )}
+        </ul>
 
-      <div className='p-4 border-t'>
-        <div className='flex justify-end items-center mb-4'>
-          <button
-            onClick={confirmClearCart}
-            disabled={cartItems?.length === 0}
-            className={`px-4 py-2 ${
-              cartItems.length === 0
-                ? 'bg-gray-300 cursor-not-allowed'
-                : 'bg-red-500 text-white'
-            } rounded`}
-          >
-            Clear All
-          </button>
+        <div className='p-4 border-t'>
+          <div className='flex justify-end items-center mb-4'>
+            <button
+              onClick={confirmClearCart}
+              disabled={cart?.length === 0}
+              className={`px-4 py-2 ${
+                cart.length === 0
+                  ? 'bg-gray-300 cursor-not-allowed'
+                  : 'bg-red-500 text-white'
+              } rounded`}
+            >
+              Clear All
+            </button>
+          </div>
+          <p className='flex justify-between'>
+            <span>Total:</span>
+            <span>${total?.toFixed(2)}</span>
+          </p>
+          <p className='flex justify-between'>
+            <span>Taxes:</span>
+            <span>${taxes?.toFixed(2)}</span>
+          </p>
+          <p className='flex justify-between font-bold'>
+            <span>Grand Total:</span>
+            <span>${grandTotal?.toFixed(2)}</span>
+          </p>
         </div>
-        <p className='flex justify-between'>
-          <span>Total:</span>
-          <span>${total?.toFixed(2)}</span>
-        </p>
-        <p className='flex justify-between'>
-          <span>Taxes:</span>
-          <span>${taxes?.toFixed(2)}</span>
-        </p>
-        <p className='flex justify-between font-bold'>
-          <span>Grand Total:</span>
-          <span>${grandTotal?.toFixed(2)}</span>
-        </p>
       </div>
     </div>
   );

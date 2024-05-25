@@ -23,7 +23,6 @@ import { useCart } from '@/context/CartContext';
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [closeCart, setCloseCart] = useState(false);
   const pathname = usePathname();
   const { cart } = useCart();

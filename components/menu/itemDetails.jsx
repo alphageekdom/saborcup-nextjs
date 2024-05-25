@@ -1,43 +1,25 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import { useCart } from '@/context/CartContext';
 import toast from 'react-hot-toast';
 import ErrorMessage from '../common/ErrorMessage';
 import ButtonWithSpinner from '../common/ButtonSpinner';
-import { useParams, usePathname } from 'next/navigation';
 
-const ItemDetails = ({ item, loading, error }) => {
-  const [product, setProduct] = useState();
+const ItemDetails = ({ product }) => {
   const { addToCart } = useCart();
-  const [selectedSize, setSelectedSize] = useState(item?.sizes?.[0]);
+  const [selectedSize, setSelectedSize] = useState(product?.sizes?.[0] || '');
   const [quantity, setQuantity] = useState(1);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const params = useParams();
-  const pathname = usePathname();
-
-  const { item: productId } = params;
-
-  const fetchProduct = useCallback(async () => {
-    try {
-      const response = await fetch(`/api/product/${productId}`);
-      const itemData = await response.json();
-      if (!response.ok) {
-        throw new Error('Failed to fetch item');
-      }
-      setProduct(itemData);
-    } catch (error) {
-      console.error('Error fetching item:', error.message);
-    }
-  }, [productId]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (productId) {
-      fetchProduct(productId);
+    if (product?.sizes?.length > 0) {
+      setSelectedSize(product.sizes[0]);
     }
-  }, [fetchProduct, productId]);
+  }, [product]);
 
   const handleSizeChange = (event) => {
     setSelectedSize(event.target.value);
@@ -50,54 +32,58 @@ const ItemDetails = ({ item, loading, error }) => {
     }
   };
 
-  const handleAddWhatIsSelected = async () => {
+  const handleAddToCart = async () => {
     if (!selectedSize) {
       toast.error('Please select a size.');
       return;
     }
 
-    const price = item.prices[selectedSize];
+    const price = product.prices[selectedSize];
     if (price === undefined) {
       toast.error('Price information is missing for the selected size.');
       return;
     }
 
-    const cartItem = {
-      name: item.name,
-      size: selectedSize,
-      type: item.type,
-      itemId: item.id,
-      quantity,
-      price: parseFloat(price),
-      imageUrl: item.images[0],
-    };
+    setLoading(true); // Set loading state to true
+    try {
+      const cartItem = {
+        name: product.name,
+        size: selectedSize,
+        type: product.type,
+        itemId: product.id,
+        quantity,
+        price: parseFloat(price),
+        imageUrl: product.images[0],
+      };
 
-    addToCart(cartItem);
-    toast.success('Item added to cart!');
+      await addToCart(cartItem); // Assume addToCart returns a promise
+    } catch (error) {
+      console.error('Failed to add item to cart:', error);
+    } finally {
+      setLoading(false); // Set loading state to false after operation
+    }
   };
 
-  if (!item) return 'No item found...';
-
-  if (error) return <ErrorMessage error={error.message} />;
+  if (!product) return <ErrorMessage error='Product not found' />;
 
   return (
     <div className='mx-auto p-4 relative'>
       <div className='flex flex-col md:flex-row items-center justify-center'>
         <div className='md:w-1/2 md:pr-8 relative'>
           <Image
-            src={item.images[currentImageIndex]}
-            alt={item.name}
+            src={product.images[currentImageIndex]}
+            alt={product.name}
             width={300}
             height={300}
             className='h-64 w-64 md:w-full md:h-[500px] object-cover md:rounded-lg'
-            loading='lazy'
+            priority
           />
-          {item.images.length > 1 && (
+          {product.images.length > 1 && (
             <div className='absolute top-1/2 transform -translate-y-1/2 flex items-center w-full'>
               <button
                 onClick={() =>
                   setCurrentImageIndex((prevIndex) =>
-                    prevIndex === 0 ? item.images.length - 1 : prevIndex - 1
+                    prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
                   )
                 }
                 className='text-white px-2 py-1 rounded-full flex items-center justify-center ml-0 md:ml-2 left-0 absolute transition duration-300 ease-in-out opacity-50 hover:opacity-100'
@@ -108,7 +94,7 @@ const ItemDetails = ({ item, loading, error }) => {
               <button
                 onClick={() =>
                   setCurrentImageIndex((prevIndex) =>
-                    prevIndex === item.images.length - 1 ? 0 : prevIndex + 1
+                    prevIndex === product.images.length - 1 ? 0 : prevIndex + 1
                   )
                 }
                 className='text-white px-2 py-1 rounded-full flex items-center justify-center right-0 mr-0 md:mr-12 absolute transition duration-300 ease-in-out opacity-50 hover:opacity-100'
@@ -121,21 +107,24 @@ const ItemDetails = ({ item, loading, error }) => {
         </div>
 
         <div className='md:w-1/2 mt-4 md:mt-0'>
-          <p className='text-gray-600 text-lg mt-2'>{item.type}</p>
+          <h2 className='text-2xl font-bold text-left text-black mb-3'>
+            {product.name}
+          </h2>
+          <p className='text-gray-600 text-lg mt-2'>{product.type}</p>
           <div className='flex items-center mt-4'>
-            {Object?.entries(item?.prices).map(([size, price]) => (
+            {Object.entries(product.prices).map(([size, price]) => (
               <p key={size} className='mr-2'>
                 {size}: ${price.toFixed(2)}
               </p>
             ))}
           </div>
           <p className='text-gray-700 mt-2'>
-            Availability: {item.availability}
+            Availability: {product.availability}
           </p>
-          <p className='text-gray-700 mt-4'>{item.description}</p>
+          <p className='text-gray-700 mt-4'>{product.description}</p>
 
           <div className='mt-4'>
-            {item?.sizes?.map((size) => (
+            {product?.sizes?.map((size) => (
               <button
                 key={size}
                 onClick={() => setSelectedSize(size)}
@@ -166,7 +155,7 @@ const ItemDetails = ({ item, loading, error }) => {
           </div>
 
           <button
-            onClick={handleAddWhatIsSelected}
+            onClick={handleAddToCart}
             className='bg-accent1 hover:bg-accent2 text-white font-bold py-2 px-10 rounded-md text-xl shadow-lg flex items-center justify-center'
             aria-label='Add to Cart'
             disabled={loading}

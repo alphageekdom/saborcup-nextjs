@@ -1,8 +1,10 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
-import { useParams, usePathname } from 'next/navigation';
+import { useParams } from 'next/navigation';
+
+import useProducts from './hooks/useProducts';
 
 import Breadcrumbs from './common/Breadcrumbs';
 import ProductCard from './menu/ProductCard';
@@ -10,37 +12,17 @@ import Spinner from './common/Spinner';
 import ErrorMessage from './common/ErrorMessage';
 
 const Category = ({ category }) => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
   const params = useParams();
-
   const { category: productId } = useParams();
 
-  const mountCount = useRef(0);
+  const { products, loading, error } = useProducts();
 
-  const fetchProduct = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch('/api/product');
-      const data = await response.json();
-      setProducts(data);
-    } catch (error) {
-    } finally {
-      setLoading(false);
-    }
-  };
+  const mountCount = useRef(0);
 
   useEffect(() => {
     console.log(`Category mounted. Mount count: ${mountCount.current}`);
     mountCount.current++;
-    if (productId) {
-      fetchProduct(productId);
-    }
-  }, [productId]);
-
-  if (error) return <ErrorMessage message={error} />;
+  }, []);
 
   const title = category.find((type) => type.type === params?.category);
 
@@ -49,11 +31,13 @@ const Category = ({ category }) => {
     { title: `${title?.name}`, path: `/menu/${productId}` },
   ];
 
-  const filteredProducts = products.filter(
-    (product) => product.type === title?.name
-  );
+  const filteredProducts = products.filter((item) => item.type === title?.name);
+
+  if (!filteredProducts) return 'No products...';
 
   if (loading) return <Spinner />;
+
+  if (error) return <ErrorMessage message={error} />;
 
   return (
     <div>

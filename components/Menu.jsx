@@ -1,44 +1,29 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+
+import useCategories from './hooks/useCategories';
+
 import Breadcrumbs from './common/Breadcrumbs';
 import CategoryCard from './menu/CategoryCard';
 import Spinner from './common/Spinner';
 import ErrorMessage from './common/ErrorMessage';
 
-const Menu = ({ params }) => {
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
+const Menu = () => {
+  const { categories, loading, error } = useCategories();
   const mountCount = useRef(0);
-
-  const fetchCategories = async () => {
-    try {
-      const response = await fetch('/api/category');
-      if (!response.ok) {
-        throw new Error('Failed to fetch menu');
-      }
-      const data = await response.json();
-      setCategories(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   useEffect(() => {
     console.log(`Menu mounted. Mount count: ${mountCount.current}`);
     mountCount.current++;
-    fetchCategories();
   }, []);
-
-  const breadcrumbItems = [{ title: 'Menu', path: '/menu' }];
 
   if (loading) return <Spinner />;
 
   if (error) return <ErrorMessage message={error} />;
+
+  const breadcrumbItems = [{ title: 'Menu', path: '/menu' }];
+
   return (
     <div className='container mx-auto p-12'>
       <Breadcrumbs items={breadcrumbItems} />

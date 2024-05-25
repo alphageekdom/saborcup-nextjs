@@ -14,14 +14,7 @@ const Cart = ({
   setIsMobileMenuOpen,
   closeCart,
 }) => {
-  const {
-    cart,
-    fetchCart,
-    removeFromCart,
-    updateCartItemQuantity,
-    clearCart,
-    loading,
-  } = useCart();
+  const { fetchCart, clearCart } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
@@ -35,21 +28,6 @@ const Cart = ({
     if (!isCartOpen && isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
     }
-    if (onCartToggle) {
-      onCartToggle();
-    }
-  };
-
-  const handleRemoveItem = (productId) => {
-    removeFromCart(productId);
-  };
-
-  const handleUpdateQuantity = (productId, quantity) => {
-    updateCartItemQuantity(productId, quantity);
-  };
-
-  const handleClearCart = () => {
-    clearCart();
   };
 
   useEffect(() => {
@@ -59,22 +37,15 @@ const Cart = ({
   }, [closeCart, isCartOpen]);
 
   return (
-    <div className='flex items-center w-full max-w-none m-0 p-0'>
-      <div className='relative'>
+    <div className='relative'>
+      <div className='flex items-center w-full max-w-none m-0 p-0'>
         <FaShoppingCart
           className='mb-0 cursor-pointer transition duration-300 ease-in-out text-white hover:text-primary'
           size={24}
           onClick={toggleCart}
         />
       </div>
-      <CartMenu
-        cartItems={cart}
-        loading={loading}
-        isOpen={isCartOpen}
-        onRemoveItem={handleRemoveItem}
-        handleClearCart={handleClearCart}
-        onUpdateQuantity={handleUpdateQuantity}
-      />
+      <CartMenu isOpen={isCartOpen} />
     </div>
   );
 };

@@ -8,6 +8,8 @@ import {
   useCallback,
 } from 'react';
 
+import toast from 'react-hot-toast';
+
 const CartContext = createContext();
 
 export const useCart = () => useContext(CartContext);
@@ -16,7 +18,7 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [cartChanged, setCartChanged] = useState(false); // Added to track changes in cart
+  const [cartChanged, setCartChanged] = useState(false);
 
   const fetchCart = useCallback(async () => {
     setLoading(true);
@@ -45,7 +47,6 @@ export const CartProvider = ({ children }) => {
     setLoading(true);
     setError(null);
 
-    console.log(cartItem);
     try {
       const response = await fetch('/api/cart/add', {
         method: 'POST',
@@ -58,20 +59,24 @@ export const CartProvider = ({ children }) => {
 
       setCart((prevCart) => {
         const existingItemIndex = prevCart.findIndex(
-          (item) => item.id === data.id
+          (item) =>
+            item.itemId === cartItem.itemId && item.size === cartItem.size
         );
         if (existingItemIndex !== -1) {
           const updatedCart = [...prevCart];
-          updatedCart[existingItemIndex].quantity += 1; // assuming quantity field exists
-          return updatedCart.sort((a, b) => a.id - b.id);
+          updatedCart[existingItemIndex].quantity += cartItem.quantity;
+          return updatedCart;
         } else {
-          return [...prevCart, data].sort((a, b) => a.id - b.id);
+          return [...prevCart, cartItem];
         }
       });
-      setCartChanged(true); // Indicate that cart has changed
+
+      setCartChanged(true);
+      toast.success('Item added to cart!');
     } catch (error) {
       console.error('Error adding to cart:', error.message);
       setError(error.message);
+      toast.error('Error adding to cart: ' + error.message);
     } finally {
       setLoading(false);
     }
@@ -106,6 +111,8 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = async (productId) => {
     setLoading(true);
     setError(null);
+
+    console.log(productId);
     try {
       const response = await fetch(`/api/cart/delete/${productId}`, {
         method: 'DELETE',
@@ -119,9 +126,11 @@ export const CartProvider = ({ children }) => {
         throw new Error(data.error || 'Failed to remove item from cart');
       setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
       setCartChanged(true); // Indicate that cart has changed
+      toast.success('Item removed from cart!');
     } catch (error) {
       console.error('Error removing from cart:', error.message);
       setError(error.message);
+      toast.error('Error removing from cart: ' + error.message);
     } finally {
       setLoading(false);
     }
