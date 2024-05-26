@@ -25,12 +25,13 @@ module.exports = {
         accent5: '#004d80', // Darker blue
         accent6: '#732673', // Darker purple
         accent7: '#4d3d00', // Darker brown
+        'shadow-color': 'rgb(38, 57, 77)',
       },
       fontFamily: {
         sans: ['var(--font-poppins)'],
       },
       boxShadow: {
-        custom: ' rgb(38, 57, 77) 0px 20px 30px -10px;',
+        custom: '0px 20px 30px -10px var(--shadow-color)', // Use the defined shadow color variable
       },
     },
   },
