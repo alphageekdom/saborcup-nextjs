@@ -2,7 +2,7 @@
 
 import { useParams } from 'next/navigation';
 
-import useProduct from '@/components/hooks/useProduct';
+import useProduct from '@/hooks/useProduct';
 
 import Spinner from '@/components/common/Spinner';
 import Breadcrumbs from '@/components/common/Breadcrumbs';

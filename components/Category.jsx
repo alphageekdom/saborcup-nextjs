@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 
 import { useParams } from 'next/navigation';
 
-import useProducts from './hooks/useProducts';
+import useProducts from '../hooks/useProducts';
 
 import Breadcrumbs from './common/Breadcrumbs';
 import ProductCard from './menu/ProductCard';

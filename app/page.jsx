@@ -1,4 +1,5 @@
 import Events from '@/components/events/Events';
+import Featured from '@/components/Featured';
 import Hero from '@/components/Hero';
 import Welcome from '@/components/Welcome';
 import React from 'react';
@@ -7,13 +8,17 @@ const Homepage = () => {
   return (
     <>
       <Hero />
-      <div className='bg-background'>
+      <section className='bg-background'>
         <Welcome />
-      </div>
+      </section>
       <hr className='border-gray-200 my-0 md:hidden' />
-      <div className='bg-lightgray'>
+      <section className='bg-lightgray'>
         <Events />
-      </div>
+      </section>
+      <hr className='border-gray-200 my-0 md:hidden' />
+      <section>
+        <Featured />
+      </section>
     </>
   );
 };

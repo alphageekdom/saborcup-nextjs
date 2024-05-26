@@ -11,7 +11,7 @@
     },
     "sizes": ["Small", "Medium", "Large"],
     "availability": "Year-round",
-    "isFeatured": true,
+    "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
     "images": [
@@ -29,7 +29,7 @@
     },
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
-    "isFeatured": true,
+    "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
     "images": [
@@ -48,7 +48,7 @@
     },
     "sizes": ["Small", "Medium", "Large"],
     "availability": "Year-round",
-    "isFeatured": true,
+    "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
     "images": [
@@ -66,7 +66,7 @@
     "sizes": ["Regular", "Large"],
     "availability": "Year-round",
     "description": "Green tea infused with peach syrup and lemonade, served cold.",
-    "isFeatured": true,
+    "isFeatured": false,
     "isSeasonal": true,
     "isNew": false,
     "images": [
@@ -83,7 +83,7 @@
     },
     "sizes": ["Regular"],
     "availability": "Year-round",
-    "isFeatured": true,
+    "isFeatured": false,
     "isSeasonal": false,
     "isNew": false,
     "images": [
@@ -540,6 +540,82 @@
     "isNew": false,
     "images": [
       "https://images.unsplash.com/photo-1618226433232-99270aab3c13?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8aG90JTIwdGVhfGVufDB8fDB8fHwy"
+    ]
+  },
+  {
+    "name": "Horchata Iced Coffee",
+    "type": "Iced Coffee",
+    "categoryId": "Hot Coffee",
+    "description": "A refreshing iced coffee mixed with homemade horchata, creating a sweet, creamy beverage with notes of cinnamon and rice milk. Served over ice and perfect for hot days.",
+    "prices": {
+      "Small": 3.75,
+      "Medium": 4.75,
+      "Large": 5.75
+    },
+    "sizes": ["Small", "Medium", "Large"],
+    "availability": "Year-round",
+    "isFeatured": true,
+    "isSeasonal": false,
+    "isNew": true,
+    "images": [
+      "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ]
+  },
+  {
+    "name": "Tamarindo Iced Tea",
+    "type": "Iced Tea",
+    "categoryId": "Hot Coffee",
+    "description": "A unique and tangy iced tea made from tamarind paste, providing a perfect balance of sweet and sour. Served chilled with a slice of lime, ideal for refreshing the palate.",
+    "prices": {
+      "Small": 3.25,
+      "Medium": 4.25,
+      "Large": 5.25
+    },
+    "sizes": ["Small", "Medium", "Large"],
+    "availability": "Year-round",
+    "isFeatured": true,
+    "isSeasonal": false,
+    "isNew": true,
+    "images": [
+      "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGljZWQlMjB0ZWF8ZW58MHx8MHx8fDA%3D"
+    ]
+  },
+  {
+    "name": "Cafe de Olla",
+    "type": "Hot Coffee",
+    "categoryId": "Hot Coffee",
+    "description": "Traditional Mexican coffee made with ground coffee, cinnamon, and piloncillo (unrefined cane sugar). Brewed in a clay pot to enhance its earthy flavors, this coffee offers a nostalgic taste with every sip.",
+    "prices": {
+      "Small": 3.75,
+      "Medium": 4.75,
+      "Large": 5.75
+    },
+    "sizes": ["Small", "Medium", "Large"],
+    "availability": "Year-round",
+    "isFeatured": true,
+    "isSeasonal": false,
+    "isNew": true,
+    "images": [
+      "https://images.unsplash.com/photo-1666307580689-0044b438dc88?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FmZSUyMGRlJTIwb2xsYXxlbnwwfHwwfHx8MA%3D%3D"
+    ]
+  },
+  {
+    "name": "Cherry Lemonade",
+    "type": "Lemonade",
+    "categoryId": "Lemonade",
+    "description": "Freshly squeezed lemonade infused with cherry puree, offering a sweet yet tart flavor profile. This vibrant and refreshing drink is perfect for hot summer days or as a fruity treat year-round.",
+    "prices": {
+      "Small": 3.0,
+      "Medium": 4.0,
+      "Large": 5.0
+    },
+    "sizes": ["Small", "Medium", "Large"],
+    "availability": "Year-round",
+    "isFeatured": true,
+    "isSeasonal": false,
+    "isNew": true,
+    "images": [
+      "https://images.unsplash.com/photo-1560526860-1f0e56046c85?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2hlcnJ5JTIwZHJpbmt8ZW58MHx8MHx8fDA%3D"
     ]
   }
 ]

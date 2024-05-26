@@ -12,7 +12,7 @@ const slides = [
       'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29mZmVlJTIwZHJpbmtzfGVufDB8fDB8fHww',
     alt: 'Signature Drinks',
     title: 'Signature Drinks',
-    link: '/menu/signature-drinks',
+    link: '/menu',
     buttonText: 'Explore',
   },
   {

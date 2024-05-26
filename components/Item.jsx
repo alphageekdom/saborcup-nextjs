@@ -4,7 +4,7 @@ import React from 'react';
 
 import { useEffect, useRef } from 'react';
 
-import useProduct from './hooks/useProduct';
+import useProduct from '../hooks/useProduct';
 
 import ItemDetails from './menu/itemDetails';
 import ErrorMessage from './common/ErrorMessage';

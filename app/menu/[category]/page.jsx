@@ -1,9 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
-import useCategories from '@/components/hooks/useCategories';
+import useCategories from '@/hooks/useCategories';
 
 import { convertToSerializeableObject } from '@/utils/convertToObject';
 
