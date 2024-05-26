@@ -65,9 +65,13 @@ CREATE TABLE "Product" (
     "images" TEXT[],
     "prices" JSONB NOT NULL,
     "sizes" TEXT[],
+    "eventId" TEXT,
 
     CONSTRAINT "Product_pkey" PRIMARY KEY ("id")
 );
 
 -- AddForeignKey
 ALTER TABLE "CartItem" ADD CONSTRAINT "CartItem_itemId_fkey" FOREIGN KEY ("itemId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Product" ADD CONSTRAINT "Product_eventId_fkey" FOREIGN KEY ("eventId") REFERENCES "Event"("id") ON DELETE SET NULL ON UPDATE CASCADE;

@@ -12,9 +12,7 @@ const EventDetailsPage = ({ params }) => {
     <section className='bg-gray-100 py-16'>
       <Breadcrumbs items={breadcrumbItems} />
       <div className='container mx-auto px-6'>
-        <h1 className='text-4xl font-bold text-center text-blue-600 mb-12'>
-          Event Details
-        </h1>
+        <h1 className='text-4xl font-bold text-center mb-12'>Event Details</h1>
         <div className='bg-white rounded-lg shadow-lg p-8'>
           <EventDetails eventId={params.id} />
         </div>

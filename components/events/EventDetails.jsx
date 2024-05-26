@@ -34,12 +34,14 @@ const EventDetails = ({ eventId }) => {
     fetchEvent();
   }, [eventId]);
 
+  console.log(event);
+
   if (loading) return <Spinner />;
   if (error) return <ErrorMessage message={error} />;
   if (!event) return <p>Event not found</p>;
 
   return (
-    <div className='flex flex-col items-center gap-8 p-4 lg:px-0 bg-background'>
+    <div className='flex flex-col items-center gap-8 p-4 lg:px-0'>
       <div className='relative w-full max-w-4xl flex justify-center items-center'>
         <Image
           src={event.image}
@@ -53,13 +55,10 @@ const EventDetails = ({ eventId }) => {
       <h2 className='text-3xl text-black font-semibold text-center'>
         {event.title}
       </h2>
-      <p className='text-lg text-gray-700 text-center max-w-3xl'>
-        {event.description}
-      </p>
-      {event.summary && (
+      {event.description && (
         <div className='bg-lightgray shadow p-4 rounded-lg w-full max-w-3xl'>
-          <h3 className='text-xl font-semibold text-black'>Summary</h3>
-          <p className='mt-2 text-gray-700'>{event.summary}</p>
+          <h3 className='text-xl font-semibold text-black'>Description</h3>
+          <p className='mt-2 text-gray-700'>{event.description}</p>
         </div>
       )}
       {event.importance && (

@@ -9,7 +9,7 @@ const EventCard = ({ event }) => {
 
   return (
     <article
-      className={`p-4 rounded-lg shadow-lg transition transform hover:scale-105 ${cardClass} custom-shadow`}
+      className={`p-4 rounded-lg shadow-lg hover:shadow-custom transition transform hover:scale-105 ${cardClass}`}
       aria-labelledby={`event-title-${event.id}`}
       aria-describedby={`event-description-${event.id}`}
       tabIndex='0'
@@ -28,12 +28,12 @@ const EventCard = ({ event }) => {
         {event.title}
       </h2>
       <p
-        id={`event-description-${event.id}`}
+        id={`event-summary-${event.id}`}
         className={`text-sm mb-4 ${
           event.isPast ? 'text-gray-500' : 'text-gray-700'
         }`}
       >
-        {event.description}
+        {event.summary}
       </p>
       <div className='flex justify-between items-center'>
         <time
