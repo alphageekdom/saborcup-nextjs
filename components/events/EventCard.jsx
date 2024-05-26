@@ -9,7 +9,7 @@ const EventCard = ({ event }) => {
 
   return (
     <article
-      className={`p-4 rounded-lg shadow-lg hover:shadow-custom transition transform hover:scale-105 ${cardClass}`}
+      className={`p-4 rounded-lg shadow-lg hover-shadow transition transform hover:scale-105 ${cardClass}`}
       aria-labelledby={`event-title-${event.id}`}
       aria-describedby={`event-description-${event.id}`}
       tabIndex='0'

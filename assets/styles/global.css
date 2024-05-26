@@ -20,6 +20,10 @@
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
+.hover-shadow:hover {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
 .check-icon {
   transition: transform 0.3s ease-in-out, font-weight 0.3s ease-in-out;
 }
