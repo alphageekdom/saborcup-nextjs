@@ -11,13 +11,19 @@ import { GiBeachBag } from 'react-icons/gi';
 import { FaShoppingCart } from 'react-icons/fa';
 
 import CartMenu from './CartMenu';
+import Checkout from './Checkout';
 
 const Cart = ({ isMobileMenuOpen, setIsMobileMenuOpen, closeCart }) => {
   const { cart, fetchCart } = useCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   const pathname = usePathname();
+
+  const toggleCheckout = () => {
+    setIsCheckoutOpen(!isCheckoutOpen);
+  };
 
   const handleFetchCart = useCallback(() => {
     if (isCartOpen) {
@@ -81,11 +87,16 @@ const Cart = ({ isMobileMenuOpen, setIsMobileMenuOpen, closeCart }) => {
             <IoClose size={24} />
           </button>
         </div>
-        <CartMenu
-          isSidebarOpen={isSidebarOpen}
-          onClose={handleCloseCart}
-          onCartToggle={toggleCart}
-        />
+        {isCheckoutOpen ? (
+          <Checkout onCheckoutToggle={toggleCheckout} />
+        ) : (
+          <CartMenu
+            isSidebarOpen={isSidebarOpen}
+            onClose={handleCloseCart}
+            onCartToggle={toggleCart}
+            onCheckoutToggle={toggleCheckout}
+          />
+        )}
       </div>
     </div>
   );

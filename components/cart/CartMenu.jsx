@@ -10,7 +10,7 @@ import { useCart } from '@/context/CartContext';
 import { FaCheck, FaPlus, FaMinus, FaTrash } from 'react-icons/fa6';
 import toast from 'react-hot-toast';
 
-const CartMenu = ({ isSidebarOpen }) => {
+const CartMenu = ({ isSidebarOpen, onCheckoutToggle }) => {
   const [total, setTotal] = useState(0);
   const [taxes, setTaxes] = useState(0);
   const [grandTotal, setGrandTotal] = useState(0);
@@ -200,7 +200,18 @@ const CartMenu = ({ isSidebarOpen }) => {
           )}
         </ul>
         <div className='p-4 border-t'>
-          <div className='flex justify-end items-center mb-4'>
+          <div className='flex justify-end items-center mb-4 gap-8'>
+            <button
+              onClick={onCheckoutToggle}
+              disabled={cart?.length === 0}
+              className={`px-4 py-2 ${
+                cart.length === 0
+                  ? 'bg-gray-300 cursor-not-allowed'
+                  : 'bg-blue-500 hover:bg-blue-600 text-white'
+              } rounded`}
+            >
+              Checkout
+            </button>
             <button
               onClick={confirmClearCart}
               disabled={cart?.length === 0}
