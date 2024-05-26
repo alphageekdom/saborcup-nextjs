@@ -38,7 +38,7 @@ const MobileMenu = ({
   );
   return (
     isMobileMenuOpen && (
-      <div className='md:hidden flex flex-col space-y-4 py-3 bg-black w-full px-4'>
+      <div className='h-screen w-52 md:hidden flex flex-col space-y-6 py-3 bg-black px-6 absolute top-[5.9rem] border-r border-b border-primary border-t-0'>
         <NavLink href='/' onClick={closeMenu}>
           Home
         </NavLink>

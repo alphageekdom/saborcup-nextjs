@@ -13,10 +13,7 @@ import CafeLogo from '@/public/images/SaborCup.png';
 import Cart from '../cart/Cart';
 import NavLink from './NavLink';
 import MobileMenu from '../MobileMenu';
-import DropdownMenu from './DropdownMenu';
 import DropdownLink from './DropdownLink';
-
-import menuItems from './data.js';
 
 import { useCart } from '@/context/CartContext';
 
@@ -38,10 +35,6 @@ const Navbar = () => {
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
-  };
-
-  const handleSubMenuToggle = (menu) => {
-    setOpenSubMenu(openSubMenu === menu ? null : menu);
   };
 
   const closeMenu = () => {
@@ -135,14 +128,10 @@ const Navbar = () => {
                 </button>
               </div>
               {isDropdownOpen && (
-                <div className='absolute bg-black border border-none text-white flex flex-col py-2 top-8 w-60'>
-                  {menuItems.map((item) => (
-                    <DropdownMenu
-                      key={item.title}
-                      title={item.title}
-                      links={item.links}
-                    />
-                  ))}
+                <div className='absolute flex flex-col top-[3.80rem] w-64 bg-black  text-white border-l border-r border-b border-primary border-t-0'>
+                  <DropdownLink href='/menu/hot-coffee'>
+                    Hot Coffee
+                  </DropdownLink>
                   <DropdownLink href='/menu/cold-coffee'>
                     Cold Coffee
                   </DropdownLink>

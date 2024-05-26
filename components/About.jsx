@@ -34,7 +34,7 @@ const About = () => {
                 className='object-cover custom-shadow rounded-full md:rounded-lg w-96 h-96 md:w-auto md:h-auto'
                 loading='lazy'
               />
-              <div className='absolute inset-0 bg-black opacity-30 rounded-full md:rounded-lg'></div>
+              <div className='absolute inset-0 bg-black opacity-20 rounded-full md:rounded-lg'></div>
               <figcaption className='absolute px-4 text-xl text-white bottom-16 left-8 md:bottom-6'>
                 <p className='font-bold'>
                   A cozy place where modern meets{' '}
@@ -74,7 +74,7 @@ const About = () => {
                 className='object-cover custom-shadow rounded-full md:rounded-lg w-96 h-96 md:w-auto md:h-auto'
                 loading='lazy'
               />
-              <div className='absolute inset-0 bg-black opacity-30 rounded-full md:rounded-lg'></div>
+              <div className='absolute inset-0 bg-black opacity-20 rounded-full md:rounded-lg'></div>
               <figcaption className='absolute px-4 text-xl text-white bottom-16 left-8 md:bottom-6'>
                 <p className='font-bold'>
                   Creating a space where everyone can feel at home.
@@ -116,7 +116,7 @@ const About = () => {
                 className='object-cover custom-shadow rounded-full md:rounded-lg w-96 h-96 md:w-auto md:h-auto'
                 loading='lazy'
               />
-              <div className='absolute inset-0 bg-black opacity-30 rounded-full md:rounded-lg'></div>
+              <div className='absolute inset-0 bg-black opacity-20 rounded-full md:rounded-lg'></div>
               <figcaption className='absolute px-4 text-xl text-white bottom-16 left-8 md:bottom-6'>
                 <p className='font-bold'>
                   Savor our café de olla, champurrado frappes, and more.
@@ -154,7 +154,7 @@ const About = () => {
                 className='object-cover custom-shadow rounded-full md:rounded-lg w-96 h-96 md:w-auto md:h-auto'
                 loading='lazy'
               />
-              <div className='absolute inset-0 bg-black opacity-30 rounded-full md:rounded-lg'></div>
+              <div className='absolute inset-0 bg-black opacity-20 rounded-full md:rounded-lg'></div>
               <figcaption className='absolute px-4 text-xl text-white bottom-16 left-8 md:bottom-6'>
                 <p className='font-bold'>
                   The wonderful team behind every perfect cup.

@@ -19,11 +19,11 @@ const Events = () => {
               className='object-cover custom-shadow rounded-full md:rounded-lg w-96 h-96'
               loading='lazy'
             />
-            <div className='absolute inset-0 bg-black opacity-30 rounded-full md:rounded-lg'></div>
+            <div className='absolute inset-0 bg-black opacity-20 rounded-full md:rounded-lg'></div>
             <figcaption className='absolute px-4 text-xl text-white bottom-16 left-8 md:bottom-6'>
               <p className='font-bold'>
                 Please join us for some amazing vibrant{' '}
-                <span className='italic'>Latinx/Hispanic</span> art exhibits.
+                <span className='italic'>Hispanic</span> art exhibits.
               </p>
             </figcaption>
           </figure>

@@ -6,8 +6,8 @@ const DropdownLink = ({ href, children, onClick }) => {
 
   const getDropdownLinkClass = (href) => {
     return pathname === href
-      ? 'px-4 py-2 bg-primary text-white'
-      : 'px-4 py-2 text-white hover:bg-primary';
+      ? 'text-lg px-4 py-3 bg-primary text-white'
+      : 'text-lg px-4 py-3 text-white hover:bg-primary';
   };
   return (
     <Link href={href} className={getDropdownLinkClass(href)} onClick={onClick}>

@@ -39,7 +39,7 @@ const Welcome = () => {
                 loading='lazy'
               />
             </div>
-            <div className='absolute inset-0 bg-black opacity-30 rounded-full md:rounded-lg'></div>
+            <div className='absolute inset-0 bg-black opacity-20 rounded-full md:rounded-lg'></div>
             <figcaption className='absolute px-4 text-xl text-white bottom-16 left-8 md:bottom-6'>
               <p className='font-bold'>
                 Our staff always busy curating the perfect{' '}
