@@ -64,7 +64,7 @@ const Footer = () => {
             <h1 className='text-lg font-bold mb-6 text-custom-blue'>
               Follow Us
             </h1>
-            <div className='flex flex-wrap gap-4 justify-center md:justify-start'>
+            <div className='grid grid-cols-3 md:grid-cols-6 gap-4 justify-center md:justify-start'>
               <a
                 href='https://www.facebook.com'
                 className='hover:text-custom-blue transition duration-300 ease-in-out'
