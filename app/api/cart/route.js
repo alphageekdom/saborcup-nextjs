@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/utils/prisma';
-import { parse, serialize } from 'cookie';
 
 // GET /api/cart
 export const GET = async () => {
