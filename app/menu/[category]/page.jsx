@@ -7,7 +7,7 @@ import useCategories from '@/hooks/useCategories';
 import { convertToSerializeableObject } from '@/utils/convertToObject';
 
 import HeaderImage from '@/components/common/HeaderImage';
-import Category from '@/components/Category';
+import Category from '@/components/menu/Category';
 import Spinner from '@/components/common/Spinner';
 import ErrorMessage from '@/components/common/ErrorMessage';
 

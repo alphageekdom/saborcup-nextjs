@@ -2,20 +2,22 @@
 
 import { useEffect, useRef } from 'react';
 
-import { useParams } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 
-import useProducts from '../hooks/useProducts';
+import useProducts from '../../hooks/useProducts';
 
-import Breadcrumbs from './common/Breadcrumbs';
-import ProductCard from './menu/ProductCard';
-import Spinner from './common/Spinner';
-import ErrorMessage from './common/ErrorMessage';
+import Breadcrumbs from '../common/Breadcrumbs';
+import Spinner from '../common/Spinner';
+import ErrorMessage from '../common/ErrorMessage';
+import Card from '../common/Card';
 
 const Category = ({ category }) => {
   const params = useParams();
   const { category: productId } = useParams();
 
   const { products, loading, error } = useProducts();
+
+  const pathname = usePathname();
 
   const mountCount = useRef(0);
 
@@ -47,7 +49,12 @@ const Category = ({ category }) => {
       </h1>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-11'>
         {filteredProducts.map((product) => (
-          <ProductCard key={product?.id} product={product} />
+          <Card
+            key={product?.id}
+            product={product}
+            url={`${pathname}/${product.id}`}
+            backgroundImage={product.images[0]}
+          />
         ))}
       </div>
     </div>

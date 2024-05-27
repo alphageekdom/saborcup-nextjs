@@ -8,7 +8,7 @@ import Spinner from '@/components/common/Spinner';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import ErrorMessage from '@/components/common/ErrorMessage';
 
-import Item from '@/components/Item';
+import Item from '@/components/menu/Item';
 
 const ItemPage = () => {
   const { item: productID, category } = useParams();

@@ -1,5 +1,5 @@
 import HeaderImage from '@/components/common/HeaderImage';
-import Menu from '@/components/Menu';
+import Menu from '@/components/menu/Menu';
 
 const MenuPage = () => {
   return (

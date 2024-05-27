@@ -4,11 +4,11 @@ import React from 'react';
 
 import { useEffect, useRef } from 'react';
 
-import useProduct from '../hooks/useProduct';
+import useProduct from '../../hooks/useProduct';
 
-import ItemDetails from './menu/itemDetails';
-import ErrorMessage from './common/ErrorMessage';
-import Spinner from './common/Spinner';
+import ItemDetails from './itemDetails';
+import ErrorMessage from '../common/ErrorMessage';
+import Spinner from '../common/Spinner';
 
 const Item = ({ productID }) => {
   const { product, loading, error } = useProduct(productID);
