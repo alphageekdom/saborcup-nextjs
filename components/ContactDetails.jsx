@@ -17,7 +17,7 @@ import ContactForm from './ContactForm';
 const ContactDetails = () => {
   return (
     <TwoColumnSection className='w-full h-full'>
-      <div className='container flex flex-col md:flex-row items-stretch justify-between custom-shadow'>
+      <div className='container flex flex-col md:flex-row items-stretch justify-between shadow-lg'>
         <div className='md:w-1/2 bg-white text-black flex flex-col items-start justify-center md:mb-0 py-10'>
           <div className='w-full max-w-lg mx-auto p-6'>
             {' '}

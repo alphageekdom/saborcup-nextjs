@@ -41,7 +41,7 @@ const Menu = () => {
       <Breadcrumbs items={breadcrumbItems} />
       <div>
         <h1 className='text-4xl font-bold text-center text-black mb-10'>
-          Featured
+          Signature Drinks
         </h1>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-11'>
           {featuredProducts.map((product) => (

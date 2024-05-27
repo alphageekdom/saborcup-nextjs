@@ -19,14 +19,12 @@ const Footer = () => {
         <div className='grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left'>
           {/* Quick Links */}
           <div className='flex flex-col items-center md:items-start'>
-            <h1 className='text-lg font-bold mb-6 text-custom-blue'>
-              Quick Links
-            </h1>
+            <h1 className='text-lg font-bold mb-6 text-primary'>Quick Links</h1>
             <ul className='space-y-3'>
               <li>
                 <Link
                   href='/'
-                  className='hover:text-custom-blue transition duration-300 ease-in-out'
+                  className='hover:text-primary transition duration-300 ease-in-out'
                 >
                   Home
                 </Link>
@@ -34,7 +32,7 @@ const Footer = () => {
               <li>
                 <Link
                   href='/menu'
-                  className='hover:text-custom-blue transition duration-300 ease-in-out'
+                  className='hover:text-primary transition duration-300 ease-in-out'
                 >
                   Menu
                 </Link>
@@ -42,7 +40,7 @@ const Footer = () => {
               <li>
                 <Link
                   href='/about'
-                  className='hover:text-custom-blue transition duration-300 ease-in-out'
+                  className='hover:text-primary transition duration-300 ease-in-out'
                 >
                   About
                 </Link>
@@ -50,7 +48,7 @@ const Footer = () => {
               <li>
                 <Link
                   href='/contact'
-                  className='hover:text-custom-blue transition duration-300 ease-in-out'
+                  className='hover:text-primary transition duration-300 ease-in-out'
                 >
                   Contact
                 </Link>
@@ -61,13 +59,11 @@ const Footer = () => {
 
           {/* Social Media Icons */}
           <div className='flex flex-col items-center md:items-start'>
-            <h1 className='text-lg font-bold mb-6 text-custom-blue'>
-              Follow Us
-            </h1>
+            <h1 className='text-lg font-bold mb-6 text-primary'>Follow Us</h1>
             <div className='grid grid-cols-3 md:grid-cols-6 gap-4 justify-center md:justify-start'>
               <a
                 href='https://www.facebook.com'
-                className='hover:text-custom-blue transition duration-300 ease-in-out'
+                className='hover:text-primary transition duration-300 ease-in-out'
                 aria-label='Facebook'
                 target='_blank'
                 rel='noopener noreferrer'
@@ -76,7 +72,7 @@ const Footer = () => {
               </a>
               <a
                 href='https://www.x.com/'
-                className='hover:text-custom-blue transition duration-300 ease-in-out'
+                className='hover:text-primary transition duration-300 ease-in-out'
                 aria-label='X/Twitter'
                 target='_blank'
                 rel='noopener noreferrer'
@@ -85,7 +81,7 @@ const Footer = () => {
               </a>
               <a
                 href='https://www.instagram.com'
-                className='hover:text-custom-blue transition duration-300 ease-in-out'
+                className='hover:text-primary transition duration-300 ease-in-out'
                 aria-label='Instagram'
                 target='_blank'
                 rel='noopener noreferrer'
@@ -94,7 +90,7 @@ const Footer = () => {
               </a>
               <a
                 href='https://www.pinterest.com'
-                className='hover:text-custom-blue transition duration-300 ease-in-out'
+                className='hover:text-primary transition duration-300 ease-in-out'
                 aria-label='Pinterest'
                 target='_blank'
                 rel='noopener noreferrer'
@@ -103,7 +99,7 @@ const Footer = () => {
               </a>
               <a
                 href='https://www.tiktok.com'
-                className='hover:text-custom-blue transition duration-300 ease-in-out'
+                className='hover:text-primary transition duration-300 ease-in-out'
                 aria-label='TikTok'
                 target='_blank'
                 rel='noopener noreferrer'
@@ -112,7 +108,7 @@ const Footer = () => {
               </a>
               <a
                 href='https://www.youtube.com'
-                className='hover:text-custom-blue transition duration-300 ease-in-out'
+                className='hover:text-primary transition duration-300 ease-in-out'
                 aria-label='YouTube'
                 target='_blank'
                 rel='noopener noreferrer'
@@ -125,7 +121,7 @@ const Footer = () => {
 
           {/* Company Information */}
           <div className='flex flex-col items-center md:items-start'>
-            <h1 className='text-lg font-bold mb-4 text-custom-blue'>
+            <h1 className='text-lg font-bold mb-4 text-primary'>
               &copy; {new Date().getFullYear()} SaborCup, LLC.
               <br />
               All rights reserved.
@@ -136,7 +132,7 @@ const Footer = () => {
                 aria-label='SaborCup Address'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='hover:text-custom-blue'
+                className='hover:text-primary'
               >
                 123 Street Name, City
               </a>
@@ -148,7 +144,7 @@ const Footer = () => {
                 aria-label='SaborCup Email Address'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='hover:text-custom-blue'
+                className='hover:text-primary'
               >
                 info@saborcafe.com
               </a>
@@ -160,7 +156,7 @@ const Footer = () => {
                 aria-label='SaborCup Telephone Number'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='hover:text-custom-blue'
+                className='hover:text-primary'
               >
                 (232) 555 - 5555
               </a>
@@ -170,8 +166,7 @@ const Footer = () => {
         <hr className='border-blue-500 my-6' />
         <div className='text-center'>
           <p className='text-sm text-gray-400 flex items-center justify-center gap-1'>
-            Developed with <FaHeart className='text-custom-blue' /> by
-            AlphaGeekdom
+            Developed with <FaHeart className='text-primary' /> by AlphaGeekdom
           </p>
         </div>
       </div>
