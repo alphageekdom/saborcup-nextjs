@@ -128,13 +128,13 @@ const Footer = () => {
             </h1>
             <p className='mb-1'>
               <a
-                href='https://www.google.com/maps/place/123StreetNameCity'
+                href='https://www.google.com/maps/place/123ValenciaAvenueOrangeCA92866'
                 aria-label='SaborCup Address'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='hover:text-primary'
               >
-                123 Street Name, City
+                123 Valencia Avenue, Orange, CA 92866
               </a>
             </p>
             <p className='mb-1'>

@@ -1,6 +1,7 @@
 import Events from '@/components/events/Events';
 import Featured from '@/components/Featured';
 import Hero from '@/components/Hero';
+import StoreInfo from '@/components/StoreInfo';
 import Welcome from '@/components/Welcome';
 import React from 'react';
 
@@ -16,8 +17,12 @@ const Homepage = () => {
         <Events />
       </section>
       <hr className='border-gray-200 my-0 md:hidden' />
-      <section>
+      <section className='bg-background'>
         <Featured />
+      </section>
+      <hr className='border-gray-200 my-0 md:hidden' />
+      <section className='bg-lightgray'>
+        <StoreInfo />
       </section>
     </>
   );
