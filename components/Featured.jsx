@@ -32,7 +32,7 @@ const Featured = () => {
             unique flavors of our heritage. Perfect for any time of the day!
           </p>
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 w-full md:w-1/2'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-11 w-full md:w-1/2'>
           {featuredProducts.map((product) => (
             <Card
               key={product.id}

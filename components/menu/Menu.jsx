@@ -37,13 +37,13 @@ const Menu = () => {
   );
 
   return (
-    <div className='container mx-auto p-12'>
+    <div>
       <Breadcrumbs items={breadcrumbItems} />
       <div>
         <h1 className='text-4xl font-bold text-center text-black mb-10'>
           Featured
         </h1>
-        <div className='grid grid-cols-1 md:grid-cols-2  gap-8 mb-11'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-11'>
           {featuredProducts.map((product) => (
             <Card
               key={product.id}
