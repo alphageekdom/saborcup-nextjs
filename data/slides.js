@@ -3,9 +3,9 @@ const slides = [
     image:
       'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGNvZmZlZSUyMHNob3AlMjBkcmlua3N8ZW58MHwwfDB8fHww',
     alt: 'Our Menu',
-    title: 'Check Out Our Menu',
+    title: 'Our Menu',
     link: '/menu',
-    buttonText: 'Explore',
+    buttonText: 'View',
   },
   {
     image:
@@ -13,7 +13,7 @@ const slides = [
     alt: 'Signature Drinks',
     title: 'Signature Drinks',
     link: '/menu',
-    buttonText: 'Explore',
+    buttonText: 'View',
   },
   {
     image:
