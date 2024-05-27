@@ -14,12 +14,6 @@ const Featured = () => {
     (product) => product.isFeatured == true
   );
 
-  const featuredType = featuredProducts.map((product) =>
-    product.type.replace(' ', '-').toLowerCase()
-  );
-
-  console.log(featuredProducts);
-
   return (
     <TwoColumnSection className='w-full h-full'>
       <div className='container mx-auto px-4 py-8 md:py-16 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-0'>
@@ -33,14 +27,17 @@ const Featured = () => {
           </p>
         </div>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-11 w-full md:w-1/2'>
-          {featuredProducts.map((product) => (
-            <Card
-              key={product.id}
-              product={product}
-              url={`/menu/${featuredType}/${product.id}`}
-              backgroundImage={product.images[0]}
-            />
-          ))}
+          {featuredProducts.map((product) => {
+            const featuredType = product.type.replace(' ', '-').toLowerCase();
+            return (
+              <Card
+                key={product.id}
+                product={product}
+                url={`/menu/${featuredType}/${product.id}`}
+                backgroundImage={product.images[0]}
+              />
+            );
+          })}
         </div>
       </div>
     </TwoColumnSection>

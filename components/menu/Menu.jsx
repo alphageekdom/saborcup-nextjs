@@ -32,10 +32,6 @@ const Menu = () => {
     (product) => product.isFeatured == true
   );
 
-  const featuredType = featuredProducts.map((product) =>
-    product.type.replace(' ', '-').toLowerCase()
-  );
-
   return (
     <div>
       <Breadcrumbs items={breadcrumbItems} />
@@ -44,14 +40,17 @@ const Menu = () => {
           Signature Drinks
         </h1>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-11'>
-          {featuredProducts.map((product) => (
-            <Card
-              key={product.id}
-              product={product}
-              url={`${pathname}/${featuredType}/${product.id}`}
-              backgroundImage={product.images[0]}
-            />
-          ))}
+          {featuredProducts.map((product) => {
+            const featuredType = product.type.replace(' ', '-').toLowerCase();
+            return (
+              <Card
+                key={product.id}
+                product={product}
+                url={`${pathname}/${featuredType}/${product.id}`}
+                backgroundImage={product.images[0]}
+              />
+            );
+          })}
         </div>
       </div>
       <div>
