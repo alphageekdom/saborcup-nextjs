@@ -16,7 +16,6 @@ const useProduct = (id) => {
 
     const fetchProduct = async () => {
       try {
-        console.log(`Fetching product with ID: ${id}`);
         const response = await fetch(`/api/products/${id}`, {
           method: 'GET',
           headers: {

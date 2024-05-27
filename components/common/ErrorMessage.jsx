@@ -6,13 +6,12 @@ import PropTypes from 'prop-types';
 
 import ErrorCup from '@/public/images/ErrorCupWhite.png';
 
-const ErrorMessage = ({ message }) => {
+const ErrorMessage = ({ error }) => {
+  console.log(error);
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen bg-custom-blue p-4'>
-      <h1 className='text-5xl md:text-7xl font-bold mb-4 text-white'>Oops!</h1>
-      <p className='text-lg md:text-xl text-white mb-4 text-center'>
-        {message}
-      </p>
+    <div className='flex flex-col items-center justify-center min-h-screen bg-primary p-4 text-white'>
+      <h1 className='text-white text-5xl md:text-7xl font-bold mb-4'>Oops!</h1>
+      <p className='text-white text-lg md:text-xl mb-6 text-center'>{error}</p>
       <Image
         src={ErrorCup}
         alt='Error Coffee Cup'

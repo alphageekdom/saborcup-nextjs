@@ -39,7 +39,7 @@ const Category = ({ category }) => {
 
   if (loading) return <Spinner />;
 
-  if (error) return <ErrorMessage message={error} />;
+  if (error) return <ErrorMessage error={error} />;
 
   return (
     <div>

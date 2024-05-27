@@ -37,7 +37,7 @@ const EventDetails = ({ eventId }) => {
   console.log(event);
 
   if (loading) return <Spinner />;
-  if (error) return <ErrorMessage message={error} />;
+  if (error) return <ErrorMessage error={error} />;
   if (!event) return <p>Event not found</p>;
 
   return (

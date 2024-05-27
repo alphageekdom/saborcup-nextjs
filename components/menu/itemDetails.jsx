@@ -9,7 +9,7 @@ import ErrorMessage from '../common/ErrorMessage';
 import ButtonWithSpinner from '../common/ButtonSpinner';
 
 const ItemDetails = ({ product }) => {
-  const { addToCart } = useCart();
+  const { addToCart, error } = useCart();
   const [selectedSize, setSelectedSize] = useState(product?.sizes?.[0] || '');
   const [quantity, setQuantity] = useState(1);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -62,7 +62,7 @@ const ItemDetails = ({ product }) => {
     }
   };
 
-  if (!product) return <ErrorMessage error='Product not found' />;
+  if (!product) return <ErrorMessage error={error} />;
 
   return (
     <div className='mx-auto p-8 relative'>

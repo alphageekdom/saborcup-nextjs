@@ -24,7 +24,7 @@ const Menu = () => {
 
   if (loading) return <Spinner />;
 
-  if (error) return <ErrorMessage message={error} />;
+  if (error) return <ErrorMessage error={error} />;
 
   const breadcrumbItems = [{ title: 'Menu', path: '/menu' }];
 

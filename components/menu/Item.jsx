@@ -21,9 +21,7 @@ const Item = ({ productID }) => {
 
   if (loading) return <Spinner />;
 
-  if (error) return <ErrorMessage error={error.message} />;
-
-  if (!product) return <ErrorMessage error='Product not found' />;
+  if (!product) return <ErrorMessage error={error} />;
 
   return (
     <div className='rounded-lg shadow-lg md:shadow-none bg-white'>

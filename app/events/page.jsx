@@ -36,7 +36,7 @@ const EventsPage = () => {
 
   if (loading) return <Spinner />;
 
-  if (error) return <ErrorMessage />;
+  if (error) return <ErrorMessage error={error} />;
 
   return (
     <section className='bg-white'>

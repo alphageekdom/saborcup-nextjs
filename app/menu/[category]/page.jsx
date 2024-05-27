@@ -19,7 +19,7 @@ const CategoryPage = () => {
 
   if (loading) return <Spinner />;
 
-  if (error) return <ErrorMessage />;
+  if (error) return <ErrorMessage error={error} />;
 
   const title = categories
     .map((category) => category)
