@@ -32,7 +32,7 @@ const Events = () => {
           <h2 className='text-3xl md:text-4xl font-bold text-primary mb-4'>
             Discover Our Events
           </h2>
-          <p className='text-lg md:text-xl text-black mb-8'>
+          <p className='text-lg md:text-xl text-left text-black mb-8'>
             Experience the vibrant culture of SaborCup through our exciting
             events. From coffee tastings to cultural celebrations, there {`'`}s
             something for everyone to enjoy.

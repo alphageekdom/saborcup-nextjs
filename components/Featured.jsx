@@ -21,7 +21,7 @@ const Featured = () => {
           <h2 className='text-3xl md:text-4xl font-bold mb-4 text-primary'>
             Featured Drinks
           </h2>
-          <p>
+          <p className='text-lg md:text-xl text-left text-black mb-8'>
             Explore our selection of signature drinks crafted to bring you the
             unique flavors of our heritage. Perfect for any time of the day!
           </p>
