@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import TwoColumnSection from './common/TwoColumnSection';
 
-const Events = () => {
+const EventsInfo = () => {
   return (
     <TwoColumnSection className='w-full h-full' id='events'>
       <div className='container mx-auto px-4 py-8 md:py-16 flex flex-col md:flex-row items-center justify-between'>
@@ -49,4 +49,4 @@ const Events = () => {
   );
 };
 
-export default Events;
+export default EventsInfo;

@@ -1,30 +1,30 @@
-import Events from '@/components/Events';
-import Featured from '@/components/Featured';
+import EventsInfo from '@/components/EventsInfo';
+import FeaturedInfo from '@/components/FeaturedInfo';
 import Hero from '@/components/Hero';
 import StoreInfo from '@/components/StoreInfo';
-import Welcome from '@/components/Welcome';
+import WelcomeInfo from '@/components/WelcomeInfo';
 import React from 'react';
 
 const Homepage = () => {
   return (
-    <>
+    <main>
       <Hero />
       <section className='bg-background'>
-        <Welcome />
+        <WelcomeInfo />
       </section>
       <hr className='border-gray-200 my-0 md:hidden' />
       <section className='bg-lightgray'>
-        <Events />
+        <EventsInfo />
       </section>
       <hr className='border-gray-200 my-0 md:hidden' />
       <section className='bg-background'>
-        <Featured />
+        <FeaturedInfo />
       </section>
       <hr className='border-gray-200 my-0 md:hidden' />
       <section className='bg-lightgray'>
         <StoreInfo />
       </section>
-    </>
+    </main>
   );
 };
 

@@ -6,7 +6,7 @@ import CafeLogo from '@/public/images/SaborCupAlt.png';
 
 import TwoColumnSection from './common/TwoColumnSection';
 
-const Welcome = () => {
+const WelcomeInfo = () => {
   return (
     <TwoColumnSection className='w-full h-full' id='welcome'>
       <div className='container mx-auto px-4 py-8 md:py-16 flex flex-col md:flex-row items-center justify-between'>
@@ -53,4 +53,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default WelcomeInfo;

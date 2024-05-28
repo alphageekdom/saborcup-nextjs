@@ -12,7 +12,7 @@ import CafeLogo from '@/public/images/SaborCup.png';
 
 import Cart from '../cart/Cart';
 import NavLink from './NavLink';
-import MobileMenu from '../MobileMenu';
+import MobileMenu from './MobileMenu';
 import DropdownLink from './DropdownLink';
 
 import { useCart } from '@/context/CartContext';

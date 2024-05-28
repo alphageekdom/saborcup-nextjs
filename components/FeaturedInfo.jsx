@@ -2,12 +2,12 @@
 
 import React from 'react';
 
-import TwoColumnSection from './common/TwoColumnSection';
+import TwoColumnSection from './common/TwoColumnSection.jsx';
 
 import useProducts from '../hooks/useProducts.js';
-import Card from './common/Card';
+import Card from './common/Card.jsx';
 
-const Featured = () => {
+const FeaturedInfo = () => {
   const { products, loading, error } = useProducts();
 
   const featuredProducts = products.filter(
@@ -44,4 +44,4 @@ const Featured = () => {
   );
 };
 
-export default Featured;
+export default FeaturedInfo;
