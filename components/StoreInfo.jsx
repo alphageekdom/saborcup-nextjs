@@ -19,7 +19,7 @@ const StoreInfo = () => {
       <div className='w-full md:w-1/2 custom-shadow order-2 md:order-1'>
         <StoreMap />
       </div>
-      <div className='flex flex-col w-1/2 text-center '>
+      <div className='flex flex-col w-1/2 text-center order-1'>
         {/* Wrapping div */}
         <h2 className='text-3xl md:text-4xl font-semibold mb-4 text-center text-primary'>
           Store Information

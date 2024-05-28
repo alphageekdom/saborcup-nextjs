@@ -1,4 +1,4 @@
-import Events from '@/components/events/Events';
+import Events from '@/components/Events';
 import Featured from '@/components/Featured';
 import Hero from '@/components/Hero';
 import StoreInfo from '@/components/StoreInfo';

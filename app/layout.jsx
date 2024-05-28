@@ -16,9 +16,11 @@ const poppins_init = Poppins({
 });
 
 export const metadata = {
-  title: 'SaborCup — Cafe',
-  description: 'Hispanic coffee shop',
-  keywords: 'cafe, coffee, bakery, hispanic, latino, small business',
+  title: 'SaborCup',
+  description:
+    'Welcome to SaborCup in Orange County, where we blend rich Hispanic heritage with exceptional coffee and baked goods. Explore our modern café with a cultural twist, featuring locally-sourced ingredients, vegan options, and monthly events.',
+  keywords:
+    'SaborCup Coffee Shop, Hispanic Coffee, Orange County Cafes, Vegan Coffee Options, Local Coffee Shop, Café de Olla, Champurrado Frappes',
 };
 
 const MainLayout = ({ children }) => {
