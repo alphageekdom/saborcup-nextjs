@@ -11,7 +11,9 @@ const EventsPage = () => {
           SaborCup community.
         </p>
       </HeaderImage>
-      <Events />
+      <div className='container mx-auto p-12'>
+        <Events />
+      </div>
     </section>
   );
 };

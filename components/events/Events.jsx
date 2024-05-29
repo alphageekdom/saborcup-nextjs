@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import React from 'react';
 import EventCard from '@/components/events/EventCard';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import ErrorMessage from '@/components/common/ErrorMessage';
@@ -14,8 +13,6 @@ const Events = () => {
   const [error, setError] = useState(null);
 
   const pathname = usePathname();
-
-  console.log(pathname);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -45,15 +42,11 @@ const Events = () => {
   return (
     <>
       <Breadcrumbs items={breadcrumbItems} />
-      <div className='container mx-auto px-6'>
-        <h1 className='text-4xl font-bold text-center text-black mb-10'>
-          Upcoming Events
-        </h1>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-20'>
-          {events.map((event) => (
-            <EventCard key={event.id} event={event} />
-          ))}
-        </div>
+      <h1 className='text-4xl font-bold text-center mb-12'>Upcoming Events</h1>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-20'>
+        {events.map((event) => (
+          <EventCard key={event.id} event={event} />
+        ))}
       </div>
     </>
   );

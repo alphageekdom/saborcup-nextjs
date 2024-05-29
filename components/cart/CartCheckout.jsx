@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 
-const Checkout = ({ onCheckoutToggle }) => {
+const CartCheckout = ({ onCheckoutToggle }) => {
   const [paymentMethod, setPaymentMethod] = useState('');
 
   const handlePaymentMethodChange = (event) => {
@@ -125,4 +125,4 @@ const Checkout = ({ onCheckoutToggle }) => {
   );
 };
 
-export default Checkout;
+export default CartCheckout;

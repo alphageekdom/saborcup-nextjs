@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import TwoColumnSection from './common/TwoColumnSection';
 import StoreMap from './StoreMap';
 

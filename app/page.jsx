@@ -3,11 +3,10 @@ import FeaturedInfo from '@/components/FeaturedInfo';
 import Hero from '@/components/Hero';
 import StoreInfo from '@/components/StoreInfo';
 import WelcomeInfo from '@/components/WelcomeInfo';
-import React from 'react';
 
 const Homepage = () => {
   return (
-    <main>
+    <>
       <Hero />
       <section className='bg-background'>
         <WelcomeInfo />
@@ -24,7 +23,7 @@ const Homepage = () => {
       <section className='bg-lightgray'>
         <StoreInfo />
       </section>
-    </main>
+    </>
   );
 };
 

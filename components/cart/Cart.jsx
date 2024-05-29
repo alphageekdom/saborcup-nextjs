@@ -11,7 +11,7 @@ import { GiBeachBag } from 'react-icons/gi';
 import { FaShoppingCart } from 'react-icons/fa';
 
 import CartMenu from './CartMenu';
-import Checkout from './Checkout';
+import CartCheckout from './CartCheckout';
 
 const Cart = ({ isMobileMenuOpen, setIsMobileMenuOpen, closeCart }) => {
   const { cart, fetchCart } = useCart();
@@ -88,7 +88,7 @@ const Cart = ({ isMobileMenuOpen, setIsMobileMenuOpen, closeCart }) => {
           </button>
         </div>
         {isCheckoutOpen ? (
-          <Checkout onCheckoutToggle={toggleCheckout} />
+          <CartCheckout onCheckoutToggle={toggleCheckout} />
         ) : (
           <CartMenu
             isSidebarOpen={isSidebarOpen}

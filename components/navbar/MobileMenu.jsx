@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Link from 'next/link';
 
 import { FaChevronDown } from 'react-icons/fa6';

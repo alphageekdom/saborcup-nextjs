@@ -1,5 +1,3 @@
-import React from 'react';
-
 import HeroCarousel from './HeroCarousel';
 
 import slides from '@/data/slides';

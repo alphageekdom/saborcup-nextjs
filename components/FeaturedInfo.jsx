@@ -1,7 +1,5 @@
 'use client';
 
-import React from 'react';
-
 import TwoColumnSection from './common/TwoColumnSection.jsx';
 
 import useProducts from '../hooks/useProducts.js';
